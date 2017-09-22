@@ -39,3 +39,42 @@ public struct User: Codable {
         return user
     }
 }
+
+
+extension User {
+    
+    public static func fetchCurrent(completion: @escaping (User?, Error?) -> Void) {
+        let url = API.user.asURL()
+        let task = NothingBut.Net.session.dataTask(with: url) { data, urlResponse, error in
+            NothingBut.Net.setNetworkActivityIndicatorVisible(false)
+            guard let data = data else {
+                return completion(nil, error)
+            }
+            let user = User.new(from: data)
+            DispatchQueue.main.async {
+                completion(user, error)
+            }
+        }
+        
+        NothingBut.Net.setNetworkActivityIndicatorVisible(true)
+        task.resume()
+    }
+    
+    public static func fetch(with username: String, completion: @escaping (User?, Error?) -> Void) {
+        let url = API.users(username).asURL()
+        let task = NothingBut.Net.session.dataTask(with: url) { data, urlResponse, error in
+            NothingBut.Net.setNetworkActivityIndicatorVisible(false)
+            guard let data = data else {
+                return completion(nil, error)
+            }
+            let user = User.new(from: data)
+            DispatchQueue.main.async {
+                completion(user, error)
+            }
+        }
+        
+        NothingBut.Net.setNetworkActivityIndicatorVisible(true)
+        task.resume()
+    }
+    
+}

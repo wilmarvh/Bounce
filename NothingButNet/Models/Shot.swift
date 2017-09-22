@@ -39,3 +39,36 @@ public struct Shot: Codable {
     }
 }
 
+extension Shot {
+    
+    public static func fetchPopularShots(completion: @escaping ([Shot]?, Error?) -> Void) {
+        let url = API.shots.asURL()
+        let task = NothingBut.Net.session.dataTask(with: url) { data, urlResponse, error in
+            NothingBut.Net.setNetworkActivityIndicatorVisible(false)
+            guard let data = data else {
+                return completion(nil, error)
+            }
+            let shots = Shot.popular(from: data)
+            DispatchQueue.main.async {
+                completion(shots, error)
+            }
+        }
+        
+        task.resume()
+        NothingBut.Net.setNetworkActivityIndicatorVisible(true)
+    }
+    
+    public static func loadNormalImage(`for` shot: Shot, completion: @escaping (UIImage?) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            var image: UIImage? = nil
+            if let url = URL(string: shot.images.normal) {
+                let data = try! Data(contentsOf: url)
+                image = UIImage(data: data)
+            }
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
+    }
+    
+}

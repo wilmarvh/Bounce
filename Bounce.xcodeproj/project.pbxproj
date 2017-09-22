@@ -15,7 +15,7 @@
 		1F939F5D1F7306A100C03386 /* BounceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F5C1F7306A100C03386 /* BounceTests.swift */; };
 		1F939F681F7306A100C03386 /* BounceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F671F7306A100C03386 /* BounceUITests.swift */; };
 		1F939F831F73073400C03386 /* NothingButNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F939F7A1F73073400C03386 /* NothingButNet.framework */; };
-		1F939F8A1F73073400C03386 /* NothingButNetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F891F73073400C03386 /* NothingButNetTests.swift */; };
+		1F939F8A1F73073400C03386 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F891F73073400C03386 /* UserTests.swift */; };
 		1F939F8C1F73073400C03386 /* NothingButNet.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F939F7C1F73073400C03386 /* NothingButNet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F939F8F1F73073400C03386 /* NothingButNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F939F7A1F73073400C03386 /* NothingButNet.framework */; };
 		1F939F901F73073400C03386 /* NothingButNet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F939F7A1F73073400C03386 /* NothingButNet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -26,6 +26,7 @@
 		1F939FA41F731CD100C03386 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA31F731CD100C03386 /* Images.swift */; };
 		1F939FA61F731CE500C03386 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA51F731CE500C03386 /* Links.swift */; };
 		1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA91F7322EC00C03386 /* UIFont.swift */; };
+		1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA012501F75A7C100EB4927 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +99,7 @@
 		1F939F7C1F73073400C03386 /* NothingButNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NothingButNet.h; sourceTree = "<group>"; };
 		1F939F7D1F73073400C03386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F939F821F73073400C03386 /* NothingButNetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NothingButNetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F939F891F73073400C03386 /* NothingButNetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingButNetTests.swift; sourceTree = "<group>"; };
+		1F939F891F73073400C03386 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		1F939F8B1F73073400C03386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F939F9A1F73075F00C03386 /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
 		1F939F9D1F73111200C03386 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 		1F939FA31F731CD100C03386 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		1F939FA51F731CE500C03386 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F939FA91F7322EC00C03386 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		1FA012501F75A7C100EB4927 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +222,7 @@
 		1F939F881F73073400C03386 /* NothingButNetTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F939F891F73073400C03386 /* NothingButNetTests.swift */,
+				1F939F891F73073400C03386 /* UserTests.swift */,
 				1F939F8B1F73073400C03386 /* Info.plist */,
 			);
 			path = NothingButNetTests;
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				1F939FA91F7322EC00C03386 /* UIFont.swift */,
+				1FA012501F75A7C100EB4927 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F939F4A1F7306A100C03386 /* HomeViewController.swift in Sources */,
+				1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */,
 				1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */,
 				1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */,
 			);
@@ -503,7 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F939F8A1F73073400C03386 /* NothingButNetTests.swift in Sources */,
+				1F939F8A1F73073400C03386 /* UserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,7 +680,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.Bounce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -692,7 +696,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.Bounce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

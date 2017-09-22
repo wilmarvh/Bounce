@@ -15,24 +15,24 @@ class NothingButNetTests: XCTestCase {
         return expectation(description: "Expectation failure for \(callingFunctionName)")
     }
     
-//    func testFetchUser() {
-//        let expectation = makeExpectation(#function)
-//        
-//        NothingBut.Net.fetchCurrentUser { user, error in
-//            expectation.fulfill()
-//        }
-//        
-//        waitForExpectations(timeout: 5, handler: { error in
-//            if let error = error {
-//                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-//            }
-//        })
-//    }
-    
-    func testPopularShots() {
+    func testFetchCurrentUser() {
         let expectation = makeExpectation(#function)
         
-        NothingBut.Net.fetchPopularShots { shots, error in
+        User.fetchCurrent { user, error in
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5, handler: { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        })
+    }
+    
+    func testFetchUserWithUsername() {
+        let expectation = makeExpectation(#function)
+        
+        User.fetch(with: "wilmarvh") { user, error in
             expectation.fulfill()
         }
         
