@@ -34,6 +34,7 @@ public struct Shot: Codable {
             let shots = try decoder.decode([Shot].self, from: data)
             return shots
         } catch let error {
+            debugPrint("\(error)")
             return nil
         }
     }
@@ -43,8 +44,8 @@ extension Shot {
     
     public static func fetchPopularShots(completion: @escaping ([Shot]?, Error?) -> Void) {
         let url = API.shots.asURL()
-        let task = NothingBut.Net.session.dataTask(with: url) { data, urlResponse, error in
-            NothingBut.Net.setNetworkActivityIndicatorVisible(false)
+        let task = NothingButNet.session.dataTask(with: url) { data, urlResponse, error in
+            NothingButNet.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {
                 return completion(nil, error)
             }
@@ -55,18 +56,49 @@ extension Shot {
         }
         
         task.resume()
-        NothingBut.Net.setNetworkActivityIndicatorVisible(true)
+        NothingButNet.setNetworkActivityIndicatorVisible(true)
     }
     
-    public static func loadNormalImage(`for` shot: Shot, completion: @escaping (UIImage?) -> Void) {
+    public static func loadHiDPIImage(`for` shot: Shot, completion: @escaping (Int, UIImage?) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            var image: UIImage? = nil
-            if let url = URL(string: shot.images.normal) {
-                let data = try! Data(contentsOf: url)
-                image = UIImage(data: data)
+            var filename = "\(shot.id)_hidpi.png"
+            var image: UIImage?
+            var localImageURL: URL?
+            // try and load from documents directory
+            if let documentsDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+                let url = documentsDirectory.appendingPathComponent(filename)
+                localImageURL = url
+                do {
+                    let localData = try Data(contentsOf: url)
+                    image = UIImage(data: localData)
+                } catch { /* no such file found */ }
             }
+            
+            // load remote image if no local image is found
+            if image == nil {
+                if let url = URL(string: shot.images.hidpi) {
+                    NothingButNet.setNetworkActivityIndicatorVisible(true)
+                    let data = try! Data(contentsOf: url)
+                    if let validImage = UIImage(data: data) {
+                        image = validImage
+                        do {
+                            if let url = localImageURL {
+                                let pngData = UIImagePNGRepresentation(validImage)
+                                try pngData?.write(to: url)
+                            }
+                        } catch let error {
+                            debugPrint(error)
+                        }
+                    }
+                    NothingButNet.setNetworkActivityIndicatorVisible(false)
+                }
+            } else {
+                debugPrint("Image already downloaded: \(filename)")
+            }
+            
+            // complete
             DispatchQueue.main.async {
-                completion(image)
+                completion(shot.id, image)
             }
         }
     }

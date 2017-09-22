@@ -18,7 +18,7 @@ public struct Team: Codable {
     var likes_received_count: Int //": 155475,
     var likes_url: String //": "https://api.dribbble.com/v1/users/40433/likes",
     var links: Links
-    var location: String //": "San Francisco, CA",
+    var location: String? //": "San Francisco, CA",
     var members_count: Int //": 28,
     var members_url: String //": "https://api.dribbble.com/v1/teams/40433/members",
     var name: String //": "ueno.",

@@ -8,7 +8,16 @@ enum API {
     static let baseURL: URL = URL(string: "https://api.dribbble.com/v1/")!
     
     func asURL() -> URL {
-        return API.baseURL.appendingPathComponent(self.pathComponent())
+        let url = API.baseURL.appendingPathComponent(self.pathComponent())
+        switch self {
+        case .shots:
+            let queryItem = URLQueryItem(name: "per_page", value: "50")
+            var components = URLComponents(string: url.absoluteString)
+            components?.queryItems = [queryItem]
+            return components?.url ?? url
+        default:
+            return url
+        }
     }
     
     func pathComponent() -> String {
@@ -23,7 +32,7 @@ enum API {
     }
 }
 
-class NothingBut {
+class NothingButNet {
     
     lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
@@ -34,12 +43,18 @@ class NothingBut {
     // MARK: Singleton
     
     open static let Net = {
-        return NothingBut()
+        return NothingButNet()
     }()
     
-    var numberOfCallsToSetVisible = 0
+    class var session: URLSession {
+        return NothingButNet.Net.session
+    }
     
-    func setNetworkActivityIndicatorVisible(_ visible: Bool) {
+    // MARK: Network activity
+    
+    static var numberOfCallsToSetVisible = 0
+    
+    static func setNetworkActivityIndicatorVisible(_ visible: Bool) {
         if visible {
             numberOfCallsToSetVisible = numberOfCallsToSetVisible + 1
         } else {

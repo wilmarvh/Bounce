@@ -18,7 +18,7 @@ public struct User: Codable {
     var likes_received_count: Int
     var likes_url: String
     var links: Links
-    var location: String
+    var location: String?
     var name: String
     var pro: Bool
     var projects_count: Int
@@ -45,8 +45,8 @@ extension User {
     
     public static func fetchCurrent(completion: @escaping (User?, Error?) -> Void) {
         let url = API.user.asURL()
-        let task = NothingBut.Net.session.dataTask(with: url) { data, urlResponse, error in
-            NothingBut.Net.setNetworkActivityIndicatorVisible(false)
+        let task = NothingButNet.session.dataTask(with: url) { data, urlResponse, error in
+            NothingButNet.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {
                 return completion(nil, error)
             }
@@ -56,14 +56,14 @@ extension User {
             }
         }
         
-        NothingBut.Net.setNetworkActivityIndicatorVisible(true)
+        NothingButNet.setNetworkActivityIndicatorVisible(true)
         task.resume()
     }
     
     public static func fetch(with username: String, completion: @escaping (User?, Error?) -> Void) {
         let url = API.users(username).asURL()
-        let task = NothingBut.Net.session.dataTask(with: url) { data, urlResponse, error in
-            NothingBut.Net.setNetworkActivityIndicatorVisible(false)
+        let task = NothingButNet.session.dataTask(with: url) { data, urlResponse, error in
+            NothingButNet.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {
                 return completion(nil, error)
             }
@@ -73,7 +73,7 @@ extension User {
             }
         }
         
-        NothingBut.Net.setNetworkActivityIndicatorVisible(true)
+        NothingButNet.setNetworkActivityIndicatorVisible(true)
         task.resume()
     }
     

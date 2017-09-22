@@ -22,11 +22,13 @@ class HomeViewController: UICollectionViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = UIColor.dribbblePink()
         navigationController?.navigationBar.tintColor = navigationController?.navigationBar.barTintColor
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.bounceBlack()]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.bounceBlack()]
     }
     
     func configureCollectionView() {
         // cells and other
-        collectionView?.backgroundColor = UIColor.bounceBlack()
+        collectionView?.backgroundColor = UIColor.white
         collectionView?.register(PopularShotCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView?.refreshControl = UIRefreshControl(frame: .zero)
         collectionView?.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -54,9 +56,17 @@ class HomeViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PopularShotCell
         let shot = shots[indexPath.row] as Shot
+        cell.shotId = shot.id
         cell.titleLabel.text = shot.title
-        Shot.loadNormalImage(for: shot) { [weak cell] image in
+        Shot.loadHiDPIImage(for: shot) { [weak cell] shotId, image in
+            guard cell?.shotId == shotId else {
+                return
+            }
+            cell?.imageView.alpha = 0
             cell?.imageView.image = image
+            UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations: {
+                cell?.imageView.alpha = 1
+            }).startAnimation()
         }
         return cell
     }
@@ -82,6 +92,8 @@ class HomeViewController: UICollectionViewController {
 
 class PopularShotCell: UICollectionViewCell {
     
+    var shotId: Int = 0
+    
     // MARK: Lifecycle
     
     required init?(coder aDecoder: NSCoder) {
@@ -96,8 +108,10 @@ class PopularShotCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        shotId = 0
         titleLabel.text = nil
         imageView.image = nil
+        imageView.alpha = 0
     }
     
     // MARK: Views
@@ -107,7 +121,7 @@ class PopularShotCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = UIFont.title3Font()
-        label.textColor = .white
+        label.textColor = UIColor.bounceBlack()
         label.numberOfLines = 1
         return label
     }()
@@ -117,28 +131,45 @@ class PopularShotCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
+        imageView.alpha = 0
         return imageView
+    }()
+    
+    lazy var placeholderView: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        view.layer.borderColor = UIColor.bounceBlack().cgColor
+        view.layer.borderWidth = 1 / UIScreen.main.scale
+        view.backgroundColor = UIColor(red:0.94902, green:0.94902, blue:0.94902, alpha:1.00000)
+        return view
     }()
     
     func configureViews() {
         // config
-        backgroundColor = UIColor.bounceBlack()
+        backgroundColor = UIColor.white
         backgroundView?.backgroundColor = backgroundColor
         
         // layout
         contentView.addSubview(titleLabel)
-        contentView.addSubview(imageView)
+        contentView.addSubview(placeholderView)
+        placeholderView.addSubview(imageView)
         let views: [String : Any] = ["titleLabel" : titleLabel,
+                                     "placeholderView" : placeholderView,
                                      "imageView" : imageView]
         let metrics: [String: Any] = ["titleLabelInset": 23,
                                       "imageViewInset": 20]
         
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(titleLabelInset)-[titleLabel]-(titleLabelInset)-|",
                                                                   options: [], metrics: metrics, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(imageViewInset)-[imageView]-(imageViewInset)-|",
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(imageViewInset)-[placeholderView]-(imageViewInset)-|",
                                                                   options: [], metrics: metrics, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel]-[imageView]-|",
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel]-[placeholderView]-|",
+                                                                  options: [], metrics: metrics, views: views))
+        placeholderView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|",
+                                                                  options: [], metrics: metrics, views: views))
+        placeholderView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|",
                                                                   options: [], metrics: metrics, views: views))
     }
     
