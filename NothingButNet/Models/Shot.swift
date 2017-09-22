@@ -61,7 +61,7 @@ extension Shot {
     
     public static func loadHiDPIImage(`for` shot: Shot, completion: @escaping (Int, UIImage?) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            var filename = "\(shot.id)_hidpi.png"
+            let filename = "\(shot.id)_hidpi.png"
             var image: UIImage?
             var localImageURL: URL?
             // try and load from documents directory
@@ -93,7 +93,7 @@ extension Shot {
                     NothingButNet.setNetworkActivityIndicatorVisible(false)
                 }
             } else {
-                debugPrint("Image already downloaded: \(filename)")
+                // debugPrint("Image already downloaded: \(filename)")
             }
             
             // complete

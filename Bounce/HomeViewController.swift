@@ -20,10 +20,10 @@ class HomeViewController: UICollectionViewController {
     
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.barTintColor = UIColor.dribbblePink()
+        navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.tintColor = navigationController?.navigationBar.barTintColor
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.bounceBlack()]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.bounceBlack()]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.dribbblePink()]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.dribbblePink()]
     }
     
     func configureCollectionView() {
@@ -31,6 +31,7 @@ class HomeViewController: UICollectionViewController {
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(PopularShotCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView?.refreshControl = UIRefreshControl(frame: .zero)
+        collectionView?.refreshControl?.tintColor = UIColor.dribbblePink()
         collectionView?.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         // layout
