@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V6y-Cp-Qw4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ed9-5D-pDC">
+            <objects>
+                <navigationController id="V6y-Cp-Qw4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tabJobs" id="Ix9-1E-bPh" customClass="BounceTabBarItem" customModule="Bounce" customModuleProvider="target"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g47-bh-N15">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="C4d-hi-KmA" kind="relationship" relationship="rootViewController" id="nCx-G3-us4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n7r-bp-659" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-374" y="222"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="d5T-pD-xTr">
+            <objects>
+                <viewController id="C4d-hi-KmA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eSa-oV-hHz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="4eT-Mt-f57"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LRi-e7-dfg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acB-Yi-L2E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="439" y="222"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabJobs" width="24" height="24"/>
+    </resources>
+</document>

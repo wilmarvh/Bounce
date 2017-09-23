@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2A1F7715DE003631C2 /* HomeViewController.swift */; };
+		1F161B2D1F77179D003631C2 /* BounceTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */; };
+		1F2843761F7696000083E6AD /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2843751F7696000083E6AD /* UICollectionViewCell.swift */; };
 		1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F471F7306A100C03386 /* AppDelegate.swift */; };
-		1F939F4A1F7306A100C03386 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F491F7306A100C03386 /* HomeViewController.swift */; };
 		1F939F4D1F7306A100C03386 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F939F4B1F7306A100C03386 /* Main.storyboard */; };
 		1F939F4F1F7306A100C03386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F939F4E1F7306A100C03386 /* Assets.xcassets */; };
 		1F939F521F7306A100C03386 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F939F501F7306A100C03386 /* LaunchScreen.storyboard */; };
@@ -27,6 +29,12 @@
 		1F939FA61F731CE500C03386 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA51F731CE500C03386 /* Links.swift */; };
 		1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA91F7322EC00C03386 /* UIFont.swift */; };
 		1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA012501F75A7C100EB4927 /* UIColor.swift */; };
+		1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABB1F770FC7001DB054 /* UIView.swift */; };
+		1FDB9ABF1F771324001DB054 /* BounceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABE1F771324001DB054 /* BounceTabBarController.swift */; };
+		1FDB9AC11F7714C5001DB054 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC01F7714C5001DB054 /* Home.storyboard */; };
+		1FDB9AC31F7714ED001DB054 /* Discovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */; };
+		1FDB9AC51F771504001DB054 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC41F771504001DB054 /* Jobs.storyboard */; };
+		1FDB9AC71F77151F001DB054 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC61F77151F001DB054 /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,9 +90,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F161B2A1F7715DE003631C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceTabBarItem.swift; sourceTree = "<group>"; };
+		1F2843751F7696000083E6AD /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		1F939F441F7306A100C03386 /* Bounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F939F471F7306A100C03386 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F939F491F7306A100C03386 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F939F4C1F7306A100C03386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F939F4E1F7306A100C03386 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F939F511F7306A100C03386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,6 +119,12 @@
 		1F939FA51F731CE500C03386 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F939FA91F7322EC00C03386 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		1FA012501F75A7C100EB4927 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1FDB9ABB1F770FC7001DB054 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		1FDB9ABE1F771324001DB054 /* BounceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceTabBarController.swift; sourceTree = "<group>"; };
+		1FDB9AC01F7714C5001DB054 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discovery.storyboard; sourceTree = "<group>"; };
+		1FDB9AC41F771504001DB054 /* Jobs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
+		1FDB9AC61F77151F001DB054 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,13 +195,17 @@
 		1F939F461F7306A100C03386 /* Bounce */ = {
 			isa = PBXGroup;
 			children = (
-				1F939FA81F7322DE00C03386 /* Extensions */,
 				1F939F471F7306A100C03386 /* AppDelegate.swift */,
-				1F939F491F7306A100C03386 /* HomeViewController.swift */,
-				1F939F4B1F7306A100C03386 /* Main.storyboard */,
 				1F939F4E1F7306A100C03386 /* Assets.xcassets */,
-				1F939F501F7306A100C03386 /* LaunchScreen.storyboard */,
+				1FDB9ABD1F771318001DB054 /* Core */,
+				1F939FA81F7322DE00C03386 /* Extensions */,
+				1FDB9AC81F771544001DB054 /* Home */,
+				1FDB9AC91F77154C001DB054 /* Discovery */,
+				1FDB9ACA1F771554001DB054 /* Jobs */,
+				1FDB9ACB1F77155A001DB054 /* Profile */,
 				1F939F531F7306A100C03386 /* Info.plist */,
+				1F939F501F7306A100C03386 /* LaunchScreen.storyboard */,
+				1F939F4B1F7306A100C03386 /* Main.storyboard */,
 			);
 			path = Bounce;
 			sourceTree = "<group>";
@@ -253,8 +273,52 @@
 			children = (
 				1F939FA91F7322EC00C03386 /* UIFont.swift */,
 				1FA012501F75A7C100EB4927 /* UIColor.swift */,
+				1F2843751F7696000083E6AD /* UICollectionViewCell.swift */,
+				1FDB9ABB1F770FC7001DB054 /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1FDB9ABD1F771318001DB054 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1FDB9ABE1F771324001DB054 /* BounceTabBarController.swift */,
+				1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1FDB9AC81F771544001DB054 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1FDB9AC01F7714C5001DB054 /* Home.storyboard */,
+				1F161B2A1F7715DE003631C2 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1FDB9AC91F77154C001DB054 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		1FDB9ACA1F771554001DB054 /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				1FDB9AC41F771504001DB054 /* Jobs.storyboard */,
+			);
+			path = Jobs;
+			sourceTree = "<group>";
+		};
+		1FDB9ACB1F77155A001DB054 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1FDB9AC61F77151F001DB054 /* Profile.storyboard */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,9 +490,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDB9AC51F771504001DB054 /* Jobs.storyboard in Resources */,
+				1FDB9AC31F7714ED001DB054 /* Discovery.storyboard in Resources */,
 				1F939F521F7306A100C03386 /* LaunchScreen.storyboard in Resources */,
 				1F939F4F1F7306A100C03386 /* Assets.xcassets in Resources */,
 				1F939F4D1F7306A100C03386 /* Main.storyboard in Resources */,
+				1FDB9AC71F77151F001DB054 /* Profile.storyboard in Resources */,
+				1FDB9AC11F7714C5001DB054 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,9 +535,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F939F4A1F7306A100C03386 /* HomeViewController.swift in Sources */,
+				1F161B2D1F77179D003631C2 /* BounceTabBarItem.swift in Sources */,
+				1FDB9ABF1F771324001DB054 /* BounceTabBarController.swift in Sources */,
 				1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */,
+				1F2843761F7696000083E6AD /* UICollectionViewCell.swift in Sources */,
 				1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */,
+				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
+				1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */,
 				1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,7 +749,7 @@
 				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = Bounce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Bounce;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Dribbble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -693,7 +765,7 @@
 				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = Bounce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Bounce;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Dribbble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -706,7 +778,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F489U365LQ;
+				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = BounceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.BounceTests;
@@ -723,7 +795,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F489U365LQ;
+				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = BounceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.BounceTests;
@@ -739,7 +811,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F489U365LQ;
+				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = BounceUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.BounceUITests;
@@ -755,7 +827,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F489U365LQ;
+				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = BounceUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.BounceUITests;
@@ -781,7 +853,7 @@
 				INFOPLIST_FILE = NothingButNet/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.NothingButNet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Dribbble.NothingButNet;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -807,7 +879,7 @@
 				INFOPLIST_FILE = NothingButNet/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.NothingButNet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Dribbble.NothingButNet;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -822,7 +894,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F489U365LQ;
+				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = NothingButNetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.NothingButNetTests;
@@ -838,7 +910,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F489U365LQ;
+				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = NothingButNetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.NothingButNetTests;

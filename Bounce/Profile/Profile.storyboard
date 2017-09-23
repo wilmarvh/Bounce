@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NY0-57-sDt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="XxU-4W-SwQ">
+            <objects>
+                <navigationController id="NY0-57-sDt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tabProfile" id="36O-LJ-Sni" customClass="BounceTabBarItem" customModule="Bounce" customModuleProvider="target"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i2h-zS-dmq">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sJ5-vj-Ave" kind="relationship" relationship="rootViewController" id="tB7-nd-T2R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aeC-Oy-5Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-444" y="188"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mlU-GG-A7V">
+            <objects>
+                <viewController id="sJ5-vj-Ave" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bd4-pU-VdZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="OCj-Ug-VKP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="n8g-m1-0ZT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B1O-nB-flN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="361" y="188"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabProfile" width="26" height="26"/>
+    </resources>
+</document>
