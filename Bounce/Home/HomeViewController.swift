@@ -38,7 +38,7 @@ class HomeViewController: UICollectionViewController {
             layout.sectionInset = UIEdgeInsetsMake(15, 0, 0, 0)
             layout.estimatedItemSize = CGSize(width: view.frame.width, height: 275)
             layout.minimumInteritemSpacing = 0
-            layout.minimumLineSpacing = 20
+            layout.minimumLineSpacing = 25
             collectionView?.collectionViewLayout = layout
         }
     }
