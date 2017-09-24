@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2A1F7715DE003631C2 /* HomeViewController.swift */; };
 		1F161B2D1F77179D003631C2 /* BounceTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */; };
-		1F161B2F1F77186F003631C2 /* PopularShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2E1F77186F003631C2 /* PopularShotCell.swift */; };
-		1F161B311F772E15003631C2 /* PopularShotCellDetailsContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F161B301F772E15003631C2 /* PopularShotCellDetailsContainerView.xib */; };
-		1F161B331F773422003631C2 /* PopularShotCellDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B321F773422003631C2 /* PopularShotCellDetailsContainerView.swift */; };
+		1F161B2F1F77186F003631C2 /* HomeShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2E1F77186F003631C2 /* HomeShotCell.swift */; };
+		1F161B311F772E15003631C2 /* HomeShotCellDetailsContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F161B301F772E15003631C2 /* HomeShotCellDetailsContainerView.xib */; };
+		1F161B331F773422003631C2 /* HomeShotCellDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B321F773422003631C2 /* HomeShotCellDetailsContainerView.swift */; };
 		1F161B361F773587003631C2 /* Nibloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B351F773587003631C2 /* Nibloadable.swift */; };
 		1F2843761F7696000083E6AD /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2843751F7696000083E6AD /* UICollectionViewCell.swift */; };
 		1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F471F7306A100C03386 /* AppDelegate.swift */; };
@@ -39,6 +39,7 @@
 		1FDB9AC31F7714ED001DB054 /* Discovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */; };
 		1FDB9AC51F771504001DB054 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC41F771504001DB054 /* Jobs.storyboard */; };
 		1FDB9AC71F77151F001DB054 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC61F77151F001DB054 /* Profile.storyboard */; };
+		1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,9 +97,9 @@
 /* Begin PBXFileReference section */
 		1F161B2A1F7715DE003631C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceTabBarItem.swift; sourceTree = "<group>"; };
-		1F161B2E1F77186F003631C2 /* PopularShotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularShotCell.swift; sourceTree = "<group>"; };
-		1F161B301F772E15003631C2 /* PopularShotCellDetailsContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularShotCellDetailsContainerView.xib; sourceTree = "<group>"; };
-		1F161B321F773422003631C2 /* PopularShotCellDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularShotCellDetailsContainerView.swift; sourceTree = "<group>"; };
+		1F161B2E1F77186F003631C2 /* HomeShotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShotCell.swift; sourceTree = "<group>"; };
+		1F161B301F772E15003631C2 /* HomeShotCellDetailsContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeShotCellDetailsContainerView.xib; sourceTree = "<group>"; };
+		1F161B321F773422003631C2 /* HomeShotCellDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShotCellDetailsContainerView.swift; sourceTree = "<group>"; };
 		1F161B351F773587003631C2 /* Nibloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nibloadable.swift; sourceTree = "<group>"; };
 		1F2843751F7696000083E6AD /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		1F939F441F7306A100C03386 /* Bounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +134,7 @@
 		1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discovery.storyboard; sourceTree = "<group>"; };
 		1FDB9AC41F771504001DB054 /* Jobs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
 		1FDB9AC61F77151F001DB054 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,9 +304,10 @@
 			children = (
 				1FDB9AC01F7714C5001DB054 /* Home.storyboard */,
 				1F161B2A1F7715DE003631C2 /* HomeViewController.swift */,
-				1F161B2E1F77186F003631C2 /* PopularShotCell.swift */,
-				1F161B301F772E15003631C2 /* PopularShotCellDetailsContainerView.xib */,
-				1F161B321F773422003631C2 /* PopularShotCellDetailsContainerView.swift */,
+				1F161B2E1F77186F003631C2 /* HomeShotCell.swift */,
+				1F161B301F772E15003631C2 /* HomeShotCellDetailsContainerView.xib */,
+				1F161B321F773422003631C2 /* HomeShotCellDetailsContainerView.swift */,
+				1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -508,7 +511,7 @@
 				1F939F4F1F7306A100C03386 /* Assets.xcassets in Resources */,
 				1F939F4D1F7306A100C03386 /* Main.storyboard in Resources */,
 				1FDB9AC71F77151F001DB054 /* Profile.storyboard in Resources */,
-				1F161B311F772E15003631C2 /* PopularShotCellDetailsContainerView.xib in Resources */,
+				1F161B311F772E15003631C2 /* HomeShotCellDetailsContainerView.xib in Resources */,
 				1FDB9AC11F7714C5001DB054 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,14 +554,15 @@
 				1F161B2D1F77179D003631C2 /* BounceTabBarItem.swift in Sources */,
 				1FDB9ABF1F771324001DB054 /* BounceTabBarController.swift in Sources */,
 				1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */,
-				1F161B2F1F77186F003631C2 /* PopularShotCell.swift in Sources */,
+				1F161B2F1F77186F003631C2 /* HomeShotCell.swift in Sources */,
 				1F2843761F7696000083E6AD /* UICollectionViewCell.swift in Sources */,
 				1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */,
 				1F161B361F773587003631C2 /* Nibloadable.swift in Sources */,
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
 				1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */,
 				1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */,
-				1F161B331F773422003631C2 /* PopularShotCellDetailsContainerView.swift in Sources */,
+				1F161B331F773422003631C2 /* HomeShotCellDetailsContainerView.swift in Sources */,
+				1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

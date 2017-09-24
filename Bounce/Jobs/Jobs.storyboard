@@ -13,7 +13,7 @@
         <scene sceneID="ed9-5D-pDC">
             <objects>
                 <navigationController id="V6y-Cp-Qw4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabJobs" id="Ix9-1E-bPh" customClass="BounceTabBarItem" customModule="Bounce" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabJobs" selectedImage="tabJobsActive" id="Ix9-1E-bPh" customClass="BounceTabBarItem" customModule="Bounce" customModuleProvider="target"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g47-bh-N15">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -46,5 +46,6 @@
     </scenes>
     <resources>
         <image name="tabJobs" width="24" height="24"/>
+        <image name="tabJobsActive" width="24" height="24"/>
     </resources>
 </document>

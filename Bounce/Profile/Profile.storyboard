@@ -13,7 +13,7 @@
         <scene sceneID="XxU-4W-SwQ">
             <objects>
                 <navigationController id="NY0-57-sDt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabProfile" id="36O-LJ-Sni" customClass="BounceTabBarItem" customModule="Bounce" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabProfile" selectedImage="tabProfileActive" id="36O-LJ-Sni" customClass="BounceTabBarItem" customModule="Bounce" customModuleProvider="target"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i2h-zS-dmq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -45,6 +45,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tabProfile" width="26" height="26"/>
+        <image name="tabProfile" width="24" height="24"/>
+        <image name="tabProfileActive" width="24" height="24"/>
     </resources>
 </document>

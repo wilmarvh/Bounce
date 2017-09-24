@@ -1,6 +1,6 @@
 import UIKit
 
-class PopularShotCell: UICollectionViewCell {
+class HomeShotCell: UICollectionViewCell {
     
     var shotId: Int = 0
     
@@ -32,9 +32,9 @@ class PopularShotCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var details: PopularShotCellDetailsContainerView = {
-        let owner = PopularShotCellDetailsContainerView()
-        let view = PopularShotCellDetailsContainerView.viewFromNib(owner: owner) as! PopularShotCellDetailsContainerView
+    lazy var details: HomeShotCellDetailsContainerView = {
+        let owner = HomeShotCellDetailsContainerView()
+        let view = HomeShotCellDetailsContainerView.viewFromNib(owner: owner) as! HomeShotCellDetailsContainerView
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]

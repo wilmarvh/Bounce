@@ -1,7 +1,7 @@
 import UIKit
 import NothingButNet
 
-class HomeViewController: UICollectionViewController {
+class HomeViewController: UICollectionViewController, UIPopoverPresentationControllerDelegate {
     
     var shots: [Shot] = [Shot]()
     
@@ -28,14 +28,14 @@ class HomeViewController: UICollectionViewController {
     func configureCollectionView() {
         // cells and other
         collectionView?.backgroundColor = UIColor.white
-        collectionView?.register(PopularShotCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView?.register(HomeShotCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView?.refreshControl = UIRefreshControl(frame: .zero)
         collectionView?.refreshControl?.tintColor = UIColor.mediumPink()
         collectionView?.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         // layout
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.sectionInset = UIEdgeInsetsMake(15, 0, 0, 0)
+            layout.sectionInset = UIEdgeInsetsMake(15, 0, 15, 0)
             layout.estimatedItemSize = CGSize(width: view.frame.width, height: 275)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 25
@@ -107,7 +107,7 @@ class HomeViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PopularShotCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeShotCell
         let shot = shots[indexPath.row] as Shot
         // details
         cell.shotId = shot.id
@@ -146,7 +146,18 @@ class HomeViewController: UICollectionViewController {
     // MARK: Actions
     
     @objc func showMenu() {
-        debugPrint("Show menu")
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeFilterViewController") as? HomeFilterViewController {
+            controller.modalPresentationStyle = .popover
+            controller.collectionView?.reloadData()
+            if let popoverController = controller.popoverPresentationController {
+                popoverController.backgroundColor = .white
+                popoverController.permittedArrowDirections = [.up]
+                popoverController.barButtonItem = navigationItem.leftBarButtonItem
+                popoverController.delegate = self
+                controller.preferredContentSize = CGSize(width: 315, height: 223)
+            }
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
     @objc func showFilter() {
@@ -161,6 +172,18 @@ class HomeViewController: UICollectionViewController {
         debugPrint("Show layout")
     }
     
-    // MARK: ScrollView
+    // MARK: Popover delegate
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        debugPrint("prepareForPopoverPresentation")
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        debugPrint("popoverPresentationControllerDidDismissPopover")
+    }
     
 }

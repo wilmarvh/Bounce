@@ -1,11 +1,12 @@
 import UIKit
 
-class PopularShotCellDetailsContainerView: UIView, Nibloadable {
+class HomeShotCellDetailsContainerView: UIView, Nibloadable {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var profileLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var likesImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
