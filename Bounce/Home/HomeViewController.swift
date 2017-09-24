@@ -138,6 +138,19 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shot = shots[indexPath.row]
+        performSegue(withIdentifier: "showShotDetail", sender: shot)
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showShotDetail", let controller = segue.destination as? ShotDetailViewController {
+            controller.shot = sender as? Shot
+        }
+    }
+    
     // MARK: Data
     
     @objc func refresh() {
@@ -153,6 +166,10 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     // MARK: Actions
+    
+    @IBAction public func unwindToHomeFromShotDetail(segue: UIStoryboardSegue) {
+        debugPrint("unwindToHomeFromShotDetail")
+    }
     
     @objc func showMenu() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeFilterViewController") as? HomeFilterViewController {

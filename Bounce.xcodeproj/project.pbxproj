@@ -35,6 +35,10 @@
 		1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA012501F75A7C100EB4927 /* UIColor.swift */; };
 		1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78EC61F7814E90039BE04 /* UIImage.swift */; };
 		1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78EC91F78356F0039BE04 /* ProfileImageView.swift */; };
+		1FB78ECD1F7847280039BE04 /* ShotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78ECC1F7847280039BE04 /* ShotDetailViewController.swift */; };
+		1FB78ECF1F78514C0039BE04 /* ShotDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78ECE1F78514C0039BE04 /* ShotDetailImageCell.swift */; };
+		1FB78ED21F7857EF0039BE04 /* ShotDetailStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78ED11F7857EF0039BE04 /* ShotDetailStatsCell.swift */; };
+		1FB78ED41F78645A0039BE04 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78ED31F78645A0039BE04 /* NumberFormatter.swift */; };
 		1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABB1F770FC7001DB054 /* UIView.swift */; };
 		1FDB9ABF1F771324001DB054 /* BounceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABE1F771324001DB054 /* BounceTabBarController.swift */; };
 		1FDB9AC11F7714C5001DB054 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC01F7714C5001DB054 /* Home.storyboard */; };
@@ -132,6 +136,10 @@
 		1FA012501F75A7C100EB4927 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		1FB78EC61F7814E90039BE04 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		1FB78EC91F78356F0039BE04 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		1FB78ECC1F7847280039BE04 /* ShotDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailViewController.swift; sourceTree = "<group>"; };
+		1FB78ECE1F78514C0039BE04 /* ShotDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailImageCell.swift; sourceTree = "<group>"; };
+		1FB78ED11F7857EF0039BE04 /* ShotDetailStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailStatsCell.swift; sourceTree = "<group>"; };
+		1FB78ED31F78645A0039BE04 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		1FDB9ABB1F770FC7001DB054 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		1FDB9ABE1F771324001DB054 /* BounceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceTabBarController.swift; sourceTree = "<group>"; };
 		1FDB9AC01F7714C5001DB054 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -291,8 +299,19 @@
 				1FDB9ABB1F770FC7001DB054 /* UIView.swift */,
 				1F161B351F773587003631C2 /* Nibloadable.swift */,
 				1FB78EC61F7814E90039BE04 /* UIImage.swift */,
+				1FB78ED31F78645A0039BE04 /* NumberFormatter.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1FB78ECB1F7847110039BE04 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1FB78ECC1F7847280039BE04 /* ShotDetailViewController.swift */,
+				1FB78ECE1F78514C0039BE04 /* ShotDetailImageCell.swift */,
+				1FB78ED11F7857EF0039BE04 /* ShotDetailStatsCell.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		1FDB9ABD1F771318001DB054 /* Core */ = {
@@ -308,6 +327,7 @@
 		1FDB9AC81F771544001DB054 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1FB78ECB1F7847110039BE04 /* Detail */,
 				1FDB9AC01F7714C5001DB054 /* Home.storyboard */,
 				1F161B2A1F7715DE003631C2 /* HomeViewController.swift */,
 				1F161B2E1F77186F003631C2 /* HomeShotCell.swift */,
@@ -560,9 +580,12 @@
 				1F161B2D1F77179D003631C2 /* BounceTabBarItem.swift in Sources */,
 				1FDB9ABF1F771324001DB054 /* BounceTabBarController.swift in Sources */,
 				1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */,
+				1FB78ED21F7857EF0039BE04 /* ShotDetailStatsCell.swift in Sources */,
 				1F161B2F1F77186F003631C2 /* HomeShotCell.swift in Sources */,
 				1F2843761F7696000083E6AD /* UICollectionViewCell.swift in Sources */,
 				1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */,
+				1FB78ED41F78645A0039BE04 /* NumberFormatter.swift in Sources */,
+				1FB78ECF1F78514C0039BE04 /* ShotDetailImageCell.swift in Sources */,
 				1F161B361F773587003631C2 /* Nibloadable.swift in Sources */,
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
 				1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */,
@@ -571,6 +594,7 @@
 				1F161B331F773422003631C2 /* HomeShotCellDetailsContainerView.swift in Sources */,
 				1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */,
 				1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */,
+				1FB78ECD1F7847280039BE04 /* ShotDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,7 +820,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Dribbble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
