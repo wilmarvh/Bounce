@@ -1,36 +1,36 @@
 import Foundation
 
 public struct User: Codable {
-    var avatar_url: String
-    var bio: String
-    var buckets_count: Int
-    var buckets_url: String
-    var can_upload_shot: Bool
-    var comments_received_count: Int
-    var created_at: Date
-    var followers_count: Int
-    var followers_url: String
-    var following_url: String
-    var followings_count: Int
-    var html_url: String
-    var id: Int
-    var likes_count: Int
-    var likes_received_count: Int
-    var likes_url: String
-    var links: Links
-    var location: String?
-    var name: String
-    var pro: Bool
-    var projects_count: Int
-    var projects_url: String
-    var rebounds_received_count: Int
-    var shots_count: Int
-    var shots_url: String
-    var teams_count: Int?
-    var teams_url: String?
-    var type: String
-    var updated_at: Date
-    var username: String
+    public var avatar_url: String
+    public var bio: String
+    public var buckets_count: Int
+    public var buckets_url: String
+    public var can_upload_shot: Bool
+    public var comments_received_count: Int
+    public var created_at: Date
+    public var followers_count: Int
+    public var followers_url: String
+    public var following_url: String
+    public var followings_count: Int
+    public var html_url: String
+    public var id: Int
+    public var likes_count: Int
+    public var likes_received_count: Int
+    public var likes_url: String
+    public var links: Links
+    public var location: String?
+    public var name: String
+    public var pro: Bool
+    public var projects_count: Int
+    public var projects_url: String
+    public var rebounds_received_count: Int
+    public var shots_count: Int
+    public var shots_url: String
+    public var teams_count: Int?
+    public var teams_url: String?
+    public var type: String
+    public var updated_at: Date
+    public var username: String
     
     static func new(from data: Data) -> User? {
         let decoder = JSONDecoder()

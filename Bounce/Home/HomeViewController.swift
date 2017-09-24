@@ -109,8 +109,13 @@ class HomeViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PopularShotCell
         let shot = shots[indexPath.row] as Shot
+        // details
         cell.shotId = shot.id
-        cell.titleLabel.text = shot.title
+        cell.details.titleLabel.text = shot.title
+        cell.details.profileImageView.image = UIImage(named: "tabProfile")
+        cell.details.profileLabel.text = shot.team?.name ?? shot.user.username
+        cell.details.likesLabel.text = "\(shot.likes_count)"
+        // image
         Shot.loadHiDPIImage(for: shot) { [weak cell] shotId, image in
             guard cell?.shotId == shotId else {
                 return
@@ -127,8 +132,6 @@ class HomeViewController: UICollectionViewController {
     // MARK: Data
     
     @objc func refresh() {
-        shots = []
-        collectionView?.reloadData()
         loadData()
     }
     
@@ -159,117 +162,5 @@ class HomeViewController: UICollectionViewController {
     }
     
     // MARK: ScrollView
-    
-}
-
-
-class PopularShotCell: UICollectionViewCell {
-    
-    var shotId: Int = 0
-    
-    // MARK: Lifecycle
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configureViews()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureViews()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        shotId = 0
-        titleLabel.text = nil
-        imageView.image = nil
-        imageView.alpha = 0
-    }
-    
-    // MARK: Views
-    
-    lazy var containerView: UIView = {
-        let view = UIView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.addDefaultShadow()
-        return view
-    }()
-    
-    lazy var titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.font = UIFont.title3Font()
-        label.textColor = UIColor.bounceBlack()
-        label.numberOfLines = 1
-        return label
-    }()
-    
-    lazy var detailContainerView: UIView = {
-        let view = UIView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        view.layer.cornerRadius = 15
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.alpha = 0
-        return imageView
-    }()
-    
-    lazy var imageContainerView: UIView = {
-        let view = UIView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 15
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        view.backgroundColor = UIColor(red:0.94902, green:0.94902, blue:0.94902, alpha:1.00000)
-        view.addSubview(self.imageView)
-        return view
-    }()
-    
-    func configureViews() {
-        // config
-        backgroundColor = UIColor.white
-        backgroundView?.backgroundColor = backgroundColor
-        
-        // layout
-        contentView.addSubview(containerView)
-        containerView.addSubview(detailContainerView)
-        containerView.addSubview(imageContainerView)
-        let views: [String : Any] = ["titleLabel" : titleLabel,
-                                     "containerView" : containerView,
-                                     "imageContainerView" : imageContainerView,
-                                     "detailContainerView" : detailContainerView,
-                                     "imageView" : imageView]
-        let metrics: [String: Any] = ["inset": 15]
-        
-        // container
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-inset-[containerView]-inset-|",
-                                                                  options: [], metrics: metrics, views: views))
-        // detailcontainer
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[detailContainerView]|",
-                                                                    options: [], metrics: metrics, views: views))
-        // imagecontainer
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageContainerView]|",
-                                                                  options: [], metrics: metrics, views: views))
-        imageContainerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|",
-                                                                  options: [], metrics: metrics, views: views))
-        imageContainerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|",
-                                                                  options: [], metrics: metrics, views: views))
-        // vertical
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-inset-[containerView]|",
-                                                                  options: [], metrics: metrics, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[imageContainerView(==200)][detailContainerView(==75)]",
-                                                                  options: [], metrics: metrics, views: views))
-    }
     
 }
