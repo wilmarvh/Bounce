@@ -115,6 +115,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         cell.details.profileImageView.image = UIImage(named: "tabProfile")
         cell.details.profileLabel.text = shot.team?.name ?? shot.user.username
         cell.details.likesLabel.text = "\(shot.likes_count)"
+        cell.gifLabelImageView.isHidden = !shot.animated
         // image
         Shot.loadHiDPIImage(for: shot) { [weak cell] shotId, image in
             guard cell?.shotId == shotId else {

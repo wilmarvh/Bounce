@@ -33,6 +33,7 @@
 		1F939FA61F731CE500C03386 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA51F731CE500C03386 /* Links.swift */; };
 		1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA91F7322EC00C03386 /* UIFont.swift */; };
 		1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA012501F75A7C100EB4927 /* UIColor.swift */; };
+		1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78EC61F7814E90039BE04 /* UIImage.swift */; };
 		1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABB1F770FC7001DB054 /* UIView.swift */; };
 		1FDB9ABF1F771324001DB054 /* BounceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABE1F771324001DB054 /* BounceTabBarController.swift */; };
 		1FDB9AC11F7714C5001DB054 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC01F7714C5001DB054 /* Home.storyboard */; };
@@ -128,6 +129,7 @@
 		1F939FA51F731CE500C03386 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F939FA91F7322EC00C03386 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		1FA012501F75A7C100EB4927 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1FB78EC61F7814E90039BE04 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		1FDB9ABB1F770FC7001DB054 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		1FDB9ABE1F771324001DB054 /* BounceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceTabBarController.swift; sourceTree = "<group>"; };
 		1FDB9AC01F7714C5001DB054 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				1F2843751F7696000083E6AD /* UICollectionViewCell.swift */,
 				1FDB9ABB1F770FC7001DB054 /* UIView.swift */,
 				1F161B351F773587003631C2 /* Nibloadable.swift */,
+				1FB78EC61F7814E90039BE04 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */,
 				1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */,
 				1F161B331F773422003631C2 /* HomeShotCellDetailsContainerView.swift in Sources */,
+				1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */,
 				1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
