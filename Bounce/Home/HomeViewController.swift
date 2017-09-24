@@ -111,20 +111,28 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         let shot = shots[indexPath.row] as Shot
         // details
         cell.shotId = shot.id
+        cell.profileId = shot.id
         cell.details.titleLabel.text = shot.title
-        cell.details.profileImageView.image = UIImage(named: "tabProfile")
+        cell.details.profileImageView.imageView.image = UIImage(named: "tabProfile")
         cell.details.profileLabel.text = shot.team?.name ?? shot.user.username
         cell.details.likesLabel.text = "\(shot.likes_count)"
         cell.gifLabelImageView.isHidden = !shot.animated
-        // image
-        Shot.loadHiDPIImage(for: shot) { [weak cell] shotId, image in
-            guard cell?.shotId == shotId else {
-                return
-            }
+        // shot image
+        Shot.loadImage(for: shot) { [weak cell] shotId, image in
+            guard cell?.shotId == shotId else { return }
             cell?.imageView.alpha = 0
             cell?.imageView.image = image
             UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations: {
                 cell?.imageView.alpha = 1
+            }).startAnimation()
+        }
+        // profile image
+        Shot.loadProfileImage(for: shot) { [weak cell] shotId, image in
+            guard cell?.profileId == shotId else { return }
+            cell?.details.profileImageView.alpha = 0
+            cell?.details.profileImageView.imageView.image = image
+            UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations: {
+                cell?.details.profileImageView.alpha = 1
             }).startAnimation()
         }
         return cell

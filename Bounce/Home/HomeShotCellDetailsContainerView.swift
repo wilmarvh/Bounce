@@ -2,7 +2,7 @@ import UIKit
 
 class HomeShotCellDetailsContainerView: UIView, Nibloadable {
     
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: ProfileImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var profileLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
@@ -16,7 +16,7 @@ class HomeShotCellDetailsContainerView: UIView, Nibloadable {
     }
     
     func resetContent() {
-        profileImageView.image = nil
+        profileImageView.imageView.image = nil
         titleLabel.text = nil
         profileLabel.text = nil
         likesLabel.text = nil

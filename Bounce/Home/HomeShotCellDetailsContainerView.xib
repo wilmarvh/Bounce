@@ -21,13 +21,14 @@
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BKt-Vy-3UC" userLabel="contentStackView">
                             <rect key="frame" x="0.0" y="0.0" width="236.5" height="45"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabProfile" translatesAutoresizingMaskIntoConstraints="NO" id="3e1-Cg-aDa" userLabel="profileImageView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OG0-zA-reK" userLabel="profileImageView" customClass="ProfileImageView" customModule="Bounce" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="70X-ar-SgT"/>
-                                        <constraint firstAttribute="width" constant="25" id="9U1-oR-kO4"/>
+                                        <constraint firstAttribute="width" constant="25" id="8wG-xX-Xmy"/>
+                                        <constraint firstAttribute="height" constant="25" id="CaV-x5-FVx"/>
                                     </constraints>
-                                </imageView>
+                                </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rsc-2s-qW1">
                                     <rect key="frame" x="35" y="0.0" width="201.5" height="45"/>
                                     <subviews>
@@ -47,10 +48,10 @@
                                 </stackView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="mRi-ql-uhj" firstAttribute="height" secondItem="3e1-Cg-aDa" secondAttribute="height" id="fux-s1-c96"/>
+                                <constraint firstItem="mRi-ql-uhj" firstAttribute="height" secondItem="OG0-zA-reK" secondAttribute="height" id="B76-9V-Tzf"/>
                             </constraints>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ewj-tc-Dh5">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ewj-tc-Dh5" userLabel="likes">
                             <rect key="frame" x="244.5" y="0.0" width="100.5" height="45"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4gE-Rx-tX0" userLabel="likesStackView">
@@ -77,8 +78,8 @@
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="WL0-3a-6wC" firstAttribute="height" secondItem="3e1-Cg-aDa" secondAttribute="height" id="HvE-Yt-T40"/>
-                        <constraint firstItem="sqd-xa-cgZ" firstAttribute="height" secondItem="3e1-Cg-aDa" secondAttribute="height" id="ggH-ye-ALT"/>
+                        <constraint firstItem="sqd-xa-cgZ" firstAttribute="height" secondItem="OG0-zA-reK" secondAttribute="height" id="Mb3-5S-Cqx"/>
+                        <constraint firstItem="WL0-3a-6wC" firstAttribute="height" secondItem="OG0-zA-reK" secondAttribute="height" id="gfv-ev-opF"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -96,7 +97,7 @@
             <connections>
                 <outlet property="likesImageView" destination="sqd-xa-cgZ" id="CPd-ks-3tL"/>
                 <outlet property="likesLabel" destination="WL0-3a-6wC" id="cKF-Pd-wV4"/>
-                <outlet property="profileImageView" destination="3e1-Cg-aDa" id="vvk-c6-bXq"/>
+                <outlet property="profileImageView" destination="OG0-zA-reK" id="f48-DE-uP8"/>
                 <outlet property="profileLabel" destination="GN8-Uu-1HO" id="dbp-vU-88b"/>
                 <outlet property="titleLabel" destination="mRi-ql-uhj" id="Jwk-qS-4k4"/>
             </connections>
@@ -105,6 +106,5 @@
     </objects>
     <resources>
         <image name="like" width="20" height="17"/>
-        <image name="tabProfile" width="24" height="24"/>
     </resources>
 </document>

@@ -59,9 +59,9 @@ extension Shot {
         NothingButNet.setNetworkActivityIndicatorVisible(true)
     }
     
-    public static func loadHiDPIImage(`for` shot: Shot, completion: @escaping (Int, UIImage?) -> Void) {
+    public static func loadImage(`for` shot: Shot, completion: @escaping (Int, UIImage?) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            let filename = "\(shot.id)_hidpi.png"
+            let filename = "\(shot.id).png"
             var image: UIImage?
             var localImageURL: URL?
             // try and load from documents directory
@@ -76,24 +76,73 @@ extension Shot {
             
             // load remote image if no local image is found
             if image == nil {
-                if let url = URL(string: shot.images.hidpi ?? shot.images.normal) {
-                    NothingButNet.setNetworkActivityIndicatorVisible(true)
-                    let data = try! Data(contentsOf: url)
-                    if let validImage = UIImage(data: data) {
+                guard let url = URL(string: shot.images.hidpi ?? shot.images.normal) else { return }
+                
+                NothingButNet.setNetworkActivityIndicatorVisible(true)
+                let data = try! Data(contentsOf: url)
+                if let validImage = UIImage(data: data) {
+                    do {
                         image = validImage
-                        do {
-                            if let url = localImageURL {
-                                let pngData = UIImagePNGRepresentation(validImage)
-                                try pngData?.write(to: url)
-                            }
-                        } catch let error {
-                            debugPrint(error)
+                        if let url = localImageURL {
+                            let pngData = UIImagePNGRepresentation(validImage)
+                            try pngData?.write(to: url)
                         }
+                    } catch let error {
+                        debugPrint(error)
                     }
-                    NothingButNet.setNetworkActivityIndicatorVisible(false)
                 }
+                NothingButNet.setNetworkActivityIndicatorVisible(false)
+            }
+            
+            // complete
+            DispatchQueue.main.async {
+                completion(shot.id, image)
+            }
+        }
+    }
+    
+    public static func loadProfileImage(`for` shot: Shot, completion: @escaping (Int, UIImage?) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            guard let documentsDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else {
+                return
+            }
+            
+            var filename = ""
+            var image: UIImage?
+            var remoteURL: URL?
+            
+            // determine whether to load team or user
+            if let team = shot.team {
+                filename = "team_\(team.id).png"
+                remoteURL = URL(string: team.avatar_url)
             } else {
-                // debugPrint("Image already downloaded: \(filename)")
+                filename = "user_\(shot.user.id).png"
+                remoteURL = URL(string: shot.user.avatar_url)
+            }
+            
+            // try and load from documents directory
+            let localURL = documentsDirectory.appendingPathComponent(filename)
+            do {
+                let localData = try Data(contentsOf: localURL)
+                image = UIImage(data: localData)
+            } catch { /* no such file found */ }
+            
+            // load remote image if no local image is found
+            if image == nil {
+                guard let url = remoteURL else { return }
+                
+                NothingButNet.setNetworkActivityIndicatorVisible(true)
+                let data = try! Data(contentsOf: url)
+                if let validImage = UIImage(data: data) {
+                    do {
+                        image = validImage
+                        let pngData = UIImagePNGRepresentation(validImage)
+                        try pngData?.write(to: localURL)
+                    } catch let error {
+                        debugPrint(error)
+                    }
+                }
+                NothingButNet.setNetworkActivityIndicatorVisible(false)
             }
             
             // complete
