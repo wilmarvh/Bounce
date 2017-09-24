@@ -76,7 +76,7 @@ extension Shot {
             
             // load remote image if no local image is found
             if image == nil {
-                if let url = URL(string: shot.images.hidpi) {
+                if let url = URL(string: shot.images.hidpi ?? shot.images.normal) {
                     NothingButNet.setNetworkActivityIndicatorVisible(true)
                     let data = try! Data(contentsOf: url)
                     if let validImage = UIImage(data: data) {
