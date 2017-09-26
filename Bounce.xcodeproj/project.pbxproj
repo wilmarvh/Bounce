@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		1F06C3A61F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06C3A41F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift */; };
 		1F06C3A71F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F06C3A51F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.xib */; };
+		1F06C3B51F7B02790071B421 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3B21F7B025C0071B421 /* PINRemoteImage.framework */; };
+		1F06C3B61F7B02790071B421 /* PINRemoteImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3B21F7B025C0071B421 /* PINRemoteImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F06C3BF1F7B05AA0071B421 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3BE1F7B05A00071B421 /* FLAnimatedImage.framework */; };
+		1F06C3C01F7B05AA0071B421 /* FLAnimatedImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3BE1F7B05A00071B421 /* FLAnimatedImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F06C3D21F7B0BF30071B421 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3D11F7B0BF30071B421 /* PINCache.framework */; };
+		1F06C3D31F7B0BF30071B421 /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3D11F7B0BF30071B421 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F06C3D51F7B0C2A0071B421 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3D41F7B0C2A0071B421 /* PINOperation.framework */; };
+		1F06C3D61F7B0C2A0071B421 /* PINOperation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3D41F7B0C2A0071B421 /* PINOperation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2A1F7715DE003631C2 /* HomeViewController.swift */; };
 		1F161B2D1F77179D003631C2 /* BounceTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */; };
 		1F161B2F1F77186F003631C2 /* HomeShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2E1F77186F003631C2 /* HomeShotCell.swift */; };
@@ -53,6 +61,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1F06C3B11F7B025C0071B421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F06C3AA1F7B025C0071B421 /* PINRemoteImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F1B918D11BCF239200710963;
+			remoteInfo = PINRemoteImage;
+		};
+		1F06C3B31F7B025C0071B421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F06C3AA1F7B025C0071B421 /* PINRemoteImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 68A0FC191E523434000B552D;
+			remoteInfo = PINRemoteImageTests;
+		};
+		1F06C3B71F7B02790071B421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F06C3AA1F7B025C0071B421 /* PINRemoteImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F1B918D01BCF239200710963;
+			remoteInfo = PINRemoteImage;
+		};
+		1F06C3BD1F7B05A00071B421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F06C3B91F7B05A00071B421 /* FLAnimatedImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92C9BC0C1B199DC500D79B06;
+			remoteInfo = FLAnimatedImage;
+		};
+		1F06C3C11F7B05AA0071B421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F06C3B91F7B05A00071B421 /* FLAnimatedImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 92C9BC0B1B199DC500D79B06;
+			remoteInfo = FLAnimatedImage;
+		};
 		1F939F591F7306A100C03386 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F939F3C1F7306A100C03386 /* Project object */;
@@ -97,6 +140,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1F06C3D61F7B0C2A0071B421 /* PINOperation.framework in Embed Frameworks */,
+				1F06C3B61F7B02790071B421 /* PINRemoteImage.framework in Embed Frameworks */,
+				1F06C3D31F7B0BF30071B421 /* PINCache.framework in Embed Frameworks */,
+				1F06C3C01F7B05AA0071B421 /* FLAnimatedImage.framework in Embed Frameworks */,
 				1F939F901F73073400C03386 /* NothingButNet.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -107,6 +154,10 @@
 /* Begin PBXFileReference section */
 		1F06C3A41F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailTextCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F06C3A51F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShotDetailTextCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		1F06C3AA1F7B025C0071B421 /* PINRemoteImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PINRemoteImage.xcodeproj; path = PINRemoteImage/PINRemoteImage.xcodeproj; sourceTree = "<group>"; };
+		1F06C3B91F7B05A00071B421 /* FLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAnimatedImage.xcodeproj; path = FLAnimatedImage/FLAnimatedImage.xcodeproj; sourceTree = "<group>"; };
+		1F06C3D11F7B0BF30071B421 /* PINCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PINCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F06C3D41F7B0C2A0071B421 /* PINOperation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PINOperation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F161B2A1F7715DE003631C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceTabBarItem.swift; sourceTree = "<group>"; };
 		1F161B2E1F77186F003631C2 /* HomeShotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShotCell.swift; sourceTree = "<group>"; };
@@ -161,6 +212,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F06C3D51F7B0C2A0071B421 /* PINOperation.framework in Frameworks */,
+				1F06C3B51F7B02790071B421 /* PINRemoteImage.framework in Frameworks */,
+				1F06C3D21F7B0BF30071B421 /* PINCache.framework in Frameworks */,
+				1F06C3BF1F7B05AA0071B421 /* FLAnimatedImage.framework in Frameworks */,
 				1F939F8F1F73073400C03386 /* NothingButNet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,15 +252,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F06C3AB1F7B025C0071B421 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F06C3B21F7B025C0071B421 /* PINRemoteImage.framework */,
+				1F06C3B41F7B025C0071B421 /* PINRemoteImageTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F06C3BA1F7B05A00071B421 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F06C3BE1F7B05A00071B421 /* FLAnimatedImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1F939F3B1F7306A100C03386 = {
 			isa = PBXGroup;
 			children = (
+				1F06C3B91F7B05A00071B421 /* FLAnimatedImage.xcodeproj */,
+				1F06C3AA1F7B025C0071B421 /* PINRemoteImage.xcodeproj */,
 				1F939F461F7306A100C03386 /* Bounce */,
 				1F939F5B1F7306A100C03386 /* BounceTests */,
 				1F939F661F7306A100C03386 /* BounceUITests */,
 				1F939F7B1F73073400C03386 /* NothingButNet */,
 				1F939F881F73073400C03386 /* NothingButNetTests */,
 				1F939F451F7306A100C03386 /* Products */,
+				1F06C3D41F7B0C2A0071B421 /* PINOperation.framework */,
+				1F06C3D11F7B0BF30071B421 /* PINCache.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -399,6 +475,8 @@
 			);
 			dependencies = (
 				1F939F8E1F73073400C03386 /* PBXTargetDependency */,
+				1F06C3B81F7B02790071B421 /* PBXTargetDependency */,
+				1F06C3C21F7B05AA0071B421 /* PBXTargetDependency */,
 			);
 			name = Bounce;
 			productName = Bounce;
@@ -525,6 +603,16 @@
 			mainGroup = 1F939F3B1F7306A100C03386;
 			productRefGroup = 1F939F451F7306A100C03386 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F06C3BA1F7B05A00071B421 /* Products */;
+					ProjectRef = 1F06C3B91F7B05A00071B421 /* FLAnimatedImage.xcodeproj */;
+				},
+				{
+					ProductGroup = 1F06C3AB1F7B025C0071B421 /* Products */;
+					ProjectRef = 1F06C3AA1F7B025C0071B421 /* PINRemoteImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1F939F431F7306A100C03386 /* Bounce */,
@@ -535,6 +623,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1F06C3B21F7B025C0071B421 /* PINRemoteImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PINRemoteImage.framework;
+			remoteRef = 1F06C3B11F7B025C0071B421 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F06C3B41F7B025C0071B421 /* PINRemoteImageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PINRemoteImageTests.xctest;
+			remoteRef = 1F06C3B31F7B025C0071B421 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F06C3BE1F7B05A00071B421 /* FLAnimatedImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FLAnimatedImage.framework;
+			remoteRef = 1F06C3BD1F7B05A00071B421 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1F939F421F7306A100C03386 /* Resources */ = {
@@ -652,6 +764,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1F06C3B81F7B02790071B421 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PINRemoteImage;
+			targetProxy = 1F06C3B71F7B02790071B421 /* PBXContainerItemProxy */;
+		};
+		1F06C3C21F7B05AA0071B421 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FLAnimatedImage;
+			targetProxy = 1F06C3C11F7B05AA0071B421 /* PBXContainerItemProxy */;
+		};
 		1F939F5A1F7306A100C03386 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1F939F431F7306A100C03386 /* Bounce */;

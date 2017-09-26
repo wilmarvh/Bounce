@@ -1,3 +1,6 @@
 [submodule "PINRemoteImage"]
 	path = PINRemoteImage
 	url = https://github.com/pinterest/PINRemoteImage.git
+[submodule "FLAnimatedImage"]
+	path = FLAnimatedImage
+	url = git@github.com:Flipboard/FLAnimatedImage.git

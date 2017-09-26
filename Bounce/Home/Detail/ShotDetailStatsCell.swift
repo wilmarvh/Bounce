@@ -29,7 +29,6 @@ class ShotDetailStatsCell: UICollectionViewCell {
         view.addSubview(self.commentsLabel)
         view.addSubview(self.viewsLabel)
         view.addSubview(self.bucketsLabel)
-        view.addSubview(self.seperator)
         return view
     }()
     
@@ -83,22 +82,12 @@ class ShotDetailStatsCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var seperator: UIView = {
-        let view = UIView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderColor = UIColor(red:0.78039, green:0.78039, blue:0.80392, alpha:1.00000).cgColor
-        view.layer.borderWidth = 1
-        return view
-    }()
-    
     func configureViews() {
         contentView.addSubview(containerView)
         let views = ["containerView" : containerView,
-                     "imagesStackView" : imagesStackView,
-                     "seperator" : seperator
+                     "imagesStackView" : imagesStackView
         ]
-        let metrics = ["inset" : inset,
-                       "singlePixel" : 1 / UIScreen.main.scale
+        let metrics = ["inset" : inset
         ]
         
         //
@@ -106,8 +95,6 @@ class ShotDetailStatsCell: UICollectionViewCell {
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[containerView]|", options: [], metrics: metrics, views: views))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-inset-[imagesStackView]-inset-|", options: [], metrics: metrics, views: views))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[imagesStackView(==25)]", options: [], metrics: metrics, views: views))
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[seperator]|", options: [], metrics: metrics, views: views))
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[seperator(==singlePixel)]|", options: [], metrics: metrics, views: views))
         // likeslabel
         containerView.addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .centerX, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[0], attribute: .centerX, multiplier: 1.0, constant: 0))
         containerView.addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .top, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[0], attribute: .bottom, multiplier: 1.0, constant: 5))

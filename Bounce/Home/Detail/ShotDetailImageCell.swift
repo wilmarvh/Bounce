@@ -1,8 +1,7 @@
 import UIKit
+import FLAnimatedImage
 
 class ShotDetailImageCell: UICollectionViewCell {
-    
-    var shotId: Int = 0
     
     // MARK: Lifecycles
     
@@ -25,8 +24,8 @@ class ShotDetailImageCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var imageView: UIImageView = {
-        let view = UIImageView(frame: .zero)
+    lazy var imageView: FLAnimatedImageView = {
+        let view = FLAnimatedImageView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
         view.startAnimating()

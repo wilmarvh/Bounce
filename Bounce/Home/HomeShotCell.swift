@@ -2,10 +2,6 @@ import UIKit
 
 class HomeShotCell: UICollectionViewCell {
     
-    var shotId: Int = 0
-    
-    var profileId: Int = 0
-    
     // MARK: Lifecycle
     
     required init?(coder aDecoder: NSCoder) {
@@ -20,10 +16,7 @@ class HomeShotCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        shotId = 0
-        profileId = 0
         imageView.image = nil
-        imageView.alpha = 0
         gifLabelImageView.isHidden = true
     }
     
@@ -52,7 +45,6 @@ class HomeShotCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
-        view.alpha = 0
         return view
     }()
     

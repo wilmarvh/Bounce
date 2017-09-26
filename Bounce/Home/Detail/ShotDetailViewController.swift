@@ -1,11 +1,14 @@
 import UIKit
 import NothingButNet
+import PINRemoteImage
 
 class ShotDetailViewController: UICollectionViewController {
     
     var shot: Shot!
     
     var statusBarStyle: UIStatusBarStyle = .default
+    
+    var imageCell: ShotDetailImageCell!
     
     // MARK: View lifecycle
     
@@ -121,16 +124,13 @@ class ShotDetailViewController: UICollectionViewController {
     }
     
     func configureImageCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailImageCell", for: indexPath) as! ShotDetailImageCell
-        cell.shotId = shot.id
-        cell.imageView.image = shot.anyImageFromCache()
-        Shot.loadImage(for: shot) { [weak cell, weak self] shotId, image in
-            guard cell?.shotId == shotId else { return }
-            cell?.imageView.image = image
-            cell?.imageView.alpha = 1
-            self?.updateCloseButtonTintColor(from: cell?.imageView)
+        if imageCell == nil {
+            imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailImageCell", for: indexPath) as! ShotDetailImageCell
+            imageCell.imageView.pin_setImage(from: shot.imageURL()) { [weak imageCell, weak self] result in
+                self?.updateCloseButtonTintColor(from: imageCell?.imageView)
+            }
         }
-        return cell
+        return imageCell
     }
     
     func configureStatsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -149,16 +149,12 @@ class ShotDetailViewController: UICollectionViewController {
         cell.profileButton.setTitle(shot.team?.name ?? shot.user.username, for: .normal)
         cell.dateLabel.text = "on " + Localization.shortFullFormatter.string(from: shot.created_at)
         cell.setDescriptionText(shot.description)
-        Shot.loadProfileImage(for: shot) { [weak cell] shotId, image in
-            guard cell?.profileId == shotId else { return }
-            cell?.profileImageView.imageView.image = image
-        }
+        cell.profileImageView.imageView.pin_setImage(from: shot.profileImageURL())
         return cell
     }
     
     func configureCommentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.contentView.backgroundColor = .magenta
         return cell
     }
     

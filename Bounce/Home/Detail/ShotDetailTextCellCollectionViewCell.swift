@@ -48,6 +48,14 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.layer.removeAllBorderLayers()
+        contentView.layer.addTopBorder(inset: 0)
+        contentView.layer.addBottomBorder(inset: 0)
+    }
+    
     // MARK: Height
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
