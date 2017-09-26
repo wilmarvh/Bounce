@@ -61,7 +61,8 @@ extension Shot {
     
     public static func loadImage(`for` shot: Shot, completion: @escaping (Int, UIImage?) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            let filename = "\(shot.id).png"
+            guard let remoteImageURL = URL(string: shot.images.hidpi ?? shot.images.normal) else { return }
+            let filename = "\(shot.id)_" + remoteImageURL.lastPathComponent
             var image: UIImage?
             var localImageURL: URL?
             // try and load from documents directory
@@ -76,10 +77,8 @@ extension Shot {
             
             // load remote image if no local image is found
             if image == nil {
-                guard let url = URL(string: shot.images.hidpi ?? shot.images.normal) else { return }
-                
                 NothingButNet.setNetworkActivityIndicatorVisible(true)
-                let data = try! Data(contentsOf: url)
+                let data = try! Data(contentsOf: remoteImageURL)
                 if let validImage = UIImage(data: data) {
                     do {
                         image = validImage
@@ -150,6 +149,28 @@ extension Shot {
                 completion(shot.id, image)
             }
         }
+    }
+    
+}
+
+extension Shot {
+    
+    public func anyImageFromCache() -> UIImage? {
+        var image: UIImage? = nil
+        if let documentsDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+            guard let remoteImageURL = URL(string: self.images.hidpi ?? self.images.normal) else { return nil }
+            let filename = "\(self.id)_" + remoteImageURL.lastPathComponent
+            let url = documentsDirectory.appendingPathComponent(filename)
+            do {
+                let localData = try Data(contentsOf: url)
+                if self.animated {
+                    image = UIImage.gif(data: localData)
+                } else {
+                    image = UIImage(data: localData)
+                }
+            } catch { /* no image found */ }
+        }
+        return image
     }
     
 }

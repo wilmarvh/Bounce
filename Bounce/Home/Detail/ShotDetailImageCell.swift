@@ -29,6 +29,7 @@ class ShotDetailImageCell: UICollectionViewCell {
         let view = UIImageView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
+        view.startAnimating()
         return view
     }()
     

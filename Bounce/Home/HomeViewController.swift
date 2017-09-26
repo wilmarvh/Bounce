@@ -205,11 +205,19 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        debugPrint("prepareForPopoverPresentation")
+        let overlay = UIView(frame: tabBarController?.view.bounds ?? view.bounds)
+        overlay.backgroundColor = .black
+        overlay.alpha = 0.3
+        overlay.tag = 123
+        tabBarController?.view.addSubview(overlay)
+    }
+    
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return true
     }
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        debugPrint("popoverPresentationControllerDidDismissPopover")
+        tabBarController?.view.subviews.filter({ $0.tag == 123 }).forEach({ $0.removeFromSuperview() })
     }
     
 }

@@ -84,6 +84,7 @@ class HomeShotCell: UICollectionViewCell {
         // config
         backgroundColor = UIColor.white
         backgroundView?.backgroundColor = backgroundColor
+        gifLabelImageView.tintColor = UIColor.white
         
         // layout
         contentView.addSubview(containerView)

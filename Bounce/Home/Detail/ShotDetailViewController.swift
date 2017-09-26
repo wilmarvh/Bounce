@@ -63,6 +63,7 @@ class ShotDetailViewController: UICollectionViewController {
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView?.register(ShotDetailImageCell.self, forCellWithReuseIdentifier: "ShotDetailImageCell")
         collectionView?.register(ShotDetailStatsCell.self, forCellWithReuseIdentifier: "ShotDetailStatsCell")
+        collectionView?.register(ShotDetailTextCellCollectionViewCell.nib(), forCellWithReuseIdentifier: "ShotDetailTextCellCollectionViewCell")
         
         // layout
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -122,14 +123,12 @@ class ShotDetailViewController: UICollectionViewController {
     func configureImageCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailImageCell", for: indexPath) as! ShotDetailImageCell
         cell.shotId = shot.id
+        cell.imageView.image = shot.anyImageFromCache()
         Shot.loadImage(for: shot) { [weak cell, weak self] shotId, image in
             guard cell?.shotId == shotId else { return }
-            cell?.imageView.alpha = 0
             cell?.imageView.image = image
-            UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations: {
-                cell?.imageView.alpha = 1
-                self?.updateCloseButtonTintColor(from: cell?.imageView)
-            }).startAnimation()
+            cell?.imageView.alpha = 1
+            self?.updateCloseButtonTintColor(from: cell?.imageView)
         }
         return cell
     }
@@ -144,8 +143,16 @@ class ShotDetailViewController: UICollectionViewController {
     }
     
     func configureTextCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.contentView.backgroundColor = .orange
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailTextCellCollectionViewCell", for: indexPath) as! ShotDetailTextCellCollectionViewCell
+        cell.profileId = shot.id
+        cell.titleLabel.text = shot.title
+        cell.profileButton.setTitle(shot.team?.name ?? shot.user.username, for: .normal)
+        cell.dateLabel.text = "on " + Localization.shortFullFormatter.string(from: shot.created_at)
+        cell.setDescriptionText(shot.description)
+        Shot.loadProfileImage(for: shot) { [weak cell] shotId, image in
+            guard cell?.profileId == shotId else { return }
+            cell?.profileImageView.imageView.image = image
+        }
         return cell
     }
     
