@@ -199,11 +199,17 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        let views = tabBarController?.view.subviews.filter({ $0.tag == 123 }) ?? []
+        UIView.animate(withDuration: 0.3, animations: {
+            views.forEach({ $0.alpha = 0 })
+        }) { finished in
+            views.forEach({ $0.removeFromSuperview() })
+        }
         return true
     }
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        tabBarController?.view.subviews.filter({ $0.tag == 123 }).forEach({ $0.removeFromSuperview() })
+        
     }
     
 }
