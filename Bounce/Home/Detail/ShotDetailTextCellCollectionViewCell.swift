@@ -19,19 +19,23 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
         titleLabel.numberOfLines = 2
         titleLabel.textColor = .black
         titleLabel.textAlignment = .left
+        titleLabel.text = nil
         
         byLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         byLabel.textColor = UIColor(red:0.56078, green:0.55686, blue:0.57647, alpha:1.00000)
         dateLabel.font = byLabel.font
         dateLabel.textColor = byLabel.textColor
+        dateLabel.text = nil
         
         profileButton.setTitleColor(UIColor.mediumPink(), for: .normal)
         profileButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        profileButton.setTitle(nil, for: .normal)
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         descriptionLabel.textColor = UIColor(red:0.41569, green:0.41177, blue:0.43529, alpha:1.00000)
         descriptionLabel.textAlignment = .left
+        descriptionLabel.text = nil
     }
     
     func setDescriptionText(_ string: String?) {

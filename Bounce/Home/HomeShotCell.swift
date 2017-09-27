@@ -101,7 +101,7 @@ class HomeShotCell: UICollectionViewCell {
         imageContainerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[gifLabelImageView]", options: [], metrics: metrics, views: views))
         // vertical
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[containerView]|", options: [], metrics: metrics, views: views))
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageContainerView(==200)][details(==75)]|", options: [], metrics: metrics, views: views))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageContainerView(==200)][details(==50)]|", options: [], metrics: metrics, views: views))
     }
     
     override func layoutSubviews() {

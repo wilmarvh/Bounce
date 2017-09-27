@@ -6,9 +6,25 @@ class ShotDetailViewController: UICollectionViewController {
     
     var shot: Shot!
     
+    var imageCell: ShotDetailImageCell!
+    
+    // MARK: Status bar
+
     var statusBarStyle: UIStatusBarStyle = .default
     
-    var imageCell: ShotDetailImageCell!
+    var statusBarHidden: Bool = false
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return statusBarHidden
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
     
     // MARK: View lifecycle
     
@@ -21,10 +37,11 @@ class ShotDetailViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return statusBarStyle
+        
+        statusBarHidden = true
+        UIView.animate(withDuration: 0.25) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
     }
     
     func updateCloseButtonTintColor(from imageView: UIImageView?) {
@@ -82,8 +99,8 @@ class ShotDetailViewController: UICollectionViewController {
         let views = ["button" : closeButton]
         let metrics = ["topInset" : UIApplication.shared.statusBarFrame.height + 15]
         view.addSubview(closeButton)
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[button(==29)]-15-|", options: [], metrics: metrics, views: views))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-topInset-[button(==29)]", options: [], metrics: metrics, views: views))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[button(==44)]-15-|", options: [], metrics: metrics, views: views))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-topInset-[button(==44)]", options: [], metrics: metrics, views: views))
     }
     
     @objc func close() {

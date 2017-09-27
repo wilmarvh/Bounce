@@ -110,9 +110,8 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeShotCell
         let shot = shots[indexPath.row] as Shot
-        cell.details.titleLabel.text = shot.title
+        cell.details.titleLabel.text = shot.team?.name ?? shot.user.username
         cell.details.profileImageView.imageView.image = UIImage(named: "tabProfile")
-        cell.details.profileLabel.text = shot.team?.name ?? shot.user.username
         cell.details.likesLabel.text = "\(shot.likes_count)"
         cell.gifLabelImageView.isHidden = !shot.animated
         cell.imageView.alpha = 0
