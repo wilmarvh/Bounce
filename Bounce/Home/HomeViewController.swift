@@ -6,6 +6,12 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     var shots: [Shot] = [Shot]()
     
+    var selectedFilter: HomeFilterType = .popular {
+        didSet {
+            updateFilterButtonTitle(with: selectedFilter)
+        }
+    }
+    
     // MARK: View lifecycle
 
     override func viewDidLoad() {
@@ -159,6 +165,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     @objc func showMenu() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeFilterViewController") as? HomeFilterViewController {
+            controller.selectedFilter = selectedFilter
             controller.modalPresentationStyle = .popover
             controller.collectionView?.reloadData()
             if let popoverController = controller.popoverPresentationController {
@@ -184,6 +191,12 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         debugPrint("Show layout")
     }
     
+    func updateFilterButtonTitle(with filter: HomeFilterType) {
+        if let button = navigationItem.leftBarButtonItem?.customView as? UIButton {
+            button.setTitle(filter.rawValue, for: .normal)
+        }
+    }
+    
     // MARK: Popover delegate
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -199,6 +212,11 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        // assign selected filter
+        if let controller = popoverPresentationController.presentedViewController as? HomeFilterViewController {
+            selectedFilter = controller.selectedFilter
+        }
+        // fade out overlay
         let views = tabBarController?.view.subviews.filter({ $0.tag == 123 }) ?? []
         UIView.animate(withDuration: 0.3, animations: {
             views.forEach({ $0.alpha = 0 })

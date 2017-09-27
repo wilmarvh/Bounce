@@ -1,9 +1,32 @@
 import UIKit
 
+enum HomeFilterType: String {
+    case popular = "Popular"
+    case recent = "Recent"
+    case teams = "Teams"
+    case playoffs = "Playoffs"
+    case debuts = "Debuts"
+    case rebounds = "Rebounds"
+    case gifs = "GIFs"
+    case attachments = "Attachments"
+    
+    static func allNames() -> [String] {
+        return [HomeFilterType.popular.rawValue,
+                HomeFilterType.recent.rawValue,
+                HomeFilterType.teams.rawValue,
+                HomeFilterType.playoffs.rawValue,
+                HomeFilterType.debuts.rawValue,
+                HomeFilterType.rebounds.rawValue,
+                HomeFilterType.gifs.rawValue,
+                HomeFilterType.attachments.rawValue
+        ]
+    }
+}
+
 class HomeFilterViewController: UICollectionViewController {
     
-    let items: [String] = ["Popular", "Recent", "Teams", "Playoffs", "Debuts", "Rebounds", "GIFs", "Attachments"]
-
+    var selectedFilter: HomeFilterType = .popular
+    
     // MARK: View lifecycle
     
     override func viewDidLoad() {
@@ -36,19 +59,22 @@ class HomeFilterViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return HomeFilterType.allNames().count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeFilterCell
-        cell.button.setTitle(items[indexPath.row], for: .normal)
+        let item = HomeFilterType.allNames()[indexPath.row]
+        cell.button.setTitle(item, for: .normal)
+        cell.button.isHighlighted = selectedFilter.rawValue == item
+        cell.button.action = { [weak self] in
+            let item = HomeFilterType.allNames()[indexPath.row]
+            if let filter = HomeFilterType(rawValue: item) {
+                self?.selectedFilter = filter
+                self?.collectionView?.reloadData()
+            }
+        }
         return cell
-    }
-    
-    // MARK: Actions
-    
-    @objc func didSelectOption() {
-        debugPrint("Change feed")
     }
 }
 
@@ -93,9 +119,27 @@ class HomeFilterCell: UICollectionViewCell {
 
 fileprivate class FilterButton: UIButton {
     
+    var action: (() -> Void)?
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        addTarget(self, action: #selector(tapped), for: .touchUpInside)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addTarget(self, action: #selector(tapped), for: .touchUpInside)
+    }
+    
     override open var isHighlighted: Bool {
         didSet {
             backgroundColor = isHighlighted ? UIColor.mediumPink() : UIColor.grayButton()
+        }
+    }
+    
+    @objc func tapped() {
+        if let action = action {
+            action()
         }
     }
     
