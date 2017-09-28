@@ -35,7 +35,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     func configureCollectionView() {
         // cells and other
         collectionView?.backgroundColor = UIColor.white
-        collectionView?.register(HomeShotCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView?.register(HomeShotListCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView?.refreshControl = UIRefreshControl(frame: .zero)
         collectionView?.refreshControl?.tintColor = UIColor.mediumPink()
         collectionView?.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -114,7 +114,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeShotCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeShotListCell
         let shot = shots[indexPath.row] as Shot
         cell.details.titleLabel.text = shot.team?.name ?? shot.user.username
         cell.details.profileImageView.imageView.image = UIImage(named: "tabProfile")

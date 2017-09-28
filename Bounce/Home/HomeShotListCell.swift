@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeShotCell: UICollectionViewCell {
+class HomeShotListCell: UICollectionViewCell {
     
     // MARK: Lifecycle
     
@@ -29,9 +29,9 @@ class HomeShotCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var details: HomeShotCellDetailsContainerView = {
-        let owner = HomeShotCellDetailsContainerView()
-        let view = HomeShotCellDetailsContainerView.viewFromNib(owner: owner) as! HomeShotCellDetailsContainerView
+    lazy var details: HomeShotListCellDetailsContainerView = {
+        let owner = HomeShotListCellDetailsContainerView()
+        let view = HomeShotListCellDetailsContainerView.viewFromNib(owner: owner) as! HomeShotListCellDetailsContainerView
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]

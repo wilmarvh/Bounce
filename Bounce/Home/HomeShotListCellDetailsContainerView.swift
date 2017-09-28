@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeShotCellDetailsContainerView: UIView, Nibloadable {
+class HomeShotListCellDetailsContainerView: UIView, Nibloadable {
     
     @IBOutlet weak var profileImageView: ProfileImageView!
     @IBOutlet weak var titleLabel: UILabel!
