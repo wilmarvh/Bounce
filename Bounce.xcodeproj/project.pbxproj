@@ -43,6 +43,8 @@
 		1F939FA61F731CE500C03386 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA51F731CE500C03386 /* Links.swift */; };
 		1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA91F7322EC00C03386 /* UIFont.swift */; };
 		1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA012501F75A7C100EB4927 /* UIColor.swift */; };
+		1FADB41F1F7DB5D10006343D /* HomeViewListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADB41D1F7DB5D00006343D /* HomeViewListLayout.swift */; };
+		1FADB4201F7DB5D10006343D /* HomeViewGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FADB41E1F7DB5D00006343D /* HomeViewGridLayout.swift */; };
 		1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78EC61F7814E90039BE04 /* UIImage.swift */; };
 		1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78EC91F78356F0039BE04 /* ProfileImageView.swift */; };
 		1FB78ECD1F7847280039BE04 /* ShotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78ECC1F7847280039BE04 /* ShotDetailViewController.swift */; };
@@ -191,6 +193,8 @@
 		1F939FA51F731CE500C03386 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F939FA91F7322EC00C03386 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		1FA012501F75A7C100EB4927 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1FADB41D1F7DB5D00006343D /* HomeViewListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewListLayout.swift; sourceTree = "<group>"; };
+		1FADB41E1F7DB5D00006343D /* HomeViewGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewGridLayout.swift; sourceTree = "<group>"; };
 		1FB78EC61F7814E90039BE04 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		1FB78EC91F78356F0039BE04 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		1FB78ECC1F7847280039BE04 /* ShotDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailViewController.swift; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 				1F161B301F772E15003631C2 /* HomeShotListCellDetailsContainerView.xib */,
 				1F161B321F773422003631C2 /* HomeShotListCellDetailsContainerView.swift */,
 				1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */,
+				1FADB41E1F7DB5D00006343D /* HomeViewGridLayout.swift */,
+				1FADB41D1F7DB5D00006343D /* HomeViewListLayout.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -711,11 +717,13 @@
 				1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */,
 				1FB78ED41F78645A0039BE04 /* Localization.swift in Sources */,
 				1FB78ECF1F78514C0039BE04 /* ShotDetailImageCell.swift in Sources */,
+				1FADB41F1F7DB5D10006343D /* HomeViewListLayout.swift in Sources */,
 				1F161B361F773587003631C2 /* Nibloadable.swift in Sources */,
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
 				1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */,
 				1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */,
 				1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */,
+				1FADB4201F7DB5D10006343D /* HomeViewGridLayout.swift in Sources */,
 				1F161B331F773422003631C2 /* HomeShotListCellDetailsContainerView.swift in Sources */,
 				1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */,
 				1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */,

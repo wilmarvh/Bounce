@@ -2,6 +2,8 @@ import UIKit
 
 class HomeShotListCell: UICollectionViewCell {
     
+    var imageContainerViewHeightConstraint: NSLayoutConstraint?
+    
     // MARK: Lifecycle
     
     required init?(coder aDecoder: NSCoder) {
@@ -87,7 +89,7 @@ class HomeShotListCell: UICollectionViewCell {
                                      "details" : details,
                                      "gifLabelImageView" : gifLabelImageView,
                                      "imageView" : imageView]
-        let metrics: [String: Any] = ["inset": 15]
+        let metrics: [String: Any] = ["inset": 0]
         
         // container
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-inset-[containerView]-inset-|", options: [], metrics: metrics, views: views))
@@ -101,7 +103,9 @@ class HomeShotListCell: UICollectionViewCell {
         imageContainerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[gifLabelImageView]", options: [], metrics: metrics, views: views))
         // vertical
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[containerView]|", options: [], metrics: metrics, views: views))
-        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageContainerView(==200)][details(==50)]|", options: [], metrics: metrics, views: views))
+        containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageContainerView][details(==50)]|", options: [], metrics: metrics, views: views))
+        imageContainerViewHeightConstraint = NSLayoutConstraint(item: imageContainerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200)
+        containerView.addConstraint(imageContainerViewHeightConstraint!)
     }
     
     override func layoutSubviews() {
@@ -126,6 +130,25 @@ class HomeShotListCell: UICollectionViewCell {
                 }
             }
         }
+    }
+    
+    func updateViews(`for` layout: UICollectionViewLayout) {
+        details.isHidden = layout is HomeViewGridLayout
+        gifLabelImageView.isHidden = layout is HomeViewGridLayout
+        containerView.addSmallShadow()
+        
+        if layout is HomeViewGridLayout {
+            imageContainerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+            imageContainerViewHeightConstraint?.constant = 140
+        } else {
+            imageContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            imageContainerViewHeightConstraint?.constant = 200
+        }
+    }
+    
+    override func willTransition(from oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout) {
+        super.willTransition(from: oldLayout, to: newLayout)
+        updateViews(for: newLayout)
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {

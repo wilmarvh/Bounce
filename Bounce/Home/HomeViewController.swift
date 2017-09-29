@@ -12,11 +12,15 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         }
     }
     
+    var listLayout: HomeViewListLayout = HomeViewListLayout()
+    
+    var gridLayout: HomeViewGridLayout = HomeViewGridLayout()
+    
     // MARK: View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
         configureNavigationBar()
         configureCollectionView()
         configureBarButtonItems()
@@ -34,20 +38,15 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     func configureCollectionView() {
         // cells and other
+        view.backgroundColor = .white
         collectionView?.backgroundColor = UIColor.white
-        collectionView?.register(HomeShotListCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView?.register(HomeShotListCell.self, forCellWithReuseIdentifier: "HomeShotListCell")
         collectionView?.refreshControl = UIRefreshControl(frame: .zero)
         collectionView?.refreshControl?.tintColor = UIColor.mediumPink()
         collectionView?.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         // layout
-        if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.sectionInset = UIEdgeInsetsMake(15, 0, 15, 0)
-            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 275)
-            layout.minimumInteritemSpacing = 0
-            layout.minimumLineSpacing = 25
-            collectionView?.collectionViewLayout = layout
-        }
+        collectionView?.collectionViewLayout = listLayout
     }
     
     func newMenuButton(size: CGFloat, imageName: String) -> UIButton {
@@ -87,8 +86,9 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         button.addTarget(self, action: #selector(showTime), for: .touchUpInside)
         buttons.append(button)
         // layout
-        button = newMenuButton(size: height, imageName: "layoutChange")
-        button.addTarget(self, action: #selector(showLayout), for: .touchUpInside)
+        let layoutImageName = collectionView?.collectionViewLayout is HomeViewListLayout ? "gridLayout" : "listLayout"
+        button = newMenuButton(size: height, imageName: layoutImageName)
+        button.addTarget(self, action: #selector(toggleLayout), for: .touchUpInside)
         buttons.append(button)
         // stackview
         let stackView = UIStackView()
@@ -114,7 +114,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeShotListCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeShotListCell", for: indexPath) as! HomeShotListCell
         let shot = shots[indexPath.row] as Shot
         cell.details.titleLabel.text = shot.team?.name ?? shot.user.username
         cell.details.profileImageView.imageView.image = UIImage(named: "tabProfile")
@@ -127,6 +127,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
             }).startAnimation()
         })
         cell.details.profileImageView.imageView.pin_setImage(from: shot.profileImageURL())
+        cell.updateViews(for: collectionView.collectionViewLayout)
         return cell
     }
     
@@ -182,13 +183,25 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     @objc func showFilter() {
         debugPrint("Show filter")
     }
-
+    
     @objc func showTime() {
         debugPrint("Show time")
     }
     
-    @objc func showLayout() {
-        debugPrint("Show layout")
+    @objc func toggleLayout(sender: UIButton) {
+        var newLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        if collectionView?.collectionViewLayout is HomeViewListLayout {
+            newLayout = gridLayout
+            sender.setImage(UIImage(named: "listLayout"), for: .normal)
+        } else if collectionView?.collectionViewLayout is HomeViewGridLayout {
+            newLayout = listLayout
+            sender.setImage(UIImage(named: "gridLayout"), for: .normal)
+        }
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.collectionView?.collectionViewLayout.invalidateLayout()
+            self.collectionView?.setCollectionViewLayout(newLayout, animated: true)
+        })
     }
     
     func updateFilterButtonTitle(with filter: HomeFilterType) {
@@ -231,3 +244,4 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
 }
+
