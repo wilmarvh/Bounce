@@ -6,6 +6,8 @@ class ShotDetailViewController: UICollectionViewController {
     
     var shot: Shot!
     
+    var comments: [Comment]?
+    
     var imageCell: ShotDetailImageCell!
     
     // MARK: Status bar
@@ -33,6 +35,7 @@ class ShotDetailViewController: UICollectionViewController {
         
         configureCollectionView()
         configureCloseButton()
+        loadComments()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +87,8 @@ class ShotDetailViewController: UICollectionViewController {
         collectionView?.register(ShotDetailImageCell.self, forCellWithReuseIdentifier: "ShotDetailImageCell")
         collectionView?.register(ShotDetailStatsCell.self, forCellWithReuseIdentifier: "ShotDetailStatsCell")
         collectionView?.register(ShotDetailTextCellCollectionViewCell.nib(), forCellWithReuseIdentifier: "ShotDetailTextCellCollectionViewCell")
-        collectionView?.register(ShotDetailHashTagsCell.self, forCellWithReuseIdentifier: "ShotDetailHashTagsCell")
+        collectionView?.register(ShotDetailTagsCell.self, forCellWithReuseIdentifier: "ShotDetailTagsCell")
+        collectionView?.register(ShotDetailCommentsCell.self, forCellWithReuseIdentifier: "ShotDetailCommentsCell")
         
         // layout
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -110,18 +114,18 @@ class ShotDetailViewController: UICollectionViewController {
     
     // MARK: UICollectionView DataSource / Delegate
     
-    enum DetailSection: Int {
+    private enum Section: Int {
         case image = 0
         case stats = 1
         case text = 2
-        case hashTags = 3
+        case tags = 3
         case comments = 4
         
-        static let allValus: [DetailSection] = [.image, .stats, .text, .hashTags, .comments]
+        static let allValus: [Section] = [.image, .stats, .text, .tags, .comments]
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return DetailSection.allValus.count
+        return Section.allValus.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -129,7 +133,7 @@ class ShotDetailViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let section = DetailSection(rawValue: indexPath.section)!
+        let section = Section(rawValue: indexPath.section)!
         switch section {
         case .image:
             return configureImageCell(collectionView, cellForItemAt: indexPath)
@@ -137,8 +141,8 @@ class ShotDetailViewController: UICollectionViewController {
             return configureStatsCell(collectionView, cellForItemAt: indexPath)
         case .text:
             return configureTextCell(collectionView, cellForItemAt: indexPath)
-        case .hashTags:
-            return configureHashTagsCell(collectionView, cellForItemAt: indexPath)
+        case .tags:
+            return configureTagsCell(collectionView, cellForItemAt: indexPath)
         case .comments:
             return configureCommentsCell(collectionView, cellForItemAt: indexPath)
         }
@@ -174,15 +178,28 @@ class ShotDetailViewController: UICollectionViewController {
         return cell
     }
     
-    func configureHashTagsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailHashTagsCell", for: indexPath) as! ShotDetailHashTagsCell
-        cell.hashTags = shot.tags
+    func configureTagsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailTagsCell", for: indexPath) as! ShotDetailTagsCell
+        cell.tags = shot.tags
         return cell
     }
     
     func configureCommentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentsCell", for: indexPath) as! ShotDetailCommentsCell
+        cell.shot = shot
+        cell.comments = comments ?? []
         return cell
+    }
+    
+    // MARK: Data
+    
+    func loadComments() {
+        Comment.fetch(for: shot) { [weak self] comments, error in
+            self?.comments = comments
+            let offset = self?.collectionView?.contentOffset ?? CGPoint(x: 0, y: 0)
+            self?.collectionView?.reloadData()
+            self?.collectionView?.contentOffset = offset
+        }
     }
     
 }

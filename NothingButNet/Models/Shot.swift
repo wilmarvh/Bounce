@@ -44,8 +44,8 @@ extension Shot {
     
     public static func fetchPopularShots(completion: @escaping ([Shot]?, Error?) -> Void) {
         let url = API.shots.asURL()
-        let task = NothingButNet.session.dataTask(with: url) { data, urlResponse, error in
-            NothingButNet.setNetworkActivityIndicatorVisible(false)
+        let task = NothingBut.Net.dataTask(with: url) { data, urlResponse, error in
+            NothingBut.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {
                 return completion(nil, error)
             }
@@ -56,7 +56,7 @@ extension Shot {
         }
         
         task.resume()
-        NothingButNet.setNetworkActivityIndicatorVisible(true)
+        NothingBut.setNetworkActivityIndicatorVisible(true)
     }
 
 }

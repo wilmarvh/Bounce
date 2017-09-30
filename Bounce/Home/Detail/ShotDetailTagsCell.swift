@@ -1,10 +1,10 @@
 import UIKit
 
-class ShotDetailHashTagsCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ShotDetailTagsCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var hashTags: [String] = [String]() {
+    var tags: [String] = [String]() {
         didSet {
-            hashTags = hashTags.map({ "#" + $0 })
+            tags = tags.map({ "#" + $0 })
             collectionView.reloadData()
         }
     }
@@ -30,8 +30,8 @@ class ShotDetailHashTagsCell: UICollectionViewCell, UICollectionViewDataSource, 
         return view
     }()
     
-    lazy var layout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
+    fileprivate lazy var layout: LeftAlignedCollectionViewFlowLayout = {
+        let layout = LeftAlignedCollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: 50, height: 21)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 15, right: 15)
         layout.minimumLineSpacing = 10
@@ -47,7 +47,7 @@ class ShotDetailHashTagsCell: UICollectionViewCell, UICollectionViewDataSource, 
         collectionView.delegate = self
         collectionView.backgroundColor = .white
         collectionView.backgroundView?.backgroundColor = .white
-        collectionView.register(HashTagCell.self, forCellWithReuseIdentifier: "HashTagCell")
+        collectionView.register(TagCell.self, forCellWithReuseIdentifier: "TagCell")
         return collectionView
     }()
     
@@ -63,15 +63,6 @@ class ShotDetailHashTagsCell: UICollectionViewCell, UICollectionViewDataSource, 
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[container]|", options: [], metrics: nil, views: views))
         container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[collectionView]|", options: [], metrics: nil, views: views))
         container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[collectionView]|", options: [], metrics: nil, views: views))
-    }
-    
-    // MARK: Layout
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.layer.removeAllBorderLayers()
-        contentView.layer.addBottomBorder(inset: 0)
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
@@ -91,24 +82,24 @@ class ShotDetailHashTagsCell: UICollectionViewCell, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hashTags.count
+        return tags.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HashTagCell", for: indexPath) as! HashTagCell
-        cell.label.text = hashTags[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
+        cell.label.text = tags[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let text = hashTags[indexPath.row]
-        let size = TextSize.size(text, font: HashTagCell.font, maxWidth: frame.width, insets: .zero)
+        let text = tags[indexPath.row]
+        let size = TextSize.size(text, font: TagCell.font, maxWidth: frame.width, insets: .zero)
         return CGSize(width: size.width, height: size.height)
     }
 }
 
 
-fileprivate class HashTagCell: UICollectionViewCell {
+fileprivate class TagCell: UICollectionViewCell {
     
     // MARK: Lifecycles
     
@@ -136,7 +127,7 @@ fileprivate class HashTagCell: UICollectionViewCell {
     lazy var label: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = HashTagCell.font
+        label.font = TagCell.font
         label.textAlignment = .left
         label.textColor = UIColor.mediumPink()
         return label
@@ -154,5 +145,28 @@ fileprivate class HashTagCell: UICollectionViewCell {
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[container]|", options: [], metrics: nil, views: views))
         container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[label]|", options: [], metrics: nil, views: views))
         container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label]|", options: [], metrics: nil, views: views))
+    }
+}
+
+
+fileprivate class LeftAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        let attributes = super.layoutAttributesForElements(in: rect)
+        
+        var leftMargin = sectionInset.left
+        var maxY: CGFloat = -1.0
+        attributes?.forEach { layoutAttribute in
+            if layoutAttribute.frame.origin.y >= maxY {
+                leftMargin = sectionInset.left
+            }
+            
+            layoutAttribute.frame.origin.x = leftMargin
+            
+            leftMargin += layoutAttribute.frame.width + minimumInteritemSpacing
+            maxY = max(layoutAttribute.frame.maxY , maxY)
+        }
+        
+        return attributes
     }
 }

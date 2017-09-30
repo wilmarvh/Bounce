@@ -4,6 +4,7 @@ enum API {
     case user
     case users(String)
     case shots
+    case shotComments(Int)
     
     static let baseURL: URL = URL(string: "https://api.dribbble.com/v1/")!
     
@@ -28,26 +29,29 @@ enum API {
             return "users/\(user)"
         case .shots:
             return "shots"
+        case .shotComments(let id):
+            return "\(API.shots.pathComponent())/\(id)/comments"
         }
     }
 }
 
-class NothingButNet {
+class NothingBut {
     
-    lazy var session: URLSession = {
+    private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = ["Authorization" : "Bearer ae04eff00cd0125a8615fa28ec64c347e8cd80dbc8fd3c5647632d129d5318eb"]
+        configuration.httpAdditionalHeaders = ["Authorization": "Bearer ae04eff00cd0125a8615fa28ec64c347e8cd80dbc8fd3c5647632d129d5318eb"]
+//        configuration.httpAdditionalHeaders = ["Accept": "application/json"]
         return URLSession(configuration: configuration)
     }()
     
     // MARK: Singleton
     
-    open static let Net = {
-        return NothingButNet()
+    private static let shared = {
+        return NothingBut()
     }()
     
-    class var session: URLSession {
-        return NothingButNet.Net.session
+    class var Net: URLSession {
+        return NothingBut.shared.session
     }
     
     // MARK: Network activity

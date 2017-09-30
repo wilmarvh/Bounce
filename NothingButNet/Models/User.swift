@@ -1,6 +1,39 @@
 import Foundation
 
 public struct User: Codable {
+    enum CodingKeys: String, CodingKey {
+        case avatar_url
+        case bio
+        case buckets_count
+        case buckets_url
+        case can_upload_shot
+        case comments_received_count
+        case created_at
+        case followers_count
+        case followers_url
+        case following_url
+        case followings_count
+        case html_url
+        case id
+        case likes_count
+        case likes_received_count
+        case likes_url
+        case links
+        case location
+        case name
+        case pro
+        case projects_count
+        case projects_url
+        case rebounds_received_count
+        case shots_count
+        case shots_url
+        case teams_count
+        case teams_url
+        case type
+        case updated_at
+        case username
+    }
+    
     public var avatar_url: String
     public var bio: String
     public var buckets_count: Int
@@ -45,8 +78,8 @@ extension User {
     
     public static func fetchCurrent(completion: @escaping (User?, Error?) -> Void) {
         let url = API.user.asURL()
-        let task = NothingButNet.session.dataTask(with: url) { data, urlResponse, error in
-            NothingButNet.setNetworkActivityIndicatorVisible(false)
+        let task = NothingBut.Net.dataTask(with: url) { data, urlResponse, error in
+            NothingBut.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {
                 return completion(nil, error)
             }
@@ -56,14 +89,14 @@ extension User {
             }
         }
         
-        NothingButNet.setNetworkActivityIndicatorVisible(true)
+        NothingBut.setNetworkActivityIndicatorVisible(true)
         task.resume()
     }
     
     public static func fetch(with username: String, completion: @escaping (User?, Error?) -> Void) {
         let url = API.users(username).asURL()
-        let task = NothingButNet.session.dataTask(with: url) { data, urlResponse, error in
-            NothingButNet.setNetworkActivityIndicatorVisible(false)
+        let task = NothingBut.Net.dataTask(with: url) { data, urlResponse, error in
+            NothingBut.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {
                 return completion(nil, error)
             }
@@ -73,7 +106,7 @@ extension User {
             }
         }
         
-        NothingButNet.setNetworkActivityIndicatorVisible(true)
+        NothingBut.setNetworkActivityIndicatorVisible(true)
         task.resume()
     }
     
