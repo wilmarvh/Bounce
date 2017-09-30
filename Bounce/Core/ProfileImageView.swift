@@ -1,6 +1,7 @@
 import UIKit
+import Nuke
 
-class ProfileImageView: UIView {
+class ProfileImageView: UIView, Nuke.Target {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,6 +38,12 @@ class ProfileImageView: UIView {
         
         layer.cornerRadius = frame.width / 2
         imageView.layer.cornerRadius = imageView.frame.width / 2
+    }
+    
+    // MARK: Nuke
+    
+    func handle(response: Result<Image>, isFromMemoryCache: Bool) {
+        imageView.image = response.value ?? UIImage(named: "profile")
     }
     
 }

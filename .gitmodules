@@ -1,9 +1,12 @@
-[submodule "PINRemoteImage"]
-	path = PINRemoteImage
-	url = https://github.com/pinterest/PINRemoteImage.git
-[submodule "FLAnimatedImage"]
-	path = FLAnimatedImage
-	url = git@github.com:Flipboard/FLAnimatedImage.git
-[submodule "SDWebImage"]
-	path = SDWebImage
-	url = git@github.com:rs/SDWebImage.git
+[submodule "Nuke"]
+	path = Nuke
+	url = git@github.com:kean/Nuke.git
+[submodule "Nuke-Gifu-Plugin"]
+	path = Nuke-Gifu-Plugin
+	url = git@github.com:kean/Nuke-Gifu-Plugin.git
+[submodule "Gifu"]
+	path = Gifu
+	url = git@github.com:kaishin/Gifu.git
+[submodule "Preheat"]
+	path = Preheat
+	url = git@github.com:kean/Preheat.git

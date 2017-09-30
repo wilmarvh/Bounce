@@ -1,8 +1,9 @@
 import Foundation
 
-public struct Team: Codable {
-    public var avatar_url: String //": "https://cdn.dribbble.com/users/40433/avatars/normal/41b86a77ca368dd4a969397ef39ba9a6.png?1472167036",
-    var bio: String //": "Digital Agency in SF, NY, LA and Iceland. Clients include Google, Reuters, Facebook, Uber, ESPN, Red Bull, Samsung, Airbnb, Lonely Planet, Verizon &amp; Dropbox. public ",
+public struct Team: Decodable {
+    var avatar_url: String //": "https://cdn.dribbble.com/users/40433/avatars/normal/41b86a77ca368dd4a969397ef39ba9a6.png?1472167036",
+    public var avatarURL: URL = dribbbleURL //": "https://cdn.dribbble.com/users/40433/avatars/normal/41b86a77ca368dd4a969397ef39ba9a6.png?1472167036",
+    public var bio: String //": "Digital Agency in SF, NY, LA and Iceland. Clients include Google, Reuters, Facebook, Uber, ESPN, Red Bull, Samsung, Airbnb, Lonely Planet, Verizon &amp; Dropbox. public ",
     public var buckets_count: Int //": 0,
     public var buckets_url: String //": "https://api.dribbble.com/v1/users/40433/buckets",
     public var can_upload_shot: Bool //": true,
@@ -32,4 +33,38 @@ public struct Team: Codable {
     public var type: String //": "Team",
     public var updated_at: Date //": "2017-09-20T21:33:32Z",
     public var username: String //": "ueno"
+    
+    private enum CodingKeys: String, CodingKey {
+        case avatar_url
+        case bio
+        case buckets_count
+        case buckets_url
+        case can_upload_shot
+        case comments_received_count
+        case created_at
+        case followers_count
+        case followers_url
+        case following_url
+        case followings_count
+        case html_url
+        case id
+        case likes_count
+        case likes_received_count
+        case likes_url
+        case links
+        case location
+        case members_count
+        case members_url
+        case name
+        case pro
+        case projects_count
+        case projects_url
+        case rebounds_received_count
+        case shots_count
+        case shots_url
+        case team_shots_url
+        case type
+        case updated_at
+        case username
+    }
 }

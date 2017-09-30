@@ -1,8 +1,13 @@
 import UIKit
 import NothingButNet
-import PINRemoteImage
+import Nuke
+import Preheat
 
-class HomeViewController: UICollectionViewController, UIPopoverPresentationControllerDelegate, UICollectionViewDataSourcePrefetching {
+class HomeViewController: UICollectionViewController, UIPopoverPresentationControllerDelegate {
+    
+    let preheater = Nuke.Preheater()
+    
+    var preheatController: Preheat.Controller<UICollectionView>?
     
     var shots: [Shot] = [Shot]()
     
@@ -21,10 +26,38 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // configure
         configureNavigationBar()
         configureCollectionView()
         configureBarButtonItems()
         loadData()
+        
+        // preheat
+        preheatController = Preheat.Controller(view: collectionView!)
+        preheatController?.handler = { [weak self] addedIndexPaths, removedIndexPaths in
+            self?.preheat(added: addedIndexPaths, removed: removedIndexPaths)
+        }
+    }
+    
+    func preheat(added: [IndexPath], removed: [IndexPath]) {
+        func requests(for indexPaths: [IndexPath]) -> [Request] {
+            return indexPaths.map { Request(url: shots[$0.row].images.normalURL) }
+        }
+        preheater.startPreheating(with: requests(for: added))
+        preheater.stopPreheating(with: requests(for: removed))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        preheatController?.enabled = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // When you disable preheat controller it removes all preheating
+        // index paths and calls its handler
+        preheatController?.enabled = false
     }
     
     // MARK: Configure view
@@ -44,7 +77,6 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         collectionView?.refreshControl = UIRefreshControl(frame: .zero)
         collectionView?.refreshControl?.tintColor = UIColor.mediumPink()
         collectionView?.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        collectionView?.prefetchDataSource = self
         
         // layout
         collectionView?.collectionViewLayout = listLayout
@@ -121,24 +153,28 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         cell.details.profileImageView.imageView.image = UIImage(named: "tabProfile")
         cell.details.likesLabel.text = "\(shot.likes_count)"
         cell.gifLabelImageView.isHidden = !shot.animated
-        cell.imageView.alpha = 0
-        cell.imageView.pin_setImage(from: shot.imageURL(), completion: { [weak cell] result in
-            UIViewPropertyAnimator(duration: 0.2, curve: .easeIn, animations: {
-                cell?.imageView.alpha = 1
-            }).startAnimation()
-        })
-        cell.details.profileImageView.imageView.pin_setImage(from: shot.profileImageURL())
-        cell.updateViews(for: collectionView.collectionViewLayout)
+        // image
+        Nuke.loadImage(with: shot.hidpiImageURL(), into: cell.imageView) { [weak cell] response, isFromMemoryCache in
+            if isFromMemoryCache {
+                cell?.imageView.handle(response: response, isFromMemoryCache: isFromMemoryCache)
+            } else {
+                cell?.imageView.alpha = 0
+                UIViewPropertyAnimator(duration: 0.15, curve: .easeIn, animations: {
+                    cell?.imageView.handle(response: response, isFromMemoryCache: isFromMemoryCache)
+                    cell?.imageView.alpha = 1
+                }).startAnimation()
+            }
+        }
+        // profile image
+        debugPrint(shot.profileImageURL().absoluteString)
+        Nuke.loadImage(with: shot.profileImageURL(), into: cell.details.profileImageView)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        indexPaths.flatMap{ indexPath in
-            return shots[indexPath.row].imageURL()
-            }.forEach({ url in
-                debugPrint("Prefetching \(url)")
-                PINRemoteImageManager.shared().downloadImage(with: url, options: [], progressImage: nil, completion: nil)
-            })
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? HomeShotListCell {
+            cell.updateViews(for: collectionView.collectionViewLayout)
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

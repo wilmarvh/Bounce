@@ -1,5 +1,7 @@
 import Foundation
 
+public let dribbbleURL = URL(string: "https://www.dribbble.com")!
+
 enum API {
     case user
     case users(String)
@@ -38,9 +40,9 @@ enum API {
 class NothingBut {
     
     private lazy var session: URLSession = {
-        let configuration = URLSessionConfiguration.default
+        let configuration = HTTPLogger.defaultSessionConfiguration()
         configuration.httpAdditionalHeaders = ["Authorization": "Bearer ae04eff00cd0125a8615fa28ec64c347e8cd80dbc8fd3c5647632d129d5318eb"]
-//        configuration.httpAdditionalHeaders = ["Accept": "application/json"]
+        HTTPLogger.register()
         return URLSession(configuration: configuration)
     }()
     

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Links: Codable {
+public struct Links: Decodable {
     var twitter: String?
     var web: String?
 }

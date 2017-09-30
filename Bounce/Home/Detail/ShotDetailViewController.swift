@@ -1,6 +1,7 @@
 import UIKit
 import NothingButNet
-import PINRemoteImage
+import NukeGifuPlugin
+import Nuke
 
 class ShotDetailViewController: UICollectionViewController {
     
@@ -51,20 +52,23 @@ class ShotDetailViewController: UICollectionViewController {
         // https://stackoverflow.com/a/2509596/149591
         // ((Red value * 299) + (Green value * 587) + (Blue value * 114)) / 1000
         guard let image = imageView?.image, let cgImage = image.cgImage else { return }
-        let cropRect = CGRect(x: image.size.width - 50, y: 0, width: 50, height: 30)
-        if let topRightCorner = cgImage.cropping(to: cropRect) {
-            let croppedImage = UIImage(cgImage: topRightCorner)
-            let averageColor = croppedImage.areaAverage()
-            if let components = averageColor.rgb() {
-                let result = ((components.red * 299) + (components.green * 587) + (components.blue * 114)) / 1000
-                if result > 125 {
-                    closeButton.tintColor = UIColor.bounceBlack()
-                    statusBarStyle = .default
-                } else {
-                    closeButton.tintColor = UIColor.white
-                    statusBarStyle = .lightContent
-                }
-                setNeedsStatusBarAppearanceUpdate()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            let cropRect = CGRect(x: image.size.width - 50, y: 0, width: 50, height: 30)
+            if let topRightCorner = cgImage.cropping(to: cropRect) {
+                let croppedImage = UIImage(cgImage: topRightCorner)
+                croppedImage.areaAverage(completion: { averageColor in
+                    if let components = averageColor.rgb() {
+                        let result = ((components.red * 299) + (components.green * 587) + (components.blue * 114)) / 1000
+                        if result > 125 {
+                            self?.closeButton.tintColor = UIColor.bounceBlack()
+                            self?.statusBarStyle = .default
+                        } else {
+                            self?.closeButton.tintColor = UIColor.white
+                            self?.statusBarStyle = .lightContent
+                        }
+                        self?.setNeedsStatusBarAppearanceUpdate()
+                    }
+                })
             }
         }
     }
@@ -151,9 +155,9 @@ class ShotDetailViewController: UICollectionViewController {
     func configureImageCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if imageCell == nil {
             imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailImageCell", for: indexPath) as! ShotDetailImageCell
-            imageCell.imageView.pin_setImage(from: shot.imageURL()) { [weak imageCell, weak self] result in
-                self?.updateCloseButtonTintColor(from: imageCell?.imageView)
-            }
+            AnimatedImage.manager.loadImage(with: shot.hidpiImageURL(), into: imageCell.imageView, handler: { [weak self] result, cache in
+                self?.imageCell?.imageView.handle(response: result, isFromMemoryCache: cache)
+            })
         }
         return imageCell
     }
@@ -174,7 +178,7 @@ class ShotDetailViewController: UICollectionViewController {
         cell.profileButton.setTitle(shot.team?.name ?? shot.user.username, for: .normal)
         cell.dateLabel.text = "on " + Localization.shortFullFormatter.string(from: shot.created_at)
         cell.setDescriptionText(shot.description)
-        cell.profileImageView.imageView.pin_setImage(from: shot.profileImageURL())
+        Nuke.loadImage(with: shot.profileImageURL(), into: cell.profileImageView)
         return cell
     }
     

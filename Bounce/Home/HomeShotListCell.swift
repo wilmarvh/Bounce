@@ -1,4 +1,5 @@
 import UIKit
+import NukeGifuPlugin
 
 class HomeShotListCell: UICollectionViewCell {
     
@@ -18,7 +19,7 @@ class HomeShotListCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageView.image = nil
+        imageView.imageView.image = nil
         gifLabelImageView.isHidden = true
     }
     
@@ -42,10 +43,11 @@ class HomeShotListCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var imageView: UIImageView = {
-        let view = UIImageView(frame: .zero)
+    lazy var imageView: AnimatedImageView = {
+        let view = AnimatedImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
+        view.imageView.contentMode = view.contentMode
         view.clipsToBounds = true
         return view
     }()
@@ -114,18 +116,21 @@ class HomeShotListCell: UICollectionViewCell {
         // https://stackoverflow.com/a/2509596/149591
         // ((Red value * 299) + (Green value * 587) + (Blue value * 114)) / 1000
         if gifLabelImageView.isHidden == false {
-            if let image = imageView.image, let cgImage = image.cgImage {
-                let cropRect = CGRect(x: image.size.width - 50, y: 0, width: 50, height: 30)
-                if let topRightCorner = cgImage.cropping(to: cropRect) {
-                    let croppedImage = UIImage(cgImage: topRightCorner)
-                    let averageColor = croppedImage.areaAverage()
-                    if let components = averageColor.rgb() {
-                        let result = ((components.red * 299) + (components.green * 587) + (components.blue * 114)) / 1000
-                        if result > 125 {
-                            gifLabelImageView.tintColor = UIColor.bounceBlack()
-                        } else {
-                            gifLabelImageView.tintColor = UIColor.white
-                        }
+            if let image = imageView.imageView.image, let cgImage = image.cgImage {
+                DispatchQueue.global(qos: .background).async { [weak self] in
+                    let cropRect = CGRect(x: image.size.width - 50, y: 0, width: 50, height: 30)
+                    if let topRightCorner = cgImage.cropping(to: cropRect) {
+                        let croppedImage = UIImage(cgImage: topRightCorner)
+                        croppedImage.areaAverage(completion: { averageColor in
+                            if let components = averageColor.rgb() {
+                                let result = ((components.red * 299) + (components.green * 587) + (components.blue * 114)) / 1000
+                                if result > 125 {
+                                    self?.gifLabelImageView.tintColor = UIColor.bounceBlack()
+                                } else {
+                                    self?.gifLabelImageView.tintColor = UIColor.white
+                                }
+                            }
+                        })
                     }
                 }
             }
@@ -134,15 +139,17 @@ class HomeShotListCell: UICollectionViewCell {
     
     func updateViews(`for` layout: UICollectionViewLayout) {
         details.isHidden = layout is HomeViewGridLayout
-        gifLabelImageView.isHidden = layout is HomeViewGridLayout
         containerView.addSmallShadow()
         
         if layout is HomeViewGridLayout {
             imageContainerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
             imageContainerViewHeightConstraint?.constant = 140
+            gifLabelImageView.isHidden = true
         } else {
             imageContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             imageContainerViewHeightConstraint?.constant = 200
+            // gifLabelImageView.isHidden = true // don't change the value here, it's already being set in cellForRow in HomeViewController
+            // it shouldn't be overwritten for the list layout
         }
     }
     

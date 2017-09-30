@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Comment: Codable {
+public struct Comment: Decodable {
     public var body: String //": "<p><a href=\"https://dribbble.com/606911\">@Bartosz Żaczek</a> Thanks for the honesty man, it's meant to be different and not that formal as a lots of fintech apps.</p>\n\n<p><a href=\"https://dribbble.com/754539\">@Robert Ligthart ✌</a> Thanks for your honest opinion man 😉</p>",
     public var created_at: Date //": "2017-09-13T13:45:18Z",
     public var id: Int //": 6548063,

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Shot: Codable {
+public struct Shot: Decodable {
     public var animated: Bool //": false,
     public var attachments_count: Int //": 0,
     public var attachments_url: String //": "https://api.dribbble.com/v1/shots/3817782/attachments",
@@ -32,7 +32,7 @@ public struct Shot: Codable {
         decoder.dateDecodingStrategy = .iso8601
         do {
             let shots = try decoder.decode([Shot].self, from: data)
-            return shots
+            return Shot.createURLs(for: shots)
         } catch let error {
             debugPrint("\(error)")
             return nil
@@ -63,12 +63,26 @@ extension Shot {
 
 extension Shot {
     
-    public func imageURL() -> URL? {
-        return URL(string: images.hidpi ?? images.normal)
+    private static func createURLs(for shots: [Shot]) -> [Shot] {
+        return shots.map({ (shot) -> Shot in
+            var s = shot
+            s.images.hidpiURL = URL(string: shot.images.hidpi ?? "")
+            s.images.normalURL = URL(string: shot.images.normal)!
+            s.images.teaserURL = URL(string: shot.images.teaser)!
+            s.user.avatarURL = URL(string: s.user.avatar_url) ?? dribbbleURL
+            if let team = s.team {
+                s.team?.avatarURL = URL(string: team.avatar_url) ?? dribbbleURL
+            }
+            return s
+        })
     }
     
-    public func profileImageURL() -> URL? {
-        return URL(string: team?.avatar_url ?? user.avatar_url)
+    public func hidpiImageURL() -> URL {
+        return images.hidpiURL ?? images.normalURL
+    }
+    
+    public func profileImageURL() -> URL {
+        return team?.avatarURL ?? user.avatarURL
     }
     
 }

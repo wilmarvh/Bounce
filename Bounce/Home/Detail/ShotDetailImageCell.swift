@@ -1,5 +1,5 @@
 import UIKit
-import FLAnimatedImage
+import NukeGifuPlugin
 
 class ShotDetailImageCell: UICollectionViewCell {
     
@@ -24,11 +24,11 @@ class ShotDetailImageCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var imageView: FLAnimatedImageView = {
-        let view = FLAnimatedImageView(frame: .zero)
+    lazy var imageView: AnimatedImageView = {
+        let view = AnimatedImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
-        view.startAnimating()
+        view.prepareForReuse()
         return view
     }()
     
