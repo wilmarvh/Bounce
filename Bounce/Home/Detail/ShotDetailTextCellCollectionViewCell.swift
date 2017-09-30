@@ -57,7 +57,6 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
         
         contentView.layer.removeAllBorderLayers()
         contentView.layer.addTopBorder(inset: 0)
-        contentView.layer.addBottomBorder(inset: 0)
     }
     
     // MARK: Height

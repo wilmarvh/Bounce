@@ -32,8 +32,8 @@ class ShotDetailHashTagsCell: UICollectionViewCell, UICollectionViewDataSource, 
     
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 10, height: 10)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        layout.estimatedItemSize = CGSize(width: 50, height: 21)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 15, right: 15)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.scrollDirection = .vertical
@@ -66,6 +66,13 @@ class ShotDetailHashTagsCell: UICollectionViewCell, UICollectionViewDataSource, 
     }
     
     // MARK: Layout
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.layer.removeAllBorderLayers()
+        contentView.layer.addBottomBorder(inset: 0)
+    }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         setNeedsLayout()
