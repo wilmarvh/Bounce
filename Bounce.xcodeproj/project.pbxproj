@@ -30,6 +30,8 @@
 		1F7FA6281F8043E8003FFBB6 /* Preheat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7FA6251F8043D0003FFBB6 /* Preheat.framework */; };
 		1F7FA6291F8043E8003FFBB6 /* Preheat.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7FA6251F8043D0003FFBB6 /* Preheat.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F7FA62D1F80480E003FFBB6 /* HTTPLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FA62C1F80480E003FFBB6 /* HTTPLogger.swift */; };
+		1F7FA6401F805A37003FFBB6 /* SwiftRichString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7FA6371F805A2A003FFBB6 /* SwiftRichString.framework */; };
+		1F7FA6411F805A37003FFBB6 /* SwiftRichString.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7FA6371F805A2A003FFBB6 /* SwiftRichString.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F471F7306A100C03386 /* AppDelegate.swift */; };
 		1F939F4D1F7306A100C03386 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F939F4B1F7306A100C03386 /* Main.storyboard */; };
 		1F939F4F1F7306A100C03386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F939F4E1F7306A100C03386 /* Assets.xcassets */; };
@@ -195,6 +197,48 @@
 			remoteGlobalIDString = 0CD20B141CA45C1E006BA4B9;
 			remoteInfo = "Preheat iOS";
 		};
+		1F7FA6361F805A2A003FFBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 52D6D97C1BEFF229002C0205;
+			remoteInfo = "SwiftRichString-iOS";
+		};
+		1F7FA6381F805A2A003FFBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 52D6DA0F1BF000BD002C0205;
+			remoteInfo = "SwiftRichString-macOS";
+		};
+		1F7FA63A1F805A2A003FFBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 52D6D9E21BEFFF6E002C0205;
+			remoteInfo = "SwiftRichString-watchOS";
+		};
+		1F7FA63C1F805A2A003FFBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 52D6D9F01BEFFFBE002C0205;
+			remoteInfo = "SwiftRichString-tvOS";
+		};
+		1F7FA63E1F805A2A003FFBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 377C8E431F0EF04200D4026C;
+			remoteInfo = DemoApp;
+		};
+		1F7FA6421F805A37003FFBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 52D6D97B1BEFF229002C0205;
+			remoteInfo = "SwiftRichString-iOS";
+		};
 		1F939F591F7306A100C03386 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F939F3C1F7306A100C03386 /* Project object */;
@@ -240,6 +284,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				1F0BCF8E1F8035DB00872D52 /* NukeGifuPlugin.framework in Embed Frameworks */,
+				1F7FA6411F805A37003FFBB6 /* SwiftRichString.framework in Embed Frameworks */,
 				1F7FA6291F8043E8003FFBB6 /* Preheat.framework in Embed Frameworks */,
 				1F0BCF921F8035DB00872D52 /* Gifu.framework in Embed Frameworks */,
 				1F939F901F73073400C03386 /* NothingButNet.framework in Embed Frameworks */,
@@ -271,6 +316,7 @@
 		1F2843751F7696000083E6AD /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		1F7FA6161F8043D0003FFBB6 /* Preheat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Preheat.xcodeproj; path = Preheat/Preheat.xcodeproj; sourceTree = "<group>"; };
 		1F7FA62C1F80480E003FFBB6 /* HTTPLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLogger.swift; sourceTree = "<group>"; };
+		1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftRichString.xcodeproj; path = SwiftRichString/SwiftRichString.xcodeproj; sourceTree = "<group>"; };
 		1F939F441F7306A100C03386 /* Bounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F939F471F7306A100C03386 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F939F4C1F7306A100C03386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -321,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0BCF8D1F8035DB00872D52 /* NukeGifuPlugin.framework in Frameworks */,
+				1F7FA6401F805A37003FFBB6 /* SwiftRichString.framework in Frameworks */,
 				1F7FA6281F8043E8003FFBB6 /* Preheat.framework in Frameworks */,
 				1F0BCF911F8035DB00872D52 /* Gifu.framework in Frameworks */,
 				1F939F8F1F73073400C03386 /* NothingButNet.framework in Frameworks */,
@@ -402,9 +449,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F7FA62F1F805A2A003FFBB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F7FA6371F805A2A003FFBB6 /* SwiftRichString.framework */,
+				1F7FA6391F805A2A003FFBB6 /* SwiftRichString.framework */,
+				1F7FA63B1F805A2A003FFBB6 /* SwiftRichString.framework */,
+				1F7FA63D1F805A2A003FFBB6 /* SwiftRichString.framework */,
+				1F7FA63F1F805A2A003FFBB6 /* DemoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1F939F3B1F7306A100C03386 = {
 			isa = PBXGroup;
 			children = (
+				1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */,
 				1F7FA6161F8043D0003FFBB6 /* Preheat.xcodeproj */,
 				1F0BCF651F80359F00872D52 /* Nuke.xcodeproj */,
 				1F0BCF831F8035C300872D52 /* Nuke-Gifu-Plugin.xcodeproj */,
@@ -621,6 +681,7 @@
 				1F0BCF901F8035DB00872D52 /* PBXTargetDependency */,
 				1F0BCF941F8035DB00872D52 /* PBXTargetDependency */,
 				1F7FA62B1F8043E8003FFBB6 /* PBXTargetDependency */,
+				1F7FA6431F805A37003FFBB6 /* PBXTargetDependency */,
 			);
 			name = Bounce;
 			productName = Bounce;
@@ -769,6 +830,10 @@
 					ProductGroup = 1F7FA6171F8043D0003FFBB6 /* Products */;
 					ProjectRef = 1F7FA6161F8043D0003FFBB6 /* Preheat.xcodeproj */;
 				},
+				{
+					ProductGroup = 1F7FA62F1F805A2A003FFBB6 /* Products */;
+					ProjectRef = 1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -878,6 +943,41 @@
 			fileType = wrapper.framework;
 			path = Preheat.framework;
 			remoteRef = 1F7FA6261F8043D0003FFBB6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F7FA6371F805A2A003FFBB6 /* SwiftRichString.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftRichString.framework;
+			remoteRef = 1F7FA6361F805A2A003FFBB6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F7FA6391F805A2A003FFBB6 /* SwiftRichString.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftRichString.framework;
+			remoteRef = 1F7FA6381F805A2A003FFBB6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F7FA63B1F805A2A003FFBB6 /* SwiftRichString.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftRichString.framework;
+			remoteRef = 1F7FA63A1F805A2A003FFBB6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F7FA63D1F805A2A003FFBB6 /* SwiftRichString.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftRichString.framework;
+			remoteRef = 1F7FA63C1F805A2A003FFBB6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F7FA63F1F805A2A003FFBB6 /* DemoApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DemoApp.app;
+			remoteRef = 1F7FA63E1F805A2A003FFBB6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1025,6 +1125,11 @@
 			isa = PBXTargetDependency;
 			name = "Preheat iOS";
 			targetProxy = 1F7FA62A1F8043E8003FFBB6 /* PBXContainerItemProxy */;
+		};
+		1F7FA6431F805A37003FFBB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftRichString-iOS";
+			targetProxy = 1F7FA6421F805A37003FFBB6 /* PBXContainerItemProxy */;
 		};
 		1F939F5A1F7306A100C03386 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

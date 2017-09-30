@@ -1,5 +1,6 @@
 import UIKit
 import Foundation
+import SwiftRichString
 
 class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
     
@@ -41,11 +42,23 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
     func setDescriptionText(_ string: String?) {
         if let string = string, let data = string.data(using: .utf8) {
             do {
-                let text = try NSAttributedString(data: data,
-                                                  options: [.documentType: NSAttributedString.DocumentType.html,
-                                                                        .characterEncoding: String.Encoding.utf8.rawValue],
-                                                  documentAttributes: nil).string
-                descriptionLabel.text = text
+                let attributedText = try NSMutableAttributedString(data: data,
+                                                            options: [.documentType: NSAttributedString.DocumentType.html,
+                                                                      .characterEncoding: String.Encoding.utf8.rawValue],
+                                                            documentAttributes: nil)
+                let style_normal = Style("normal", {
+                    $0.font = FontAttribute(descriptionLabel.font.fontName, size: Float(descriptionLabel.font.pointSize))
+                    $0.color = descriptionLabel.textColor
+                })
+                _ = attributedText.add(style: style_normal)
+                attributedText.enumerateAttribute(.link, in: attributedText.string.nsRange(from: nil), options: [], using: { value, range, stop in
+                    if let _ = value {
+                        attributedText.removeAttribute(.link, range: range)
+                        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.mediumPink()], range: range)
+                        attributedText.addAttributes([NSAttributedStringKey.underlineColor: UIColor.mediumPink()], range: range)
+                    }
+                })
+                descriptionLabel.attributedText = attributedText
             } catch {
                 descriptionLabel.text = string
             }

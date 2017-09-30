@@ -10,3 +10,6 @@
 [submodule "Preheat"]
 	path = Preheat
 	url = git@github.com:kean/Preheat.git
+[submodule "SwiftRichString"]
+	path = SwiftRichString
+	url = git@github.com:malcommac/SwiftRichString.git
