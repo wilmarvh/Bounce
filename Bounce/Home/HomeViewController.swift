@@ -2,7 +2,7 @@ import UIKit
 import NothingButNet
 import PINRemoteImage
 
-class HomeViewController: UICollectionViewController, UIPopoverPresentationControllerDelegate {
+class HomeViewController: UICollectionViewController, UIPopoverPresentationControllerDelegate, UICollectionViewDataSourcePrefetching {
     
     var shots: [Shot] = [Shot]()
     
@@ -44,6 +44,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         collectionView?.refreshControl = UIRefreshControl(frame: .zero)
         collectionView?.refreshControl?.tintColor = UIColor.mediumPink()
         collectionView?.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        collectionView?.prefetchDataSource = self
         
         // layout
         collectionView?.collectionViewLayout = listLayout
@@ -129,6 +130,15 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         cell.details.profileImageView.imageView.pin_setImage(from: shot.profileImageURL())
         cell.updateViews(for: collectionView.collectionViewLayout)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        indexPaths.flatMap{ indexPath in
+            return shots[indexPath.row].imageURL()
+            }.forEach({ url in
+                debugPrint("Prefetching \(url)")
+                PINRemoteImageManager.shared().downloadImage(with: url, options: [], progressImage: nil, completion: nil)
+            })
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

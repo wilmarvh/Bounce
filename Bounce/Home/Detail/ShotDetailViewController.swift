@@ -84,6 +84,7 @@ class ShotDetailViewController: UICollectionViewController {
         collectionView?.register(ShotDetailImageCell.self, forCellWithReuseIdentifier: "ShotDetailImageCell")
         collectionView?.register(ShotDetailStatsCell.self, forCellWithReuseIdentifier: "ShotDetailStatsCell")
         collectionView?.register(ShotDetailTextCellCollectionViewCell.nib(), forCellWithReuseIdentifier: "ShotDetailTextCellCollectionViewCell")
+        collectionView?.register(ShotDetailHashTagsCell.self, forCellWithReuseIdentifier: "ShotDetailHashTagsCell")
         
         // layout
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -113,9 +114,10 @@ class ShotDetailViewController: UICollectionViewController {
         case image = 0
         case stats = 1
         case text = 2
-        case comments = 3
+        case hashTags = 3
+        case comments = 4
         
-        static let allValus: [DetailSection] = [.image, .stats, .text, .comments]
+        static let allValus: [DetailSection] = [.image, .stats, .text, .hashTags, .comments]
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -135,6 +137,8 @@ class ShotDetailViewController: UICollectionViewController {
             return configureStatsCell(collectionView, cellForItemAt: indexPath)
         case .text:
             return configureTextCell(collectionView, cellForItemAt: indexPath)
+        case .hashTags:
+            return configureHashTagsCell(collectionView, cellForItemAt: indexPath)
         case .comments:
             return configureCommentsCell(collectionView, cellForItemAt: indexPath)
         }
@@ -167,6 +171,12 @@ class ShotDetailViewController: UICollectionViewController {
         cell.dateLabel.text = "on " + Localization.shortFullFormatter.string(from: shot.created_at)
         cell.setDescriptionText(shot.description)
         cell.profileImageView.imageView.pin_setImage(from: shot.profileImageURL())
+        return cell
+    }
+    
+    func configureHashTagsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailHashTagsCell", for: indexPath) as! ShotDetailHashTagsCell
+        cell.hashTags = shot.tags
         return cell
     }
     

@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-444" y="188"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="mlU-GG-A7V">
             <objects>
-                <viewController id="sJ5-vj-Ave" sceneMemberID="viewController">
+                <viewController id="sJ5-vj-Ave" customClass="ProfileViewController" customModule="Bounce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bd4-pU-VdZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

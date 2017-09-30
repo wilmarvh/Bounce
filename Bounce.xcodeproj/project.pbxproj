@@ -17,6 +17,9 @@
 		1F06C3D31F7B0BF30071B421 /* PINCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3D11F7B0BF30071B421 /* PINCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F06C3D51F7B0C2A0071B421 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3D41F7B0C2A0071B421 /* PINOperation.framework */; };
 		1F06C3D61F7B0C2A0071B421 /* PINOperation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F06C3D41F7B0C2A0071B421 /* PINOperation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F0BCF501F7FCD8400872D52 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF4F1F7FCD8400872D52 /* ProfileViewController.swift */; };
+		1F0BCF521F7FCEF600872D52 /* ShotDetailHashTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF511F7FCEF600872D52 /* ShotDetailHashTagsCell.swift */; };
+		1F0BCF551F7FD68E00872D52 /* TextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF541F7FD68E00872D52 /* TextSize.swift */; };
 		1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2A1F7715DE003631C2 /* HomeViewController.swift */; };
 		1F161B2D1F77179D003631C2 /* BounceTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */; };
 		1F161B2F1F77186F003631C2 /* HomeShotListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2E1F77186F003631C2 /* HomeShotListCell.swift */; };
@@ -160,6 +163,10 @@
 		1F06C3B91F7B05A00071B421 /* FLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAnimatedImage.xcodeproj; path = FLAnimatedImage/FLAnimatedImage.xcodeproj; sourceTree = "<group>"; };
 		1F06C3D11F7B0BF30071B421 /* PINCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PINCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F06C3D41F7B0C2A0071B421 /* PINOperation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PINOperation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0BCF4E1F7FCCB100872D52 /* Bounce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bounce.entitlements; sourceTree = "<group>"; };
+		1F0BCF4F1F7FCD8400872D52 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1F0BCF511F7FCEF600872D52 /* ShotDetailHashTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailHashTagsCell.swift; sourceTree = "<group>"; };
+		1F0BCF541F7FD68E00872D52 /* TextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSize.swift; sourceTree = "<group>"; };
 		1F161B2A1F7715DE003631C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F161B2C1F77179D003631C2 /* BounceTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceTabBarItem.swift; sourceTree = "<group>"; };
 		1F161B2E1F77186F003631C2 /* HomeShotListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShotListCell.swift; sourceTree = "<group>"; };
@@ -304,6 +311,7 @@
 		1F939F461F7306A100C03386 /* Bounce */ = {
 			isa = PBXGroup;
 			children = (
+				1F0BCF4E1F7FCCB100872D52 /* Bounce.entitlements */,
 				1F939F4E1F7306A100C03386 /* Assets.xcassets */,
 				1F939F471F7306A100C03386 /* AppDelegate.swift */,
 				1FDB9ABD1F771318001DB054 /* Core */,
@@ -388,6 +396,7 @@
 				1FB78EC61F7814E90039BE04 /* UIImage.swift */,
 				1FB78ED31F78645A0039BE04 /* Localization.swift */,
 				1FB78ED61F786F6A0039BE04 /* UIImage+Gif.swift */,
+				1F0BCF541F7FD68E00872D52 /* TextSize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 				1FB78ED11F7857EF0039BE04 /* ShotDetailStatsCell.swift */,
 				1F06C3A41F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift */,
 				1F06C3A51F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.xib */,
+				1F0BCF511F7FCEF600872D52 /* ShotDetailHashTagsCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -450,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				1FDB9AC61F77151F001DB054 /* Profile.storyboard */,
+				1F0BCF4F1F7FCD8400872D52 /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -575,6 +586,11 @@
 					1F939F431F7306A100C03386 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					1F939F571F7306A100C03386 = {
 						CreatedOnToolsVersion = 9.0;
@@ -721,8 +737,11 @@
 				1F161B361F773587003631C2 /* Nibloadable.swift in Sources */,
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
 				1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */,
+				1F0BCF501F7FCD8400872D52 /* ProfileViewController.swift in Sources */,
+				1F0BCF551F7FD68E00872D52 /* TextSize.swift in Sources */,
 				1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */,
 				1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */,
+				1F0BCF521F7FCEF600872D52 /* ShotDetailHashTagsCell.swift in Sources */,
 				1FADB4201F7DB5D10006343D /* HomeViewGridLayout.swift in Sources */,
 				1F161B331F773422003631C2 /* HomeShotListCellDetailsContainerView.swift in Sources */,
 				1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */,
@@ -941,6 +960,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bounce/Bounce.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = Bounce/Info.plist;
@@ -957,6 +977,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bounce/Bounce.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XM53S226;
 				INFOPLIST_FILE = Bounce/Info.plist;
