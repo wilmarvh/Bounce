@@ -92,34 +92,38 @@ class ShotDetailStatsCell: UICollectionViewCell {
         
         //
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[containerView]|", options: [], metrics: metrics, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[containerView]|", options: [], metrics: metrics, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[containerView(==80)]|", options: [], metrics: metrics, views: views))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-inset-[imagesStackView]-inset-|", options: [], metrics: metrics, views: views))
         containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[imagesStackView(==25)]", options: [], metrics: metrics, views: views))
         // likeslabel
         containerView.addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .centerX, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[0], attribute: .centerX, multiplier: 1.0, constant: 0))
         containerView.addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .top, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[0], attribute: .bottom, multiplier: 1.0, constant: 5))
         containerView.addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20))
+        containerView.addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1.0, constant: -15))
         // commentslabel
         containerView.addConstraint(NSLayoutConstraint(item: commentsLabel, attribute: .centerX, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[1], attribute: .centerX, multiplier: 1.0, constant: 0))
         containerView.addConstraint(NSLayoutConstraint(item: commentsLabel, attribute: .top, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[1], attribute: .bottom, multiplier: 1.0, constant: 5))
         containerView.addConstraint(NSLayoutConstraint(item: commentsLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20))
+        containerView.addConstraint(NSLayoutConstraint(item: commentsLabel, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1.0, constant: -15))
         // viewslabel
         containerView.addConstraint(NSLayoutConstraint(item: viewsLabel, attribute: .centerX, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[2], attribute: .centerX, multiplier: 1.0, constant: 0))
         containerView.addConstraint(NSLayoutConstraint(item: viewsLabel, attribute: .top, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[2], attribute: .bottom, multiplier: 1.0, constant: 5))
         containerView.addConstraint(NSLayoutConstraint(item: viewsLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20))
+        containerView.addConstraint(NSLayoutConstraint(item: viewsLabel, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1.0, constant: -15))
         // bucketslabel
         containerView.addConstraint(NSLayoutConstraint(item: bucketsLabel, attribute: .centerX, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[3], attribute: .centerX, multiplier: 1.0, constant: 0))
         containerView.addConstraint(NSLayoutConstraint(item: bucketsLabel, attribute: .top, relatedBy: .equal, toItem: imagesStackView.arrangedSubviews[3], attribute: .bottom, multiplier: 1.0, constant: 5))
         containerView.addConstraint(NSLayoutConstraint(item: bucketsLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20))
+        containerView.addConstraint(NSLayoutConstraint(item: bucketsLabel, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1.0, constant: -15))
     }
     
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        var newFrame = layoutAttributes.frame
-        // note: don't change the width
-        newFrame.size.height = 80
-        layoutAttributes.frame = newFrame
-        return layoutAttributes
-    }
+//    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+//        var newFrame = layoutAttributes.frame
+//        // note: don't change the width
+//        newFrame.size.height = 80
+//        layoutAttributes.frame = newFrame
+//        return layoutAttributes
+//    }
     
 }
 

@@ -3,13 +3,15 @@ import NothingButNet
 import NukeGifuPlugin
 import Nuke
 
-class ShotDetailViewController: UICollectionViewController {
+class ShotDetailViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var shot: Shot!
     
     var comments: [Comment]?
     
     var imageCell: ShotDetailImageCell!
+    
+    var commentsContainerCell: ShotDetailCommentsContainerCell!
     
     // MARK: Status bar
 
@@ -92,12 +94,12 @@ class ShotDetailViewController: UICollectionViewController {
         collectionView?.register(ShotDetailStatsCell.self, forCellWithReuseIdentifier: "ShotDetailStatsCell")
         collectionView?.register(ShotDetailTextCellCollectionViewCell.nib(), forCellWithReuseIdentifier: "ShotDetailTextCellCollectionViewCell")
         collectionView?.register(ShotDetailTagsCell.self, forCellWithReuseIdentifier: "ShotDetailTagsCell")
-        collectionView?.register(ShotDetailCommentsCell.self, forCellWithReuseIdentifier: "ShotDetailCommentsCell")
+        collectionView?.register(ShotDetailCommentsContainerCell.self, forCellWithReuseIdentifier: "ShotDetailCommentsContainerCell")
         
         // layout
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = UIEdgeInsetsMake(-UIApplication.shared.statusBarFrame.height, 0, 15, 0)
-            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 311)
+            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 326)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
             collectionView?.collectionViewLayout = layout
@@ -189,10 +191,12 @@ class ShotDetailViewController: UICollectionViewController {
     }
     
     func configureCommentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentsCell", for: indexPath) as! ShotDetailCommentsCell
-        cell.shot = shot
-        cell.comments = comments ?? []
-        return cell
+        if commentsContainerCell == nil {
+            commentsContainerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentsContainerCell", for: indexPath) as! ShotDetailCommentsContainerCell
+            commentsContainerCell.shot = shot
+        }
+        commentsContainerCell.comments = comments ?? []
+        return commentsContainerCell
     }
     
     // MARK: Data
@@ -200,9 +204,12 @@ class ShotDetailViewController: UICollectionViewController {
     func loadComments() {
         Comment.fetch(for: shot) { [weak self] comments, error in
             self?.comments = comments
-            let offset = self?.collectionView?.contentOffset ?? CGPoint(x: 0, y: 0)
-            self?.collectionView?.reloadData()
-            self?.collectionView?.contentOffset = offset
+            self?.commentsContainerCell = nil
+            self?.collectionView?.performBatchUpdates({
+
+            }, completion: { (finished) in
+
+            })
         }
     }
     

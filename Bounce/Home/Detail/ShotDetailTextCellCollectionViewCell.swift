@@ -48,6 +48,7 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
                                                             documentAttributes: nil)
                 let style_normal = Style("normal", {
                     $0.font = FontAttribute(descriptionLabel.font.fontName, size: Float(descriptionLabel.font.pointSize))
+                    $0.kern = Float(-0.4)
                     $0.color = descriptionLabel.textColor
                 })
                 _ = attributedText.add(style: style_normal)

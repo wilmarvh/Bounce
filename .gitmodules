@@ -13,3 +13,6 @@
 [submodule "SwiftRichString"]
 	path = SwiftRichString
 	url = git@github.com:malcommac/SwiftRichString.git
+[submodule "SnapKit"]
+	path = SnapKit
+	url = git@github.com:SnapKit/SnapKit.git

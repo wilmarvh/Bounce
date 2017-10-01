@@ -12,7 +12,7 @@
 		1F0BCF501F7FCD8400872D52 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF4F1F7FCD8400872D52 /* ProfileViewController.swift */; };
 		1F0BCF521F7FCEF600872D52 /* ShotDetailTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF511F7FCEF600872D52 /* ShotDetailTagsCell.swift */; };
 		1F0BCF551F7FD68E00872D52 /* TextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF541F7FD68E00872D52 /* TextSize.swift */; };
-		1F0BCF571F7FE91C00872D52 /* ShotDetailCommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsCell.swift */; };
+		1F0BCF571F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift */; };
 		1F0BCF591F7FECAB00872D52 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF581F7FECAB00872D52 /* Comment.swift */; };
 		1F0BCF891F8035DB00872D52 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0BCF721F80359F00872D52 /* Nuke.framework */; };
 		1F0BCF8A1F8035DB00872D52 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0BCF721F80359F00872D52 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -27,6 +27,11 @@
 		1F161B331F773422003631C2 /* HomeShotListCellDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B321F773422003631C2 /* HomeShotListCellDetailsContainerView.swift */; };
 		1F161B361F773587003631C2 /* Nibloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B351F773587003631C2 /* Nibloadable.swift */; };
 		1F2843761F7696000083E6AD /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2843751F7696000083E6AD /* UICollectionViewCell.swift */; };
+		1F46EED31F80DFA9003F22C5 /* ShotDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46EED11F80DFA9003F22C5 /* ShotDetailCommentCell.swift */; };
+		1F46EED41F80DFA9003F22C5 /* ShotDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F46EED21F80DFA9003F22C5 /* ShotDetailCommentCell.xib */; };
+		1F46EED61F813766003F22C5 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46EED51F813766003F22C5 /* NSAttributedString.swift */; };
+		1F46EEE01F819DEB003F22C5 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F46EEDD1F819D8D003F22C5 /* SnapKit.framework */; };
+		1F46EEE11F819DEB003F22C5 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F46EEDD1F819D8D003F22C5 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F7FA6281F8043E8003FFBB6 /* Preheat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7FA6251F8043D0003FFBB6 /* Preheat.framework */; };
 		1F7FA6291F8043E8003FFBB6 /* Preheat.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7FA6251F8043D0003FFBB6 /* Preheat.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F7FA62D1F80480E003FFBB6 /* HTTPLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FA62C1F80480E003FFBB6 /* HTTPLogger.swift */; };
@@ -176,6 +181,27 @@
 			remoteGlobalIDString = 00B8C73D1A364DA400C188E7;
 			remoteInfo = Gifu;
 		};
+		1F46EEDC1F819D8D003F22C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F46EED71F819D8D003F22C5 /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
+			remoteInfo = SnapKit;
+		};
+		1F46EEDE1F819D8D003F22C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F46EED71F819D8D003F22C5 /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
+			remoteInfo = "SnapKit Tests";
+		};
+		1F46EEE21F819DEB003F22C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F46EED71F819D8D003F22C5 /* SnapKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EEBCC9D719CC627D0083B827;
+			remoteInfo = SnapKit;
+		};
 		1F7FA6241F8043D0003FFBB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F7FA6161F8043D0003FFBB6 /* Preheat.xcodeproj */;
@@ -286,6 +312,7 @@
 				1F0BCF8E1F8035DB00872D52 /* NukeGifuPlugin.framework in Embed Frameworks */,
 				1F7FA6411F805A37003FFBB6 /* SwiftRichString.framework in Embed Frameworks */,
 				1F7FA6291F8043E8003FFBB6 /* Preheat.framework in Embed Frameworks */,
+				1F46EEE11F819DEB003F22C5 /* SnapKit.framework in Embed Frameworks */,
 				1F0BCF921F8035DB00872D52 /* Gifu.framework in Embed Frameworks */,
 				1F939F901F73073400C03386 /* NothingButNet.framework in Embed Frameworks */,
 				1F0BCF8A1F8035DB00872D52 /* Nuke.framework in Embed Frameworks */,
@@ -302,7 +329,7 @@
 		1F0BCF4F1F7FCD8400872D52 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1F0BCF511F7FCEF600872D52 /* ShotDetailTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailTagsCell.swift; sourceTree = "<group>"; };
 		1F0BCF541F7FD68E00872D52 /* TextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSize.swift; sourceTree = "<group>"; };
-		1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailCommentsCell.swift; sourceTree = "<group>"; };
+		1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailCommentsContainerCell.swift; sourceTree = "<group>"; };
 		1F0BCF581F7FECAB00872D52 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		1F0BCF5C1F80357F00872D52 /* Gifu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Gifu.xcodeproj; path = Gifu/Gifu.xcodeproj; sourceTree = "<group>"; };
 		1F0BCF651F80359F00872D52 /* Nuke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nuke.xcodeproj; path = Nuke/Nuke.xcodeproj; sourceTree = "<group>"; };
@@ -314,6 +341,10 @@
 		1F161B321F773422003631C2 /* HomeShotListCellDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShotListCellDetailsContainerView.swift; sourceTree = "<group>"; };
 		1F161B351F773587003631C2 /* Nibloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nibloadable.swift; sourceTree = "<group>"; };
 		1F2843751F7696000083E6AD /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		1F46EED11F80DFA9003F22C5 /* ShotDetailCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailCommentCell.swift; sourceTree = "<group>"; };
+		1F46EED21F80DFA9003F22C5 /* ShotDetailCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShotDetailCommentCell.xib; sourceTree = "<group>"; };
+		1F46EED51F813766003F22C5 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
+		1F46EED71F819D8D003F22C5 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = SnapKit/SnapKit.xcodeproj; sourceTree = "<group>"; };
 		1F7FA6161F8043D0003FFBB6 /* Preheat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Preheat.xcodeproj; path = Preheat/Preheat.xcodeproj; sourceTree = "<group>"; };
 		1F7FA62C1F80480E003FFBB6 /* HTTPLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLogger.swift; sourceTree = "<group>"; };
 		1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftRichString.xcodeproj; path = SwiftRichString/SwiftRichString.xcodeproj; sourceTree = "<group>"; };
@@ -369,6 +400,7 @@
 				1F0BCF8D1F8035DB00872D52 /* NukeGifuPlugin.framework in Frameworks */,
 				1F7FA6401F805A37003FFBB6 /* SwiftRichString.framework in Frameworks */,
 				1F7FA6281F8043E8003FFBB6 /* Preheat.framework in Frameworks */,
+				1F46EEE01F819DEB003F22C5 /* SnapKit.framework in Frameworks */,
 				1F0BCF911F8035DB00872D52 /* Gifu.framework in Frameworks */,
 				1F939F8F1F73073400C03386 /* NothingButNet.framework in Frameworks */,
 				1F0BCF891F8035DB00872D52 /* Nuke.framework in Frameworks */,
@@ -440,6 +472,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F46EED81F819D8D003F22C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F46EEDD1F819D8D003F22C5 /* SnapKit.framework */,
+				1F46EEDF1F819D8D003F22C5 /* SnapKit Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1F7FA6171F8043D0003FFBB6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +505,7 @@
 		1F939F3B1F7306A100C03386 = {
 			isa = PBXGroup;
 			children = (
+				1F46EED71F819D8D003F22C5 /* SnapKit.xcodeproj */,
 				1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */,
 				1F7FA6161F8043D0003FFBB6 /* Preheat.xcodeproj */,
 				1F0BCF651F80359F00872D52 /* Nuke.xcodeproj */,
@@ -581,6 +623,7 @@
 				1FB78ED31F78645A0039BE04 /* Localization.swift */,
 				1FB78ED61F786F6A0039BE04 /* UIImage+Gif.swift */,
 				1F0BCF541F7FD68E00872D52 /* TextSize.swift */,
+				1F46EED51F813766003F22C5 /* NSAttributedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -594,7 +637,9 @@
 				1F06C3A41F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift */,
 				1F06C3A51F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.xib */,
 				1F0BCF511F7FCEF600872D52 /* ShotDetailTagsCell.swift */,
-				1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsCell.swift */,
+				1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift */,
+				1F46EED11F80DFA9003F22C5 /* ShotDetailCommentCell.swift */,
+				1F46EED21F80DFA9003F22C5 /* ShotDetailCommentCell.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -682,6 +727,7 @@
 				1F0BCF941F8035DB00872D52 /* PBXTargetDependency */,
 				1F7FA62B1F8043E8003FFBB6 /* PBXTargetDependency */,
 				1F7FA6431F805A37003FFBB6 /* PBXTargetDependency */,
+				1F46EEE31F819DEB003F22C5 /* PBXTargetDependency */,
 			);
 			name = Bounce;
 			productName = Bounce;
@@ -831,6 +877,10 @@
 					ProjectRef = 1F7FA6161F8043D0003FFBB6 /* Preheat.xcodeproj */;
 				},
 				{
+					ProductGroup = 1F46EED81F819D8D003F22C5 /* Products */;
+					ProjectRef = 1F46EED71F819D8D003F22C5 /* SnapKit.xcodeproj */;
+				},
+				{
 					ProductGroup = 1F7FA62F1F805A2A003FFBB6 /* Products */;
 					ProjectRef = 1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */;
 				},
@@ -931,6 +981,20 @@
 			remoteRef = 1F0BCF871F8035C300872D52 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		1F46EEDD1F819D8D003F22C5 /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 1F46EEDC1F819D8D003F22C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F46EEDF1F819D8D003F22C5 /* SnapKit Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit Tests.xctest";
+			remoteRef = 1F46EEDE1F819D8D003F22C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		1F7FA6251F8043D0003FFBB6 /* Preheat.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -989,6 +1053,7 @@
 			files = (
 				1FDB9AC51F771504001DB054 /* Jobs.storyboard in Resources */,
 				1FDB9AC31F7714ED001DB054 /* Discovery.storyboard in Resources */,
+				1F46EED41F80DFA9003F22C5 /* ShotDetailCommentCell.xib in Resources */,
 				1F939F521F7306A100C03386 /* LaunchScreen.storyboard in Resources */,
 				1F939F4F1F7306A100C03386 /* Assets.xcassets in Resources */,
 				1F939F4D1F7306A100C03386 /* Main.storyboard in Resources */,
@@ -1041,6 +1106,7 @@
 				1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */,
 				1FB78ED21F7857EF0039BE04 /* ShotDetailStatsCell.swift in Sources */,
 				1F161B2F1F77186F003631C2 /* HomeShotListCell.swift in Sources */,
+				1F46EED61F813766003F22C5 /* NSAttributedString.swift in Sources */,
 				1F2843761F7696000083E6AD /* UICollectionViewCell.swift in Sources */,
 				1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */,
 				1FB78ED41F78645A0039BE04 /* Localization.swift in Sources */,
@@ -1049,6 +1115,7 @@
 				1F161B361F773587003631C2 /* Nibloadable.swift in Sources */,
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
 				1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */,
+				1F46EED31F80DFA9003F22C5 /* ShotDetailCommentCell.swift in Sources */,
 				1F0BCF501F7FCD8400872D52 /* ProfileViewController.swift in Sources */,
 				1F0BCF551F7FD68E00872D52 /* TextSize.swift in Sources */,
 				1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */,
@@ -1058,7 +1125,7 @@
 				1F161B331F773422003631C2 /* HomeShotListCellDetailsContainerView.swift in Sources */,
 				1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */,
 				1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */,
-				1F0BCF571F7FE91C00872D52 /* ShotDetailCommentsCell.swift in Sources */,
+				1F0BCF571F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift in Sources */,
 				1FB78ECD1F7847280039BE04 /* ShotDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1120,6 +1187,11 @@
 			isa = PBXTargetDependency;
 			name = Gifu;
 			targetProxy = 1F0BCF931F8035DB00872D52 /* PBXContainerItemProxy */;
+		};
+		1F46EEE31F819DEB003F22C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SnapKit;
+			targetProxy = 1F46EEE21F819DEB003F22C5 /* PBXContainerItemProxy */;
 		};
 		1F7FA62B1F8043E8003FFBB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
