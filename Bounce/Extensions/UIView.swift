@@ -63,7 +63,7 @@ extension CALayer {
         line.path = linePath.cgPath
         line.fillColor = nil
         line.opacity = 1.0
-        line.strokeColor = UIColor.lightGray.cgColor
+        line.strokeColor = UIColor(red: 212/255.0, green: 212/255.0, blue: 212/255.0, alpha: 1.0).cgColor
         line.lineWidth = lineWidth
         self.addSublayer(line)
     }
@@ -79,7 +79,7 @@ extension CALayer {
         line.path = linePath.cgPath
         line.fillColor = nil
         line.opacity = 1.0
-        line.strokeColor = UIColor.lightGray.cgColor
+        line.strokeColor = UIColor(red: 212/255.0, green: 212/255.0, blue: 212/255.0, alpha: 1.0).cgColor
         line.lineWidth = lineWidth
         self.addSublayer(line)
     }

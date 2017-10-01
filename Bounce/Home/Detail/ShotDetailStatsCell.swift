@@ -82,6 +82,13 @@ class ShotDetailStatsCell: UICollectionViewCell {
         return label
     }()
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.layer.removeAllBorderLayers()
+        contentView.layer.addBottomBorder(inset: 0)
+    }
+    
     func configureViews() {
         contentView.addSubview(containerView)
         let views = ["containerView" : containerView,

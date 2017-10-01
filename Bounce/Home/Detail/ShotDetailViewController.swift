@@ -11,6 +11,12 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     
     var imageCell: ShotDetailImageCell!
     
+    var statsCell: ShotDetailStatsCell!
+    
+    var textCell: ShotDetailTextCellCollectionViewCell!
+    
+    var tagCell: ShotDetailTagsCell!
+    
     var commentsContainerCell: ShotDetailCommentsContainerCell!
     
     // MARK: Status bar
@@ -165,29 +171,35 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     }
     
     func configureStatsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailStatsCell", for: indexPath) as! ShotDetailStatsCell
-        cell.likesLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: shot.likes_count))
-        cell.commentsLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: shot.comments_count))
-        cell.viewsLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: shot.views_count))
-        cell.bucketsLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: shot.buckets_count))
-        return cell
+        if statsCell == nil {
+            statsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailStatsCell", for: indexPath) as! ShotDetailStatsCell
+            statsCell.likesLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: shot.likes_count))
+            statsCell.commentsLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: shot.comments_count))
+            statsCell.viewsLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: shot.views_count))
+            statsCell.bucketsLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: shot.buckets_count))
+        }
+        return statsCell
     }
     
     func configureTextCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailTextCellCollectionViewCell", for: indexPath) as! ShotDetailTextCellCollectionViewCell
-        cell.profileId = shot.id
-        cell.titleLabel.text = shot.title
-        cell.profileButton.setTitle(shot.team?.name ?? shot.user.username, for: .normal)
-        cell.dateLabel.text = "on " + Localization.shortFullFormatter.string(from: shot.created_at)
-        cell.setDescriptionText(shot.description)
-        Nuke.loadImage(with: shot.profileImageURL(), into: cell.profileImageView)
-        return cell
+        if textCell == nil {
+            textCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailTextCellCollectionViewCell", for: indexPath) as! ShotDetailTextCellCollectionViewCell
+            textCell.profileId = shot.id
+            textCell.titleLabel.text = shot.title
+            textCell.profileButton.setTitle(shot.team?.name ?? shot.user.username, for: .normal)
+            textCell.dateLabel.text = "on " + Localization.shortFullFormatter.string(from: shot.created_at)
+            textCell.setDescriptionText(shot.description)
+            Nuke.loadImage(with: shot.profileImageURL(), into: textCell.profileImageView)
+        }
+        return textCell
     }
     
     func configureTagsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailTagsCell", for: indexPath) as! ShotDetailTagsCell
-        cell.tags = shot.tags
-        return cell
+        if tagCell == nil {
+            tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailTagsCell", for: indexPath) as! ShotDetailTagsCell
+            tagCell.tags = shot.tags
+        }
+        return tagCell
     }
     
     func configureCommentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -201,11 +213,18 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     
     // MARK: Data
     
+    func reload() {
+        statsCell = nil
+        tagCell = nil
+        textCell = nil
+        commentsContainerCell = nil
+        collectionView?.reloadData()
+    }
+    
     func loadComments() {
         Comment.fetch(for: shot) { [weak self] comments, error in
             self?.comments = comments
-            self?.commentsContainerCell = nil
-            self?.collectionView?.reloadData()
+            self?.reload()
         }
     }
     
