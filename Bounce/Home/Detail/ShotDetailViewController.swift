@@ -99,7 +99,7 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         // layout
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = UIEdgeInsetsMake(-UIApplication.shared.statusBarFrame.height, 0, 15, 0)
-            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 326)
+            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 321)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
             collectionView?.collectionViewLayout = layout
@@ -205,11 +205,7 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         Comment.fetch(for: shot) { [weak self] comments, error in
             self?.comments = comments
             self?.commentsContainerCell = nil
-            self?.collectionView?.performBatchUpdates({
-
-            }, completion: { (finished) in
-
-            })
+            self?.collectionView?.reloadData()
         }
     }
     
