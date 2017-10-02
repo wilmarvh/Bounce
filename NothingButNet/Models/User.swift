@@ -117,4 +117,10 @@ extension User {
         task.resume()
     }
     
+    mutating func createURLs() {
+        if let url = URL(string: avatar_url) {
+            avatarURL = url
+        }
+    }
+    
 }

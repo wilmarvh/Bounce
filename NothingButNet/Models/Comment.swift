@@ -20,7 +20,7 @@ public struct Comment: Decodable {
             return nil
         }
     }
-
+    
 }
 
 extension Comment {
@@ -32,14 +32,23 @@ extension Comment {
             guard let data = data else {
                 return completion(nil, error)
             }
-            let comments = Comment.comments(from: data)
+            var comments = Comment.comments(from: data)
+            comments = Comment.createURLs(for: comments ?? [])
             DispatchQueue.main.async {
                 completion(comments, error)
             }
         }
-
+        
         task.resume()
         NothingBut.setNetworkActivityIndicatorVisible(true)
+    }
+    
+    private static func createURLs(for comments: [Comment]) -> [Comment] {
+        return comments.map({ (comment) -> Comment in
+            var c = comment
+            c.user.createURLs()
+            return c
+        })
     }
     
 }

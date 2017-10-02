@@ -16,3 +16,6 @@
 [submodule "SnapKit"]
 	path = SnapKit
 	url = git@github.com:SnapKit/SnapKit.git
+[submodule "DateTools"]
+	path = DateTools
+	url = git@github.com:MatthewYork/DateTools.git

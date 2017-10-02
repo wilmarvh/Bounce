@@ -1,6 +1,7 @@
 import UIKit
 import NothingButNet
 import SwiftRichString
+import Nuke
 
 class ShotDetailCommentsContainerCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -37,7 +38,7 @@ class ShotDetailCommentsContainerCell: UICollectionViewCell, UICollectionViewDat
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: self.frame.width, height: 50)
         layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 35
         layout.minimumInteritemSpacing = 10
         layout.scrollDirection = .vertical
         return layout
@@ -104,7 +105,15 @@ class ShotDetailCommentsContainerCell: UICollectionViewCell, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentCell", for: indexPath) as! ShotDetailCommentCell
         let comment = comments[indexPath.row]
         cell.textView.attributedText = comment.combinedDescription()
+        cell.likesCountLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: comment.likes_count))
+        if comment.likes_count > 0 {
+            cell.likesCountLabel.isHidden = false
+            cell.likeButton.tintColor = UIColor.mediumPink()
+        }
+        cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
+        cell.dateLabel.text = comment.created_at.timeAgoSinceNow
         cell.updateStringFormatting()
+        Nuke.loadImage(with: comment.user.avatarURL, into: cell.profileImage.imageView)
         return cell
     }
     
@@ -113,7 +122,8 @@ class ShotDetailCommentsContainerCell: UICollectionViewCell, UICollectionViewDat
         let insets = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
         let width = collectionView.frame.width - insets.left - insets.right
         let size = TextSize.size(text, width: width)
-        let height = size.height + ShotDetailCommentCell.textContainerInsets.top + ShotDetailCommentCell.textContainerInsets.bottom
+        var height = size.height + ShotDetailCommentCell.textContainerInsets.top + ShotDetailCommentCell.textContainerInsets.bottom
+        height = height + 18 + 5 // 18 = reply button/like button height + 5 padding between speech bubble and buttons...disgusting i know
         return CGSize(width: size.width, height: height)
     }
 }

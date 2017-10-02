@@ -6,6 +6,8 @@ struct Localization {
     
     static let shortFullFormatter = DateFormatter.shortFullFormatter()
     
+    static let relativeTimeFormatter = DateFormatter.relativeTimeFormatter()
+    
 }
 
 extension NumberFormatter {
@@ -26,6 +28,14 @@ extension DateFormatter {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateStyle = .medium
+        return formatter
+    }
+    
+    static func relativeTimeFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .short
+        formatter.doesRelativeDateFormatting = true
         return formatter
     }
     

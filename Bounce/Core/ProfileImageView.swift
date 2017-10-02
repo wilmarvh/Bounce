@@ -3,6 +3,16 @@ import Nuke
 
 class ProfileImageView: UIView, Nuke.Target {
     
+    var inset: CGFloat = 3 {
+        didSet {
+            configureViews()
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
+    
+    // MARK: Lifecycle
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureViews()
@@ -25,12 +35,14 @@ class ProfileImageView: UIView, Nuke.Target {
         layer.borderColor = UIColor.grayButton().cgColor
         layer.borderWidth = 1
         
+        imageView.removeFromSuperview()
         addSubview(imageView)
         imageView.clipsToBounds = true
         
         let views = ["imageView" : imageView]
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-3-[imageView]-3-|", options: [], metrics: nil, views: views))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-3-[imageView]-3-|", options: [], metrics: nil, views: views))
+        let metrics = ["inset" : inset]
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(inset)-[imageView]-(inset)-|", options: [], metrics: metrics, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(inset)-[imageView]-(inset)-|", options: [], metrics: metrics, views: views))
     }
     
     override func layoutSubviews() {

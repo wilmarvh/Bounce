@@ -32,6 +32,22 @@
 		1F46EED61F813766003F22C5 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46EED51F813766003F22C5 /* NSAttributedString.swift */; };
 		1F46EEE01F819DEB003F22C5 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F46EEDD1F819D8D003F22C5 /* SnapKit.framework */; };
 		1F46EEE11F819DEB003F22C5 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F46EEDD1F819D8D003F22C5 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F54721E1F82EA1C00207949 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4A61F82E83700E1975F /* Constants.swift */; };
+		1F54721F1F82EA1C00207949 /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4A71F82E83700E1975F /* Date+Format.swift */; };
+		1F5472201F82EA1C00207949 /* Date+Manipulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4A81F82E83700E1975F /* Date+Manipulations.swift */; };
+		1F5472211F82EA1C00207949 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4A91F82E83700E1975F /* TimePeriod.swift */; };
+		1F5472221F82EA1C00207949 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4AA1F82E83700E1975F /* Date+Components.swift */; };
+		1F5472231F82EA1C00207949 /* TimePeriodGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4AB1F82E83700E1975F /* TimePeriodGroup.swift */; };
+		1F5472241F82EA1C00207949 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4AC1F82E83700E1975F /* Enums.swift */; };
+		1F5472251F82EA1C00207949 /* TimeChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4AD1F82E83700E1975F /* TimeChunk.swift */; };
+		1F5472261F82EA1C00207949 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4AE1F82E83700E1975F /* TimePeriodChain.swift */; };
+		1F5472271F82EA1C00207949 /* Date+Comparators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4AF1F82E83700E1975F /* Date+Comparators.swift */; };
+		1F5472281F82EA1C00207949 /* Date+Inits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4B01F82E83700E1975F /* Date+Inits.swift */; };
+		1F5472291F82EA1C00207949 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4B11F82E83700E1975F /* Date+TimeAgo.swift */; };
+		1F54722A1F82EA1C00207949 /* Integer+DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4B21F82E83700E1975F /* Integer+DateTools.swift */; };
+		1F54722B1F82EA1C00207949 /* Date+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4B31F82E83700E1975F /* Date+Bundle.swift */; };
+		1F54722C1F82EA1C00207949 /* TimePeriodCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFFD4B41F82E83700E1975F /* TimePeriodCollection.swift */; };
+		1F54723C1F82EA2000207949 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1FFFD4A51F82E83700E1975F /* DateTools.bundle */; };
 		1F7FA6281F8043E8003FFBB6 /* Preheat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7FA6251F8043D0003FFBB6 /* Preheat.framework */; };
 		1F7FA6291F8043E8003FFBB6 /* Preheat.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7FA6251F8043D0003FFBB6 /* Preheat.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F7FA62D1F80480E003FFBB6 /* HTTPLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FA62C1F80480E003FFBB6 /* HTTPLogger.swift */; };
@@ -390,6 +406,22 @@
 		1FDB9AC41F771504001DB054 /* Jobs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
 		1FDB9AC61F77151F001DB054 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFilterViewController.swift; sourceTree = "<group>"; };
+		1FFFD4A51F82E83700E1975F /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
+		1FFFD4A61F82E83700E1975F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1FFFD4A71F82E83700E1975F /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		1FFFD4A81F82E83700E1975F /* Date+Manipulations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Manipulations.swift"; sourceTree = "<group>"; };
+		1FFFD4A91F82E83700E1975F /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
+		1FFFD4AA1F82E83700E1975F /* Date+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Components.swift"; sourceTree = "<group>"; };
+		1FFFD4AB1F82E83700E1975F /* TimePeriodGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodGroup.swift; sourceTree = "<group>"; };
+		1FFFD4AC1F82E83700E1975F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		1FFFD4AD1F82E83700E1975F /* TimeChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChunk.swift; sourceTree = "<group>"; };
+		1FFFD4AE1F82E83700E1975F /* TimePeriodChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodChain.swift; sourceTree = "<group>"; };
+		1FFFD4AF1F82E83700E1975F /* Date+Comparators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Comparators.swift"; sourceTree = "<group>"; };
+		1FFFD4B01F82E83700E1975F /* Date+Inits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Inits.swift"; sourceTree = "<group>"; };
+		1FFFD4B11F82E83700E1975F /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
+		1FFFD4B21F82E83700E1975F /* Integer+DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Integer+DateTools.swift"; sourceTree = "<group>"; };
+		1FFFD4B31F82E83700E1975F /* Date+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Bundle.swift"; sourceTree = "<group>"; };
+		1FFFD4B41F82E83700E1975F /* TimePeriodCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,6 +567,7 @@
 		1F939F461F7306A100C03386 /* Bounce */ = {
 			isa = PBXGroup;
 			children = (
+				1FFFD4A41F82E83700E1975F /* DateTools */,
 				1F0BCF4E1F7FCCB100872D52 /* Bounce.entitlements */,
 				1F939F4E1F7306A100C03386 /* Assets.xcassets */,
 				1F939F471F7306A100C03386 /* AppDelegate.swift */,
@@ -694,6 +727,30 @@
 			);
 			path = Profile;
 			sourceTree = "<group>";
+		};
+		1FFFD4A41F82E83700E1975F /* DateTools */ = {
+			isa = PBXGroup;
+			children = (
+				1FFFD4A51F82E83700E1975F /* DateTools.bundle */,
+				1FFFD4A61F82E83700E1975F /* Constants.swift */,
+				1FFFD4A71F82E83700E1975F /* Date+Format.swift */,
+				1FFFD4A81F82E83700E1975F /* Date+Manipulations.swift */,
+				1FFFD4A91F82E83700E1975F /* TimePeriod.swift */,
+				1FFFD4AA1F82E83700E1975F /* Date+Components.swift */,
+				1FFFD4AB1F82E83700E1975F /* TimePeriodGroup.swift */,
+				1FFFD4AC1F82E83700E1975F /* Enums.swift */,
+				1FFFD4AD1F82E83700E1975F /* TimeChunk.swift */,
+				1FFFD4AE1F82E83700E1975F /* TimePeriodChain.swift */,
+				1FFFD4AF1F82E83700E1975F /* Date+Comparators.swift */,
+				1FFFD4B01F82E83700E1975F /* Date+Inits.swift */,
+				1FFFD4B11F82E83700E1975F /* Date+TimeAgo.swift */,
+				1FFFD4B21F82E83700E1975F /* Integer+DateTools.swift */,
+				1FFFD4B31F82E83700E1975F /* Date+Bundle.swift */,
+				1FFFD4B41F82E83700E1975F /* TimePeriodCollection.swift */,
+			);
+			name = DateTools;
+			path = DateTools/DateToolsSwift/DateTools;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -1060,6 +1117,7 @@
 				1FDB9AC71F77151F001DB054 /* Profile.storyboard in Resources */,
 				1F06C3A71F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.xib in Resources */,
 				1F161B311F772E15003631C2 /* HomeShotListCellDetailsContainerView.xib in Resources */,
+				1F54723C1F82EA2000207949 /* DateTools.bundle in Resources */,
 				1FDB9AC11F7714C5001DB054 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1104,27 +1162,42 @@
 				1F06C3A61F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift in Sources */,
 				1FDB9ABF1F771324001DB054 /* BounceTabBarController.swift in Sources */,
 				1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */,
+				1F54721E1F82EA1C00207949 /* Constants.swift in Sources */,
+				1F5472251F82EA1C00207949 /* TimeChunk.swift in Sources */,
+				1F54721F1F82EA1C00207949 /* Date+Format.swift in Sources */,
 				1FB78ED21F7857EF0039BE04 /* ShotDetailStatsCell.swift in Sources */,
 				1F161B2F1F77186F003631C2 /* HomeShotListCell.swift in Sources */,
 				1F46EED61F813766003F22C5 /* NSAttributedString.swift in Sources */,
+				1F5472271F82EA1C00207949 /* Date+Comparators.swift in Sources */,
 				1F2843761F7696000083E6AD /* UICollectionViewCell.swift in Sources */,
 				1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */,
+				1F54722A1F82EA1C00207949 /* Integer+DateTools.swift in Sources */,
 				1FB78ED41F78645A0039BE04 /* Localization.swift in Sources */,
+				1F5472231F82EA1C00207949 /* TimePeriodGroup.swift in Sources */,
+				1F5472261F82EA1C00207949 /* TimePeriodChain.swift in Sources */,
 				1FB78ECF1F78514C0039BE04 /* ShotDetailImageCell.swift in Sources */,
 				1FADB41F1F7DB5D10006343D /* HomeViewListLayout.swift in Sources */,
 				1F161B361F773587003631C2 /* Nibloadable.swift in Sources */,
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
 				1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */,
 				1F46EED31F80DFA9003F22C5 /* ShotDetailCommentCell.swift in Sources */,
+				1F54722C1F82EA1C00207949 /* TimePeriodCollection.swift in Sources */,
 				1F0BCF501F7FCD8400872D52 /* ProfileViewController.swift in Sources */,
+				1F54722B1F82EA1C00207949 /* Date+Bundle.swift in Sources */,
+				1F5472221F82EA1C00207949 /* Date+Components.swift in Sources */,
 				1F0BCF551F7FD68E00872D52 /* TextSize.swift in Sources */,
 				1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */,
 				1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */,
 				1F0BCF521F7FCEF600872D52 /* ShotDetailTagsCell.swift in Sources */,
 				1FADB4201F7DB5D10006343D /* HomeViewGridLayout.swift in Sources */,
 				1F161B331F773422003631C2 /* HomeShotListCellDetailsContainerView.swift in Sources */,
+				1F5472281F82EA1C00207949 /* Date+Inits.swift in Sources */,
+				1F5472201F82EA1C00207949 /* Date+Manipulations.swift in Sources */,
 				1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */,
 				1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */,
+				1F5472211F82EA1C00207949 /* TimePeriod.swift in Sources */,
+				1F5472291F82EA1C00207949 /* Date+TimeAgo.swift in Sources */,
+				1F5472241F82EA1C00207949 /* Enums.swift in Sources */,
 				1F0BCF571F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift in Sources */,
 				1FB78ECD1F7847280039BE04 /* ShotDetailViewController.swift in Sources */,
 			);
