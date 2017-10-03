@@ -206,8 +206,8 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         if commentsContainerCell == nil {
             commentsContainerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentsContainerCell", for: indexPath) as! ShotDetailCommentsContainerCell
             commentsContainerCell.shot = shot
+            commentsContainerCell.comments = comments ?? []
         }
-        commentsContainerCell.comments = comments ?? []
         return commentsContainerCell
     }
     
@@ -223,6 +223,7 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     
     func loadComments() {
         Comment.fetch(for: shot) { [weak self] comments, error in
+            self?.commentsContainerCell = nil
             self?.comments = comments
             self?.reload()
         }
