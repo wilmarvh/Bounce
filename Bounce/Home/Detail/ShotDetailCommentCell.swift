@@ -52,6 +52,7 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
         attributedText.enumerateAttribute(.link, in: attributedText.string.nsRange(from: nil), options: [], using: { value, range, stop in
             if let _ = value {
                 attributedText.removeAttribute(.link, range: range)
+                attributedText.removeAttribute(.underlineStyle, range: range)
                 attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.mediumPink()], range: range)
                 attributedText.addAttributes([NSAttributedStringKey.underlineColor: UIColor.mediumPink()], range: range)
             }
