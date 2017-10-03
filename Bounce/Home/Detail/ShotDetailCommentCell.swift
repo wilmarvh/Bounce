@@ -4,6 +4,8 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     
     static let textContainerInsets = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
     
+    @IBOutlet weak var container: UIView!
+    
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var profileImage: ProfileImageView!
@@ -22,6 +24,7 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
         super.awakeFromNib()
         
         backgroundColor = UIColor(red:0.98039, green:0.98039, blue:0.98431, alpha:1.00000)
+        container.backgroundColor = backgroundColor
         
         textView.backgroundColor = UIColor(red:0.93726, green:0.93726, blue:0.95686, alpha:1.00000)
         textView.textContainerInset = ShotDetailCommentCell.textContainerInsets
@@ -66,10 +69,6 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
         super.layoutSubviews()
         
         textView.layer.cornerRadius = 25// min(textView.frame.height / 2, 30)
-    }
-    
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        return defaultContentViewLayoutSizeFitting(layoutAttributes)
     }
     
 }

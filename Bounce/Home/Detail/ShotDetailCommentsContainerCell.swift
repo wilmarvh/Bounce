@@ -3,26 +3,18 @@ import NothingButNet
 import SwiftRichString
 import Nuke
 
-class ShotDetailCommentsContainerCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ShotDetailCommentsContainerCell: UICollectionViewCell {
     
     var shot: Shot!
-    
-    var comments: [Comment] = [Comment]() {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
     
     // MARK: Lifecycle
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        configureViews()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureViews()
     }
     
     // MARK: View
@@ -34,31 +26,15 @@ class ShotDetailCommentsContainerCell: UICollectionViewCell, UICollectionViewDat
         return view
     }()
     
-    lazy var layout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: self.frame.width, height: 50)
-        layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        layout.minimumLineSpacing = 35
-        layout.minimumInteritemSpacing = 10
-        layout.scrollDirection = .vertical
-        return layout
-    }()
-    
-    lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.isScrollEnabled = false
-        collectionView.backgroundColor = self.container.backgroundColor
-        collectionView.backgroundView?.backgroundColor = self.container.backgroundColor
-        collectionView.register(CommentCell.self, forCellWithReuseIdentifier: "CommentCell")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
-        collectionView.register(ShotDetailCommentCell.nib(), forCellWithReuseIdentifier: "ShotDetailCommentCell")
-        return collectionView
-    }()
+    var collectionView: UICollectionView! {
+        didSet {
+            configureViews()
+        }
+    }
     
     func configureViews() {
+        contentView.backgroundColor = container.backgroundColor
+        backgroundView?.backgroundColor = container.backgroundColor
         contentView.addSubview(container)
         container.addSubview(collectionView)
         
@@ -90,132 +66,5 @@ class ShotDetailCommentsContainerCell: UICollectionViewCell, UICollectionViewDat
         layoutAttributes.frame = newFrame
         return layoutAttributes
     }
-    
-    // MARK: CollectionView
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return comments.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentCell", for: indexPath) as! ShotDetailCommentCell
-        let comment = comments[indexPath.row]
-        cell.textView.attributedText = comment.combinedDescription()
-        cell.likesCountLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: comment.likes_count))
-        if comment.likes_count > 0 {
-            cell.likesCountLabel.isHidden = false
-            cell.likeButton.tintColor = UIColor.mediumPink()
-        }
-        cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
-        cell.dateLabel.text = comment.created_at.timeAgoSinceNow
-        cell.updateStringFormatting()
-        Nuke.loadImage(with: comment.user.avatarURL, into: cell.profileImage.imageView)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let text = comments[indexPath.row].combinedDescription()
-        let insets = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
-        let width = collectionView.frame.width - insets.left - insets.right
-        let size = TextSize.size(text, width: width)
-        var height = size.height + ShotDetailCommentCell.textContainerInsets.top + ShotDetailCommentCell.textContainerInsets.bottom
-        height = height + 18 + 5 // 18 = reply button/like button height + 5 padding between speech bubble and buttons...disgusting i know
-        return CGSize(width: size.width, height: height)
-    }
-}
 
-extension Comment {
-    
-    func combinedDescription() -> NSAttributedString {
-        let text = body.trimmingCharacters(in: .whitespacesAndNewlines)
-        if let data = text.data(using: .utf8) {
-            let attributedString = NSMutableAttributedString()
-            
-            // username
-            let userStyle = Style("user", {
-                let font = UIFont.systemFont(ofSize: 15, weight: .regular)
-                $0.font = FontAttribute(font.fontName, size: Float(font.pointSize))
-                $0.kern = Float(-0.4)
-                $0.color = UIColor(red: 143/255.0, green: 142/255.0, blue: 148/255.0, alpha: 1.0)
-            })
-            attributedString.append(string: user.username + "\n", style: userStyle)
-            
-            let attributedComment = try! NSMutableAttributedString(data: data,
-                                                                options: [.documentType: NSAttributedString.DocumentType.html,
-                                                                          .characterEncoding: String.Encoding.utf8.rawValue],
-                                                                documentAttributes: nil).trailingNewlineChopped()
-            // comment body
-            let commentStyle = Style("comment", {
-                let font = UIFont.systemFont(ofSize: 17, weight: .regular)
-                $0.font = FontAttribute(font.fontName, size: Float(font.pointSize))
-                $0.kern = Float(-0.4)
-                $0.color = .black
-            })
-            _ = attributedComment.add(style: commentStyle)
-            attributedString.append(attributedComment)
-            
-            return attributedString
-        }
-        return NSAttributedString()
-    }
-    
-}
-
-
-fileprivate class CommentCell: UICollectionViewCell {
-    
-    // MARK: Lifecycles
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configureViews()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        configureViews()
-    }
-    
-    // MARK: Views
-    
-    static let font: UIFont = UIFont.systemFont(ofSize: 17, weight: .regular)
-    
-    lazy var container: UIView = {
-        let view = UIView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .yellow
-        return view
-    }()
-    
-    lazy var label: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.font = CommentCell.font
-        label.textAlignment = .left
-        label.textColor = UIColor.mediumPink()
-        return label
-    }()
-    
-    func configureViews() {
-        contentView.addSubview(container)
-        container.addSubview(label)
-        
-        let views = [
-            "container": container,
-            "label": label
-        ]
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[container]|", options: [], metrics: nil, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[container]|", options: [], metrics: nil, views: views))
-        container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[label]|", options: [], metrics: nil, views: views))
-        container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label]|", options: [], metrics: nil, views: views))
-    }
-    
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        return defaultContentViewLayoutSizeFitting(layoutAttributes)
-    }
 }

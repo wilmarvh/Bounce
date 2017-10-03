@@ -206,10 +206,19 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         if commentsContainerCell == nil {
             commentsContainerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentsContainerCell", for: indexPath) as! ShotDetailCommentsContainerCell
             commentsContainerCell.shot = shot
-            commentsContainerCell.comments = comments ?? []
+            commentsCollectionViewController.willMove(toParentViewController: self)
+            commentsContainerCell.collectionView = commentsCollectionViewController.collectionView
+            commentsCollectionViewController.didMove(toParentViewController: self)
+            commentsCollectionViewController.comments = self.comments ?? []
         }
         return commentsContainerCell
     }
+    
+    lazy var commentsCollectionViewController: ShotCommentsViewController = {
+        // ugh to some of the worst hacks ever
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "ShotCommentsViewController") as! ShotCommentsViewController
+        return controller
+    }()
     
     // MARK: Data
     
@@ -226,6 +235,13 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
             self?.commentsContainerCell = nil
             self?.comments = comments
             self?.reload()
+//            self?.performSegue(withIdentifier: "showComments", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showComments", let controller = segue.destination as? ShotCommentsViewController {
+            controller.comments = comments ?? []
         }
     }
     

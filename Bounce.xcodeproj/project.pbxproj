@@ -89,6 +89,7 @@
 		1FDB9AC51F771504001DB054 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC41F771504001DB054 /* Jobs.storyboard */; };
 		1FDB9AC71F77151F001DB054 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC61F77151F001DB054 /* Profile.storyboard */; };
 		1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */; };
+		1FE365721F844A36001739B0 /* ShotCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE365711F844A36001739B0 /* ShotCommentsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,6 +407,7 @@
 		1FDB9AC41F771504001DB054 /* Jobs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
 		1FDB9AC61F77151F001DB054 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFilterViewController.swift; sourceTree = "<group>"; };
+		1FE365711F844A36001739B0 /* ShotCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotCommentsViewController.swift; sourceTree = "<group>"; };
 		1FFFD4A51F82E83700E1975F /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
 		1FFFD4A61F82E83700E1975F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FFFD4A71F82E83700E1975F /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
@@ -673,6 +675,7 @@
 				1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift */,
 				1F46EED11F80DFA9003F22C5 /* ShotDetailCommentCell.swift */,
 				1F46EED21F80DFA9003F22C5 /* ShotDetailCommentCell.xib */,
+				1FE365711F844A36001739B0 /* ShotCommentsViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1179,6 +1182,7 @@
 				1FADB41F1F7DB5D10006343D /* HomeViewListLayout.swift in Sources */,
 				1F161B361F773587003631C2 /* Nibloadable.swift in Sources */,
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
+				1FE365721F844A36001739B0 /* ShotCommentsViewController.swift in Sources */,
 				1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */,
 				1F46EED31F80DFA9003F22C5 /* ShotDetailCommentCell.swift in Sources */,
 				1F54722C1F82EA1C00207949 /* TimePeriodCollection.swift in Sources */,
