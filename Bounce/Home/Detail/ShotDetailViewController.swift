@@ -36,20 +36,10 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         super.viewDidLoad()
         
         configureCollectionView()
-        configureCloseButton()
         loadComments()
     }
     
     // MARK: Configure view
-    
-    lazy var closeButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "detailCloseButton"), for: .normal)
-        button.tintColor = UIColor.mediumPink()
-        button.addTarget(self, action: #selector(close), for: .touchUpInside)
-        return button
-    }()
     
     func configureCollectionView() {
         // cells and other

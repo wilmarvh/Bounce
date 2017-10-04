@@ -270,9 +270,12 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         let overlay = UIView(frame: tabBarController?.view.bounds ?? view.bounds)
         overlay.backgroundColor = .black
-        overlay.alpha = 0.3
+        overlay.alpha = 0.0
         overlay.tag = 123
         tabBarController?.view.addSubview(overlay)
+        UIView.animate(withDuration: 0.3) {
+            overlay.alpha = 0.3
+        }
     }
     
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
