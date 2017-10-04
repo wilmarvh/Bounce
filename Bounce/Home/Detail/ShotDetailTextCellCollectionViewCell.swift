@@ -21,22 +21,27 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
         titleLabel.textColor = .black
         titleLabel.textAlignment = .left
         titleLabel.text = nil
+        titleLabel.backgroundColor = .white
         
         byLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         byLabel.textColor = UIColor(red:0.56078, green:0.55686, blue:0.57647, alpha:1.00000)
+        byLabel.backgroundColor = .white
         dateLabel.font = byLabel.font
         dateLabel.textColor = byLabel.textColor
         dateLabel.text = nil
+        dateLabel.backgroundColor = .white
         
         profileButton.setTitleColor(UIColor.mediumPink(), for: .normal)
         profileButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         profileButton.setTitle(nil, for: .normal)
+        profileButton.backgroundColor = .white
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         descriptionLabel.textColor = UIColor(red:0.41569, green:0.41177, blue:0.43529, alpha:1.00000)
         descriptionLabel.textAlignment = .left
         descriptionLabel.text = nil
+        descriptionLabel.backgroundColor = .white
     }
     
     func setDescriptionText(_ string: String?) {
@@ -50,6 +55,7 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
                     $0.font = FontAttribute(descriptionLabel.font.fontName, size: Float(descriptionLabel.font.pointSize))
                     $0.kern = Float(-0.4)
                     $0.color = descriptionLabel.textColor
+                    $0.backColor = .white
                 })
                 _ = attributedText.add(style: style_normal)
                 attributedText.enumerateAttribute(.link, in: attributedText.string.nsRange(from: nil), options: [], using: { value, range, stop in

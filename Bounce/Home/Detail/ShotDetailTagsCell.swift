@@ -59,6 +59,7 @@ class ShotDetailTagsCell: UICollectionViewCell, UICollectionViewDataSource, UICo
     }()
     
     func configureViews() {
+        contentView.backgroundColor = .white
         contentView.addSubview(container)
         container.addSubview(collectionView)
         
@@ -137,6 +138,7 @@ fileprivate class TagCell: UICollectionViewCell {
         label.font = TagCell.font
         label.textAlignment = .left
         label.textColor = UIColor.mediumPink()
+        label.backgroundColor = .white
         return label
     }()
     

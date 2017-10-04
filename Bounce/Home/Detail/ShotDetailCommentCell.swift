@@ -49,15 +49,18 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backgroundColor = UIColor(red:0.98039, green:0.98039, blue:0.98431, alpha:1.00000)
-        backgroundView?.backgroundColor = backgroundColor
-        container.backgroundColor = backgroundColor
+        let gray = UIColor(red:0.98039, green:0.98039, blue:0.98431, alpha:1.00000)
+        backgroundColor = gray
+        backgroundView?.backgroundColor = gray
+        container.backgroundColor = gray
         
         textView.backgroundColor = UIColor(red:0.93726, green:0.93726, blue:0.95686, alpha:1.00000)
         textView.textContainerInset = ShotDetailCommentCell.textContainerInsets
         textView.layer.cornerRadius = 25
         
         likeButton.setImage(UIImage(named: "like")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        
+        dateLabel.backgroundColor = UIColor(red:0.98039, green:0.98039, blue:0.98431, alpha:1.00000)
         
         leftProfileImageView.inset = 0
         rightProfileImageView.inset = 0

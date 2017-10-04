@@ -103,6 +103,7 @@ extension Comment {
                 $0.font = FontAttribute(font.fontName, size: Float(font.pointSize))
                 $0.kern = Float(-0.4)
                 $0.color = UIColor(red: 143/255.0, green: 142/255.0, blue: 148/255.0, alpha: 1.0)
+                $0.backColor = UIColor(red:0.93726, green:0.93726, blue:0.95686, alpha:1.00000)
             })
             attributedString.append(string: user.username + "\n", style: userStyle)
             
@@ -116,6 +117,7 @@ extension Comment {
                     $0.font = FontAttribute(font.fontName, size: Float(font.pointSize))
                     $0.kern = Float(-0.4)
                     $0.color = .black
+                    $0.backColor = UIColor(red:0.93726, green:0.93726, blue:0.95686, alpha:1.00000)
                 })
                 _ = attributedComment.add(style: commentStyle)
                 attributedString.append(attributedComment)
