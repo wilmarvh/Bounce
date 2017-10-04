@@ -7,7 +7,7 @@ extension UIColor {
     }
     
     static func mediumPink() -> UIColor {
-        return UIColor(red:0.96471, green:0.25490, blue:0.54118, alpha:1.00000)
+        return UIColor(red:249/255.0, green:60/255.0, blue:138/255.0, alpha:1.00000)
     }
     
     static func grayButton() -> UIColor {
