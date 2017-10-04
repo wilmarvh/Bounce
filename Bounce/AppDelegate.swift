@@ -25,6 +25,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
     }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        if shortcutItem.type.contains("randomShot") {
+            if let tabController = window?.rootViewController as? UITabBarController {
+                tabController.selectedIndex = 0
+                if let navCon = tabController.selectedViewController as? UINavigationController {
+                    if let home = navCon.topViewController as? HomeViewController {
+                        if home.shots.count > 0 {
+                            let randomIndex = Int(arc4random_uniform(UInt32(home.shots.count)))
+                            let shot = home.shots[randomIndex]
+                            home.performSegue(withIdentifier: "showShotDetail", sender: shot)
+                        } else {
+                            home.loadData(completion: {
+                                let randomIndex = Int(arc4random_uniform(UInt32(home.shots.count)))
+                                let shot = home.shots[randomIndex]
+                                home.performSegue(withIdentifier: "showShotDetail", sender: shot)
+                            })
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }
 

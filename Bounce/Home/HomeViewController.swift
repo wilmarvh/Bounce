@@ -201,11 +201,12 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         loadData()
     }
     
-    func loadData() {
+    func loadData(completion: (() -> Void)? = nil) {
         Shot.fetchPopularShots { [unowned self] shots, error in
             self.shots = shots ?? []
             self.collectionView?.reloadData()
             self.collectionView?.refreshControl?.endRefreshing()
+            if let completion = completion { completion() }
         }
     }
     
