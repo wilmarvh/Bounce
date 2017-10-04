@@ -25,6 +25,10 @@ enum HomeFilterType: String {
 
 class HomeFilterViewController: UICollectionViewController {
     
+    var filterSelected: (HomeFilterType) -> Void = { _ in
+        debugPrint("Thing was selected")
+    }
+    
     var selectedFilter: HomeFilterType = .popular
     
     // MARK: View lifecycle
@@ -72,6 +76,8 @@ class HomeFilterViewController: UICollectionViewController {
             if let filter = HomeFilterType(rawValue: item) {
                 self?.selectedFilter = filter
                 self?.collectionView?.reloadData()
+                self?.popoverPresentationController?.delegate?.popoverPresentationControllerShouldDismissPopover!((self?.popoverPresentationController)!)
+                self?.dismiss(animated: true, completion: nil)
             }
         }
         return cell
