@@ -19,3 +19,6 @@
 [submodule "DateTools"]
 	path = DateTools
 	url = git@github.com:MatthewYork/DateTools.git
+[submodule "DeckTransition"]
+	path = DeckTransition
+	url = git@github.com:HarshilShah/DeckTransition.git

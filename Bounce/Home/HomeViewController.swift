@@ -2,6 +2,7 @@ import UIKit
 import NothingButNet
 import Nuke
 import Preheat
+import DeckTransition
 
 class HomeViewController: UICollectionViewController, UIPopoverPresentationControllerDelegate {
     
@@ -187,6 +188,10 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showShotDetail", let controller = segue.destination as? ShotDetailViewController {
             controller.shot = sender as? Shot
+            controller.modalPresentationCapturesStatusBarAppearance = true
+            let transitionDelegate = DeckTransitioningDelegate()
+            controller.transitioningDelegate = transitionDelegate
+            controller.modalPresentationStyle = .custom
         }
     }
     

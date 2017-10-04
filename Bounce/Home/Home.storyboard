@@ -47,7 +47,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="4qs-A5-4mS"/>
                     <connections>
-                        <segue destination="glm-2a-uSC" kind="presentation" identifier="showShotDetail" id="1pO-4p-Io1"/>
+                        <segue destination="glm-2a-uSC" kind="custom" identifier="showShotDetail" customClass="DeckSegue" customModule="DeckTransition" id="1pO-4p-Io1"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6zm-06-nSG" userLabel="First Responder" sceneMemberID="firstResponder"/>

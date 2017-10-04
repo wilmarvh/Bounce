@@ -1,4 +1,5 @@
 import UIKit
+import DeckTransition
 import NothingButNet
 import NukeGifuPlugin
 import Nuke
@@ -21,16 +22,8 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     
     // MARK: Status bar
 
-    var statusBarStyle: UIStatusBarStyle = .default
-    
-    var statusBarHidden: Bool = false
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return statusBarStyle
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return statusBarHidden
+        return .lightContent
     }
     
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
@@ -45,15 +38,6 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         configureCollectionView()
         configureCloseButton()
         loadComments()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        statusBarHidden = true
-        UIView.animate(withDuration: 0.25) {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
     }
     
     // MARK: Configure view
@@ -83,18 +67,6 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         }
     }
     
-    func configureCloseButton() {
-        let views = ["button" : closeButton]
-        let metrics = ["topInset" : UIApplication.shared.statusBarFrame.height + 15]
-        view.addSubview(closeButton)
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[button(==44)]-15-|", options: [], metrics: metrics, views: views))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-topInset-[button(==44)]", options: [], metrics: metrics, views: views))
-    }
-    
-    @objc func close() {
-        performSegue(withIdentifier: "unwindToHomeFromShotDetail", sender: nil)
-    }
-    
     // MARK: UICollectionView DataSource / Delegate
     
     private enum Section: Int {
@@ -119,7 +91,7 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         let section = Section(rawValue: section)!
         switch section {
         case .image:
-            return UIEdgeInsetsMake(-UIApplication.shared.statusBarFrame.height, 0, 0, 0)
+            return UIEdgeInsetsMake(0, 0, 0, 0)
         case .stats:
             return UIEdgeInsetsMake(0, 0, 0, 0)
         case .text:
@@ -245,16 +217,45 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     
     func loadComments() {
         Comment.fetch(for: shot) { [weak self] comments, error in
-//            self?.commentsContainerCell = nil
             self?.comments = comments
             self?.reload()
-//            self?.performSegue(withIdentifier: "showComments", sender: nil)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showComments", let controller = segue.destination as? ShotCommentsViewController {
             controller.comments = comments ?? []
+        }
+    }
+    
+    // MARK: ScrollView
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.isEqual(collectionView) else {
+            return
+        }
+        
+        if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
+            if scrollView.contentOffset.y > 0 {
+                // Normal behaviour if the `scrollView` isn't scrolled to the top
+                scrollView.bounces = true
+                delegate.isDismissEnabled = false
+            } else {
+                if scrollView.isDecelerating {
+                    // If the `scrollView` is scrolled to the top but is decelerating
+                    // that means a swipe has been performed. The view and
+                    // scrollviewʼs subviews are both translated in response to this.
+                    view.transform = CGAffineTransform(translationX: 0, y: -scrollView.contentOffset.y)
+                    scrollView.subviews.forEach {
+                        $0.transform = CGAffineTransform(translationX: 0, y: scrollView.contentOffset.y)
+                    }
+                } else {
+                    // If the user has panned to the top, the scrollview doesnʼt bounce and
+                    // the dismiss gesture is enabled.
+                    scrollView.bounces = false
+                    delegate.isDismissEnabled = true
+                }
+            }
         }
     }
     
