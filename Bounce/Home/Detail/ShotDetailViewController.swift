@@ -207,7 +207,6 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
             cell.likesCountLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: comment.likes_count))
             if comment.likes_count > 0 {
                 cell.likesCountLabel.isHidden = false
-                cell.likeButton.tintColor = UIColor.mediumPink()
             }
             cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
             cell.dateLabel.text = comment.created_at.timeAgoSinceNow
