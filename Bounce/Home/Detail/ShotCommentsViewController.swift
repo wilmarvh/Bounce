@@ -73,7 +73,7 @@ class ShotCommentsViewController: UICollectionViewController {
         cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
         cell.dateLabel.text = comment.created_at.timeAgoSinceNow
         cell.updateStringFormatting()
-        Nuke.loadImage(with: comment.user.avatarURL, into: cell.profileImage.imageView)
+        Nuke.loadImage(with: comment.user.avatarURL, into: cell.leftProfileImageView.imageView)
         return cell
     }
     

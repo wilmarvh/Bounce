@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLD-Pr-6kD" userLabel="container">
                         <rect key="frame" x="15" y="0.0" width="296" height="247"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhi-Uq-joI" userLabel="profileImageView" customClass="ProfileImageView" customModule="Bounce" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhi-Uq-joI" userLabel="leftProfileImageView" customClass="ProfileImageView" customModule="Bounce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="177" width="25" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -31,7 +31,7 @@
                                 <viewLayoutGuide key="safeArea" id="cMb-Sq-8gB"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfl-ei-Mls" userLabel="commentTextView">
-                                <rect key="frame" x="35" y="17" width="236" height="185"/>
+                                <rect key="frame" x="35" y="17" width="226" height="185"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">It is great to see how our friends from Volusion applied the visual style we created. It means the brand identity serves the purpose 🙌</string>
                                 <color key="textColor" red="0.41568627450980389" green="0.41176470588235292" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,20 +66,33 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="3 days ago " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4l-qq-rIB" userLabel="dateLabel">
-                                <rect key="frame" x="129" y="214" width="127" height="16"/>
+                                <rect key="frame" x="129" y="214" width="117" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWh-9Z-wfJ" userLabel="rightProfileImageView" customClass="ProfileImageView" customModule="Bounce" customModuleProvider="target">
+                                <rect key="frame" x="271" y="177" width="25" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="3IC-h2-nrs"/>
+                                    <constraint firstAttribute="height" constant="25" id="HvX-gK-er2"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Lwc-rD-zyS"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wWh-9Z-wfJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tfl-ei-Mls" secondAttribute="trailing" constant="10" id="4ID-DF-vc2"/>
                             <constraint firstItem="bYP-nC-h5n" firstAttribute="top" secondItem="tfl-ei-Mls" secondAttribute="bottom" constant="10" id="BGj-C9-UP4"/>
+                            <constraint firstAttribute="trailing" secondItem="wWh-9Z-wfJ" secondAttribute="trailing" id="Dhq-gW-pPS"/>
+                            <constraint firstItem="wWh-9Z-wfJ" firstAttribute="leading" secondItem="tfl-ei-Mls" secondAttribute="trailing" constant="10" id="ECE-75-5Bg"/>
                             <constraint firstItem="k4l-qq-rIB" firstAttribute="bottom" secondItem="ipE-cH-WRW" secondAttribute="bottom" id="GWg-6G-1rT"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tfl-ei-Mls" secondAttribute="trailing" constant="25" id="KaE-7F-VFi"/>
                             <constraint firstItem="tfl-ei-Mls" firstAttribute="width" relation="lessThanOrEqual" secondItem="fLD-Pr-6kD" secondAttribute="width" id="L1f-KK-hPp"/>
+                            <constraint firstItem="wWh-9Z-wfJ" firstAttribute="bottom" secondItem="tfl-ei-Mls" secondAttribute="bottom" id="NJJ-O8-lf4"/>
                             <constraint firstAttribute="bottom" secondItem="ipE-cH-WRW" secondAttribute="bottom" constant="17" id="PKw-9U-fmf"/>
                             <constraint firstItem="k4l-qq-rIB" firstAttribute="trailing" secondItem="tfl-ei-Mls" secondAttribute="trailing" constant="-15" id="U1C-LW-qAf"/>
+                            <constraint firstItem="tfl-ei-Mls" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vhi-Uq-joI" secondAttribute="trailing" constant="10" id="VyW-lV-YWf"/>
                             <constraint firstItem="tfl-ei-Mls" firstAttribute="leading" secondItem="vhi-Uq-joI" secondAttribute="trailing" constant="10" id="aNt-EJ-peH"/>
                             <constraint firstItem="F3w-Bc-44W" firstAttribute="bottom" secondItem="ipE-cH-WRW" secondAttribute="bottom" id="kF3-pI-L9U"/>
                             <constraint firstItem="vhi-Uq-joI" firstAttribute="leading" secondItem="fLD-Pr-6kD" secondAttribute="leading" id="ksM-ZV-pe1"/>
@@ -89,6 +102,12 @@
                             <constraint firstItem="tfl-ei-Mls" firstAttribute="top" secondItem="fLD-Pr-6kD" secondAttribute="top" constant="17" id="wxj-Sv-mkt"/>
                             <constraint firstItem="vhi-Uq-joI" firstAttribute="bottom" secondItem="tfl-ei-Mls" secondAttribute="bottom" id="zRq-bt-fhT"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VyW-lV-YWf"/>
+                                <exclude reference="ECE-75-5Bg"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
             </view>
@@ -104,10 +123,15 @@
             <connections>
                 <outlet property="container" destination="fLD-Pr-6kD" id="ZUo-bW-kmv"/>
                 <outlet property="dateLabel" destination="k4l-qq-rIB" id="Zok-Bz-Es9"/>
+                <outlet property="leftAuthor1" destination="4ID-DF-vc2" id="rJe-Gx-7In"/>
+                <outlet property="leftAuthor2" destination="aNt-EJ-peH" id="nHa-kb-slj"/>
+                <outlet property="leftProfileImageView" destination="vhi-Uq-joI" id="wrF-3y-I0r"/>
                 <outlet property="likeButton" destination="bYP-nC-h5n" id="eeZ-RJ-ZvB"/>
                 <outlet property="likesCountLabel" destination="V3j-iN-3lh" id="mUw-N0-x0c"/>
-                <outlet property="profileImage" destination="vhi-Uq-joI" id="yLM-Le-EDS"/>
                 <outlet property="replyButton" destination="ipE-cH-WRW" id="djQ-Xd-JqR"/>
+                <outlet property="rightAuthor1" destination="VyW-lV-YWf" id="jPZ-j6-18Z"/>
+                <outlet property="rightAuthor2" destination="ECE-75-5Bg" id="703-GS-aR6"/>
+                <outlet property="rightProfileImageView" destination="wWh-9Z-wfJ" id="XKk-EZ-rlp"/>
                 <outlet property="textView" destination="tfl-ei-Mls" id="OEs-78-IFW"/>
             </connections>
             <point key="canvasLocation" x="5" y="60.5"/>

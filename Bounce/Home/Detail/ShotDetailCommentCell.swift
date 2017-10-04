@@ -8,7 +8,9 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     
     @IBOutlet weak var textView: UITextView!
     
-    @IBOutlet weak var profileImage: ProfileImageView!
+    @IBOutlet weak var leftProfileImageView: ProfileImageView!
+    
+    @IBOutlet weak var rightProfileImageView: ProfileImageView!
 
     @IBOutlet weak var replyButton: UIButton!
     
@@ -17,6 +19,22 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     @IBOutlet weak var likesCountLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
+    
+    // MARK: Left/right author
+    
+    @IBOutlet weak var leftAuthor2: NSLayoutConstraint!
+    @IBOutlet weak var leftAuthor1: NSLayoutConstraint!
+    @IBOutlet weak var rightAuthor1: NSLayoutConstraint!
+    @IBOutlet weak var rightAuthor2: NSLayoutConstraint!
+    
+    func setAuthorAlignment(left: Bool) {
+        leftAuthor1.isActive = left
+        leftAuthor2.isActive = left
+        rightAuthor1.isActive = !left
+        rightAuthor2.isActive = !left
+        setNeedsLayout()
+        layoutIfNeeded()
+    }
     
     // MARK: View lifecycle
     
@@ -33,7 +51,8 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
         
         likeButton.setImage(UIImage(named: "like")?.withRenderingMode(.alwaysTemplate), for: .normal)
         
-        profileImage.inset = 0
+        leftProfileImageView.inset = 0
+        rightProfileImageView.inset = 0
         
         configureViews()
     }
@@ -41,6 +60,8 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     func configureViews() {
         likeButton.tintColor = UIColor(red:0.78039, green:0.78039, blue:0.80000, alpha:1.00000)
         likesCountLabel.isHidden = true
+        leftProfileImageView.isHidden = true
+        rightProfileImageView.isHidden = true
     }
     
     override func prepareForReuse() {

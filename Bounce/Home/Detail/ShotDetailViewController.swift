@@ -211,7 +211,11 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
             cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
             cell.dateLabel.text = comment.created_at.timeAgoSinceNow
             cell.updateStringFormatting()
-            Nuke.loadImage(with: comment.user.avatarURL, into: cell.profileImage.imageView)
+            let imageView = shot.user.id == comment.user.id ? cell.rightProfileImageView.imageView : cell.leftProfileImageView.imageView
+            Nuke.loadImage(with: comment.user.avatarURL, into: imageView)
+            cell.leftProfileImageView.isHidden = comment.user.id == shot.user.id
+            cell.rightProfileImageView.isHidden = comment.user.id != shot.user.id
+            cell.setAuthorAlignment(left: comment.user.id != shot.user.id)
         }
         return cell
     }
