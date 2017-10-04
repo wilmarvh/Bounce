@@ -30,6 +30,20 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="cMb-Sq-8gB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftBubble" translatesAutoresizingMaskIntoConstraints="NO" id="QxV-Gu-IgS" userLabel="leftBubble">
+                                <rect key="frame" x="28" y="172" width="27" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="GXk-k4-3dK"/>
+                                    <constraint firstAttribute="height" constant="25" id="fRB-WS-N91"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightBubble" translatesAutoresizingMaskIntoConstraints="NO" id="C16-1l-I06" userLabel="rightBubble">
+                                <rect key="frame" x="241" y="172" width="27" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="qeQ-rs-y0Y"/>
+                                    <constraint firstAttribute="height" constant="25" id="vUL-5M-vBb"/>
+                                </constraints>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfl-ei-Mls" userLabel="commentTextView">
                                 <rect key="frame" x="35" y="17" width="226" height="185"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,6 +52,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWh-9Z-wfJ" userLabel="rightProfileImageView" customClass="ProfileImageView" customModule="Bounce" customModuleProvider="target">
+                                <rect key="frame" x="271" y="177" width="25" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="3IC-h2-nrs"/>
+                                    <constraint firstAttribute="height" constant="25" id="HvX-gK-er2"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Lwc-rD-zyS"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipE-cH-WRW" userLabel="replyButton">
                                 <rect key="frame" x="50" y="212" width="18" height="18"/>
                                 <constraints>
@@ -66,23 +89,15 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="3 days ago " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4l-qq-rIB" userLabel="dateLabel">
-                                <rect key="frame" x="129" y="214" width="117" height="16"/>
+                                <rect key="frame" x="129" y="212" width="117" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWh-9Z-wfJ" userLabel="rightProfileImageView" customClass="ProfileImageView" customModule="Bounce" customModuleProvider="target">
-                                <rect key="frame" x="271" y="177" width="25" height="25"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="3IC-h2-nrs"/>
-                                    <constraint firstAttribute="height" constant="25" id="HvX-gK-er2"/>
-                                </constraints>
-                                <viewLayoutGuide key="safeArea" id="Lwc-rD-zyS"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="QxV-Gu-IgS" firstAttribute="bottom" secondItem="vhi-Uq-joI" secondAttribute="bottom" constant="-5" id="23u-7R-XuQ"/>
                             <constraint firstItem="wWh-9Z-wfJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tfl-ei-Mls" secondAttribute="trailing" constant="10" id="4ID-DF-vc2"/>
                             <constraint firstItem="bYP-nC-h5n" firstAttribute="top" secondItem="tfl-ei-Mls" secondAttribute="bottom" constant="10" id="BGj-C9-UP4"/>
                             <constraint firstAttribute="trailing" secondItem="wWh-9Z-wfJ" secondAttribute="trailing" id="Dhq-gW-pPS"/>
@@ -94,11 +109,15 @@
                             <constraint firstItem="k4l-qq-rIB" firstAttribute="trailing" secondItem="tfl-ei-Mls" secondAttribute="trailing" constant="-15" id="U1C-LW-qAf"/>
                             <constraint firstItem="tfl-ei-Mls" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vhi-Uq-joI" secondAttribute="trailing" constant="10" id="VyW-lV-YWf"/>
                             <constraint firstItem="tfl-ei-Mls" firstAttribute="leading" secondItem="vhi-Uq-joI" secondAttribute="trailing" constant="10" id="aNt-EJ-peH"/>
+                            <constraint firstItem="k4l-qq-rIB" firstAttribute="height" secondItem="F3w-Bc-44W" secondAttribute="height" id="cEV-ln-kPu"/>
+                            <constraint firstItem="C16-1l-I06" firstAttribute="bottom" secondItem="wWh-9Z-wfJ" secondAttribute="bottom" constant="-5" id="eUG-h5-udY"/>
                             <constraint firstItem="F3w-Bc-44W" firstAttribute="bottom" secondItem="ipE-cH-WRW" secondAttribute="bottom" id="kF3-pI-L9U"/>
                             <constraint firstItem="vhi-Uq-joI" firstAttribute="leading" secondItem="fLD-Pr-6kD" secondAttribute="leading" id="ksM-ZV-pe1"/>
                             <constraint firstItem="F3w-Bc-44W" firstAttribute="leading" secondItem="ipE-cH-WRW" secondAttribute="trailing" constant="15" id="lNv-vI-0lO"/>
                             <constraint firstItem="ipE-cH-WRW" firstAttribute="leading" secondItem="tfl-ei-Mls" secondAttribute="leading" constant="15" id="pUc-5m-uPl"/>
+                            <constraint firstItem="QxV-Gu-IgS" firstAttribute="leading" secondItem="vhi-Uq-joI" secondAttribute="trailing" constant="3" id="q2M-ol-QrC"/>
                             <constraint firstItem="k4l-qq-rIB" firstAttribute="leading" secondItem="F3w-Bc-44W" secondAttribute="trailing" constant="15" id="qgL-mB-s8V"/>
+                            <constraint firstItem="wWh-9Z-wfJ" firstAttribute="leading" secondItem="C16-1l-I06" secondAttribute="trailing" constant="3" id="rUd-8u-l0G"/>
                             <constraint firstItem="tfl-ei-Mls" firstAttribute="top" secondItem="fLD-Pr-6kD" secondAttribute="top" constant="17" id="wxj-Sv-mkt"/>
                             <constraint firstItem="vhi-Uq-joI" firstAttribute="bottom" secondItem="tfl-ei-Mls" secondAttribute="bottom" id="zRq-bt-fhT"/>
                         </constraints>
@@ -125,12 +144,14 @@
                 <outlet property="dateLabel" destination="k4l-qq-rIB" id="Zok-Bz-Es9"/>
                 <outlet property="leftAuthor1" destination="4ID-DF-vc2" id="rJe-Gx-7In"/>
                 <outlet property="leftAuthor2" destination="aNt-EJ-peH" id="nHa-kb-slj"/>
+                <outlet property="leftBubble" destination="QxV-Gu-IgS" id="axf-Kd-kTf"/>
                 <outlet property="leftProfileImageView" destination="vhi-Uq-joI" id="wrF-3y-I0r"/>
                 <outlet property="likeButton" destination="bYP-nC-h5n" id="eeZ-RJ-ZvB"/>
                 <outlet property="likesCountLabel" destination="V3j-iN-3lh" id="mUw-N0-x0c"/>
                 <outlet property="replyButton" destination="ipE-cH-WRW" id="djQ-Xd-JqR"/>
                 <outlet property="rightAuthor1" destination="VyW-lV-YWf" id="jPZ-j6-18Z"/>
                 <outlet property="rightAuthor2" destination="ECE-75-5Bg" id="703-GS-aR6"/>
+                <outlet property="rightBubble" destination="C16-1l-I06" id="Pvg-iv-M5G"/>
                 <outlet property="rightProfileImageView" destination="wWh-9Z-wfJ" id="XKk-EZ-rlp"/>
                 <outlet property="textView" destination="tfl-ei-Mls" id="OEs-78-IFW"/>
             </connections>
@@ -138,7 +159,9 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="leftBubble" width="27" height="25"/>
         <image name="like" width="20" height="17"/>
         <image name="responseComment" width="18" height="18"/>
+        <image name="rightBubble" width="27" height="25"/>
     </resources>
 </document>

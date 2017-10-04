@@ -10,8 +10,10 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var leftBubble: UIImageView!
     @IBOutlet weak var leftProfileImageView: ProfileImageView!
     
+    @IBOutlet weak var rightBubble: UIImageView!
     @IBOutlet weak var rightProfileImageView: ProfileImageView!
 
     @IBOutlet weak var replyButton: UIButton!
@@ -34,8 +36,10 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     func setAuthorAlignment(left: Bool) {
         leftAuthor1.isActive = left
         leftAuthor2.isActive = left
+        leftBubble.isHidden = !left
         rightAuthor1.isActive = !left
         rightAuthor2.isActive = !left
+        rightBubble.isHidden = left
         setNeedsLayout()
         layoutIfNeeded()
     }
