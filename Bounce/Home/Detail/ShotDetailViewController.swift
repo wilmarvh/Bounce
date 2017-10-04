@@ -161,10 +161,11 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     func configureImageCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if imageCell == nil {
             imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailImageCell", for: indexPath) as! ShotDetailImageCell
-            AnimatedImage.manager.loadImage(with: shot.hidpiImageURL(), into: imageCell.imageView, handler: { [weak self] result, cache in
-                self?.imageCell?.imageView.handle(response: result, isFromMemoryCache: cache)
-            })
         }
+        imageCell.imageView.prepareForReuse()
+        AnimatedImage.manager.loadImage(with: shot.hidpiImageURL(), into: imageCell.imageView, handler: { [weak self] result, cache in
+            self?.imageCell?.imageView.handle(response: result, isFromMemoryCache: cache)
+        })
         return imageCell
     }
     
@@ -203,6 +204,7 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     func configureCommentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentCell", for: indexPath) as! ShotDetailCommentCell
         if let comment = comments?[indexPath.row] {
+            cell.commentId = comment.id
             cell.textView.attributedText = combinedDescription(at: indexPath)
             cell.likesCountLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: comment.likes_count))
             if comment.likes_count > 0 {

@@ -2,6 +2,8 @@ import UIKit
 
 class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     
+    static var cache: [Int: UICollectionViewLayoutAttributes] = [Int: UICollectionViewLayoutAttributes]()
+    
     static let textContainerInsets = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
     
     @IBOutlet weak var container: UIView!
@@ -19,6 +21,8 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     @IBOutlet weak var likesCountLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
+    
+    var commentId: Int = -1
     
     // MARK: Left/right author
     
@@ -87,7 +91,12 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        return defaultContentViewLayoutSizeFitting(layoutAttributes)
+        if let cacheEntry = ShotDetailCommentCell.cache[commentId] {
+            return cacheEntry
+        }
+        let newAttributes = defaultContentViewLayoutSizeFitting(layoutAttributes)
+        ShotDetailCommentCell.cache[commentId] = newAttributes
+        return newAttributes
     }
     
 }
