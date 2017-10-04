@@ -9,6 +9,8 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     
     var comments: [Comment]?
     
+    var commentDescriptions: [Int: NSAttributedString] = [Int: NSAttributedString]()
+    
     var imageCell: ShotDetailImageCell!
     
     var statsCell: ShotDetailStatsCell!
@@ -16,8 +18,6 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     var textCell: ShotDetailTextCellCollectionViewCell!
     
     var tagCell: ShotDetailTagsCell!
-    
-    var commentsContainerCell: ShotDetailCommentsContainerCell!
     
     // MARK: Status bar
 
@@ -56,38 +56,13 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         }
     }
     
-    func updateCloseButtonTintColor(from imageView: UIImageView?) {
-        // https://stackoverflow.com/a/2509596/149591
-        // ((Red value * 299) + (Green value * 587) + (Blue value * 114)) / 1000
-        guard let image = imageView?.image, let cgImage = image.cgImage else { return }
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            let cropRect = CGRect(x: image.size.width - 50, y: 0, width: 50, height: 30)
-            if let topRightCorner = cgImage.cropping(to: cropRect) {
-                let croppedImage = UIImage(cgImage: topRightCorner)
-                croppedImage.areaAverage(completion: { averageColor in
-                    if let components = averageColor.rgb() {
-                        let result = ((components.red * 299) + (components.green * 587) + (components.blue * 114)) / 1000
-                        if result > 125 {
-                            self?.closeButton.tintColor = UIColor.bounceBlack()
-                            self?.statusBarStyle = .default
-                        } else {
-                            self?.closeButton.tintColor = UIColor.white
-                            self?.statusBarStyle = .lightContent
-                        }
-                        self?.setNeedsStatusBarAppearanceUpdate()
-                    }
-                })
-            }
-        }
-    }
-    
     // MARK: Configure view
     
     lazy var closeButton: UIButton = {
         let button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "detailCloseButton"), for: .normal)
-        button.tintColor = UIColor.grayButton()
+        button.tintColor = UIColor.mediumPink()
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
         return button
     }()
@@ -95,19 +70,15 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     func configureCollectionView() {
         // cells and other
         collectionView?.backgroundColor = UIColor.white
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView?.register(ShotDetailImageCell.self, forCellWithReuseIdentifier: "ShotDetailImageCell")
         collectionView?.register(ShotDetailStatsCell.self, forCellWithReuseIdentifier: "ShotDetailStatsCell")
         collectionView?.register(ShotDetailTextCellCollectionViewCell.nib(), forCellWithReuseIdentifier: "ShotDetailTextCellCollectionViewCell")
         collectionView?.register(ShotDetailTagsCell.self, forCellWithReuseIdentifier: "ShotDetailTagsCell")
-        collectionView?.register(ShotDetailCommentsContainerCell.self, forCellWithReuseIdentifier: "ShotDetailCommentsContainerCell")
+        collectionView?.register(ShotDetailCommentCell.nib(), forCellWithReuseIdentifier: "ShotDetailCommentCell")
         
         // layout
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.sectionInset = UIEdgeInsetsMake(-UIApplication.shared.statusBarFrame.height, 0, 15, 0)
-            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 321)
-            layout.minimumInteritemSpacing = 0
-            layout.minimumLineSpacing = 0
+            layout.estimatedItemSize = CGSize(width: collectionView?.frame.width ?? view.frame.width, height: 321)
             collectionView?.collectionViewLayout = layout
         }
     }
@@ -136,11 +107,38 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         static let allValus: [Section] = [.image, .stats, .text, .tags, .comments]
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let section = Section(rawValue: section)!
+        switch section {
+        case .image:
+            return UIEdgeInsetsMake(-UIApplication.shared.statusBarFrame.height, 0, 0, 0)
+        case .stats:
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        case .text:
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        case .tags:
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        case .comments:
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Section.allValus.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if Section(rawValue: section)! == .comments {
+            return comments?.count ?? 0
+        }
         return 1
     }
     
@@ -203,22 +201,33 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
     }
     
     func configureCommentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if commentsContainerCell == nil {
-            commentsContainerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentsContainerCell", for: indexPath) as! ShotDetailCommentsContainerCell
-            commentsContainerCell.shot = shot
-            commentsCollectionViewController.willMove(toParentViewController: self)
-            commentsContainerCell.collectionView = commentsCollectionViewController.collectionView
-            commentsCollectionViewController.didMove(toParentViewController: self)
-            commentsCollectionViewController.comments = self.comments ?? []
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShotDetailCommentCell", for: indexPath) as! ShotDetailCommentCell
+        if let comment = comments?[indexPath.row] {
+            cell.textView.attributedText = combinedDescription(at: indexPath)
+            cell.likesCountLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: comment.likes_count))
+            if comment.likes_count > 0 {
+                cell.likesCountLabel.isHidden = false
+                cell.likeButton.tintColor = UIColor.mediumPink()
+            }
+            cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
+            cell.dateLabel.text = comment.created_at.timeAgoSinceNow
+            cell.updateStringFormatting()
+            Nuke.loadImage(with: comment.user.avatarURL, into: cell.profileImage.imageView)
         }
-        return commentsContainerCell
+        return cell
     }
     
-    lazy var commentsCollectionViewController: ShotCommentsViewController = {
-        // ugh to some of the worst hacks ever
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "ShotCommentsViewController") as! ShotCommentsViewController
-        return controller
-    }()
+    func combinedDescription(at indexPath: IndexPath) -> NSAttributedString {
+        if let comment = comments?[indexPath.row] {
+            if let combinedDescription = commentDescriptions[comment.id] {
+                return combinedDescription
+            }
+            let combinedDescription = comment.combinedDescription()
+            commentDescriptions[comment.id] = combinedDescription
+            return combinedDescription
+        }
+        return NSAttributedString()
+    }
     
     // MARK: Data
     
@@ -226,13 +235,12 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
         statsCell = nil
         tagCell = nil
         textCell = nil
-        commentsContainerCell = nil
         collectionView?.reloadData()
     }
     
     func loadComments() {
         Comment.fetch(for: shot) { [weak self] comments, error in
-            self?.commentsContainerCell = nil
+//            self?.commentsContainerCell = nil
             self?.comments = comments
             self?.reload()
 //            self?.performSegue(withIdentifier: "showComments", sender: nil)

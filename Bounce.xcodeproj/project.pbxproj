@@ -12,7 +12,6 @@
 		1F0BCF501F7FCD8400872D52 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF4F1F7FCD8400872D52 /* ProfileViewController.swift */; };
 		1F0BCF521F7FCEF600872D52 /* ShotDetailTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF511F7FCEF600872D52 /* ShotDetailTagsCell.swift */; };
 		1F0BCF551F7FD68E00872D52 /* TextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF541F7FD68E00872D52 /* TextSize.swift */; };
-		1F0BCF571F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift */; };
 		1F0BCF591F7FECAB00872D52 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BCF581F7FECAB00872D52 /* Comment.swift */; };
 		1F0BCF891F8035DB00872D52 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0BCF721F80359F00872D52 /* Nuke.framework */; };
 		1F0BCF8A1F8035DB00872D52 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0BCF721F80359F00872D52 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -346,7 +345,6 @@
 		1F0BCF4F1F7FCD8400872D52 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1F0BCF511F7FCEF600872D52 /* ShotDetailTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailTagsCell.swift; sourceTree = "<group>"; };
 		1F0BCF541F7FD68E00872D52 /* TextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSize.swift; sourceTree = "<group>"; };
-		1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailCommentsContainerCell.swift; sourceTree = "<group>"; };
 		1F0BCF581F7FECAB00872D52 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		1F0BCF5C1F80357F00872D52 /* Gifu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Gifu.xcodeproj; path = Gifu/Gifu.xcodeproj; sourceTree = "<group>"; };
 		1F0BCF651F80359F00872D52 /* Nuke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nuke.xcodeproj; path = Nuke/Nuke.xcodeproj; sourceTree = "<group>"; };
@@ -672,7 +670,6 @@
 				1F06C3A41F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift */,
 				1F06C3A51F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.xib */,
 				1F0BCF511F7FCEF600872D52 /* ShotDetailTagsCell.swift */,
-				1F0BCF561F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift */,
 				1F46EED11F80DFA9003F22C5 /* ShotDetailCommentCell.swift */,
 				1F46EED21F80DFA9003F22C5 /* ShotDetailCommentCell.xib */,
 				1FE365711F844A36001739B0 /* ShotCommentsViewController.swift */,
@@ -1202,7 +1199,6 @@
 				1F5472211F82EA1C00207949 /* TimePeriod.swift in Sources */,
 				1F5472291F82EA1C00207949 /* Date+TimeAgo.swift in Sources */,
 				1F5472241F82EA1C00207949 /* Enums.swift in Sources */,
-				1F0BCF571F7FE91C00872D52 /* ShotDetailCommentsContainerCell.swift in Sources */,
 				1FB78ECD1F7847280039BE04 /* ShotDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

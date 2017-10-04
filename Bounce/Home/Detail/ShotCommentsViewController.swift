@@ -25,6 +25,10 @@ class ShotCommentsViewController: UICollectionViewController {
         configureCollectionView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     // MARK: Views
     
     lazy var layout: UICollectionViewFlowLayout = {

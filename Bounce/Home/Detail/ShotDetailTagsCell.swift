@@ -21,6 +21,13 @@ class ShotDetailTagsCell: UICollectionViewCell, UICollectionViewDataSource, UICo
         configureViews()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.layer.removeAllBorderLayers()
+        contentView.layer.addBottomBorder(inset: 0)
+    }
+    
     // MARK: View
     
     lazy var container: UIView = {
