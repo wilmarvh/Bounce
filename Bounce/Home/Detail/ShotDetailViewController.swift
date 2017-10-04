@@ -208,8 +208,8 @@ class ShotDetailViewController: UICollectionViewController, UICollectionViewDele
             if comment.likes_count > 0 {
                 cell.likesCountLabel.isHidden = false
             }
-            cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
-            cell.dateLabel.text = comment.created_at.timeAgoSinceNow
+//            cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
+            cell.dateLabel.text = comment.created_at.shortTimeAgoSinceNow + " ago"
             cell.updateStringFormatting()
             let imageView = shot.user.id == comment.user.id ? cell.rightProfileImageView.imageView : cell.leftProfileImageView.imageView
             Nuke.loadImage(with: comment.user.avatarURL, into: imageView)
