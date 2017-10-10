@@ -1,5 +1,6 @@
 import UIKit
 import NothingButNet
+import SafariServices
 import Nuke
 import Preheat
 import DeckTransition
@@ -38,6 +39,14 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         preheatController?.handler = { [weak self] addedIndexPaths, removedIndexPaths in
             self?.preheat(added: addedIndexPaths, removed: removedIndexPaths)
         }
+        
+        showLogin()
+    }
+    
+    func showLogin() {
+        let url = NothingBut.authorizeURL()
+        let controller = SFSafariViewController(url: url)
+        present(controller, animated: true, completion: nil)
     }
     
     func preheat(added: [IndexPath], removed: [IndexPath]) {

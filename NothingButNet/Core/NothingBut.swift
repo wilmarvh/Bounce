@@ -37,14 +37,20 @@ enum API {
     }
 }
 
-class NothingBut {
+public class NothingBut {
     
-    private lazy var session: URLSession = {
-        let configuration = HTTPLogger.defaultSessionConfiguration()
-        configuration.httpAdditionalHeaders = ["Authorization": "Bearer ae04eff00cd0125a8615fa28ec64c347e8cd80dbc8fd3c5647632d129d5318eb"]
-        HTTPLogger.register()
-        return URLSession(configuration: configuration)
-    }()
+    private var token: String = "ae04eff00cd0125a8615fa28ec64c347e8cd80dbc8fd3c5647632d129d5318eb"
+    
+    private var _session: URLSession?
+    private var session: URLSession {
+        if _session == nil {
+            let configuration = HTTPLogger.defaultSessionConfiguration()
+            configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(token)"]
+            HTTPLogger.register()
+            _session = URLSession(configuration: configuration)
+        }
+        return _session!
+    }
     
     // MARK: Singleton
     
@@ -69,6 +75,53 @@ class NothingBut {
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = self.numberOfCallsToSetVisible > 0
         }
+    }
+
+    // MARK: Dribbble Authorization
+    
+    private static let clientId = "f0ff3e66f65c40e8f33d61eca4743349ffa229de6d18be2cb0d5103d944fe8f3"
+    
+    private static let clientSecret = "305c8fa1ee13503d5465aa0a0e553428e2c6853e8abe2d60bf1548dd8c38f84b"
+    
+    public class func authorizeURL() -> URL {
+        var components = URLComponents(string: "https://dribbble.com/oauth/authorize")!
+        let clientId = URLQueryItem(name: "client_id", value: NothingBut.clientId)
+        let state = URLQueryItem(name: "state", value: UUID().uuidString)
+        components.queryItems = [clientId, state]
+        return components.url!
+    }
+    
+    public class func generateToken(with code: String, completion: @escaping (Error?) -> Void) {
+        let url = URL(string: "https://dribbble.com/oauth/token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let params = [
+            "client_id": NothingBut.clientId,
+            "client_secret": NothingBut.clientSecret,
+            "code": code,
+        ]
+        request.httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
+        
+        let task = shared.session.dataTask(with: request) { data, urlResponse, error in
+            if let error = error {
+                debugPrint("\(error)")
+            } else if let data = data {
+                if let jsonObject = try! JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any],
+                    let token = jsonObject["access_token"] as? String {
+                    NothingBut.setToken(token)
+                }
+            }
+            DispatchQueue.main.async {
+                completion(error)
+            }
+        }
+        task.resume()
+    }
+    
+    public class func setToken(_ token: String) {
+        shared.token = token
+        shared._session = nil
     }
     
 }

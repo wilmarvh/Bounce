@@ -26,6 +26,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+            if let code = components.queryItems?.filter({ $0.name == "code" }).first?.value {
+                NothingBut.generateToken(with: code, completion: { error in
+                    UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+                    if let error = error {
+                        
+                    } else {
+                        
+                    }
+                })
+            }
+        }
+        return true
+    }
+    
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         if shortcutItem.type.contains("randomShot") {
             if let tabController = window?.rootViewController as? UITabBarController {
