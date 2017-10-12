@@ -70,6 +70,8 @@
 		1F939FA41F731CD100C03386 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA31F731CD100C03386 /* Images.swift */; };
 		1F939FA61F731CE500C03386 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA51F731CE500C03386 /* Links.swift */; };
 		1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939FA91F7322EC00C03386 /* UIFont.swift */; };
+		1F9C902C1F8D3E42003DFCF6 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9C90151F8D3E33003DFCF6 /* Hero.framework */; };
+		1F9C902D1F8D3E42003DFCF6 /* Hero.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9C90151F8D3E33003DFCF6 /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA012501F75A7C100EB4927 /* UIColor.swift */; };
 		1FA08D171F8594A2004EB06D /* DeckTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA08D141F859498004EB06D /* DeckTransition.framework */; };
 		1FA08D181F8594A2004EB06D /* DeckTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA08D141F859498004EB06D /* DeckTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -318,6 +320,48 @@
 			remoteGlobalIDString = 1F939F791F73073400C03386;
 			remoteInfo = NothingButNet;
 		};
+		1F9C90141F8D3E33003DFCF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A306D3B21E1C7A2E00B6C23A;
+			remoteInfo = "Hero (iOS)";
+		};
+		1F9C90161F8D3E33003DFCF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D1F7FBF1E49DCB5004D944B;
+			remoteInfo = "Hero (tvOS)";
+		};
+		1F9C90181F8D3E33003DFCF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A33E60A11DE761C90065CBD8;
+			remoteInfo = HeroExamples;
+		};
+		1F9C901A1F8D3E33003DFCF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D1F7FE21E49DD90004D944B;
+			remoteInfo = HeroTvOSExamples;
+		};
+		1F9C901C1F8D3E33003DFCF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AF1E1B511E66822C00ECE039;
+			remoteInfo = HeroTests;
+		};
+		1F9C902E1F8D3E42003DFCF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A306D3B11E1C7A2E00B6C23A;
+			remoteInfo = "Hero (iOS)";
+		};
 		1FA08D131F859498004EB06D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1FA08D0E1F859498004EB06D /* DeckTransition.xcodeproj */;
@@ -356,6 +400,7 @@
 				1F939F901F73073400C03386 /* NothingButNet.framework in Embed Frameworks */,
 				1FA08D181F8594A2004EB06D /* DeckTransition.framework in Embed Frameworks */,
 				1F0BCF8A1F8035DB00872D52 /* Nuke.framework in Embed Frameworks */,
+				1F9C902D1F8D3E42003DFCF6 /* Hero.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +457,7 @@
 		1F939FA31F731CD100C03386 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		1F939FA51F731CE500C03386 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F939FA91F7322EC00C03386 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Hero.xcodeproj; path = Hero/Hero.xcodeproj; sourceTree = "<group>"; };
 		1FA012501F75A7C100EB4927 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		1FA08D0E1F859498004EB06D /* DeckTransition.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DeckTransition.xcodeproj; path = DeckTransition/DeckTransition.xcodeproj; sourceTree = "<group>"; };
 		1FADB41D1F7DB5D00006343D /* HomeViewListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewListLayout.swift; sourceTree = "<group>"; };
@@ -462,6 +508,7 @@
 				1F939F8F1F73073400C03386 /* NothingButNet.framework in Frameworks */,
 				1FA08D171F8594A2004EB06D /* DeckTransition.framework in Frameworks */,
 				1F0BCF891F8035DB00872D52 /* Nuke.framework in Frameworks */,
+				1F9C902C1F8D3E42003DFCF6 /* Hero.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +610,7 @@
 		1F939F3B1F7306A100C03386 = {
 			isa = PBXGroup;
 			children = (
+				1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */,
 				1FA08D0E1F859498004EB06D /* DeckTransition.xcodeproj */,
 				1F46EED71F819D8D003F22C5 /* SnapKit.xcodeproj */,
 				1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */,
@@ -686,6 +734,18 @@
 				1F46EED51F813766003F22C5 /* NSAttributedString.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1F9C900B1F8D3E33003DFCF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F9C90151F8D3E33003DFCF6 /* Hero.framework */,
+				1F9C90171F8D3E33003DFCF6 /* Hero.framework */,
+				1F9C90191F8D3E33003DFCF6 /* HeroExamples.app */,
+				1F9C901B1F8D3E33003DFCF6 /* HeroTvOSExamples.app */,
+				1F9C901D1F8D3E33003DFCF6 /* HeroTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		1FA08D0F1F859498004EB06D /* Products */ = {
@@ -822,6 +882,7 @@
 				1F7FA6431F805A37003FFBB6 /* PBXTargetDependency */,
 				1F46EEE31F819DEB003F22C5 /* PBXTargetDependency */,
 				1FA08D1A1F8594A2004EB06D /* PBXTargetDependency */,
+				1F9C902F1F8D3E42003DFCF6 /* PBXTargetDependency */,
 			);
 			name = Bounce;
 			productName = Bounce;
@@ -961,6 +1022,10 @@
 				{
 					ProductGroup = 1F0BCF5D1F80357F00872D52 /* Products */;
 					ProjectRef = 1F0BCF5C1F80357F00872D52 /* Gifu.xcodeproj */;
+				},
+				{
+					ProductGroup = 1F9C900B1F8D3E33003DFCF6 /* Products */;
+					ProjectRef = 1F9C900A1F8D3E33003DFCF6 /* Hero.xcodeproj */;
 				},
 				{
 					ProductGroup = 1F0BCF841F8035C300872D52 /* Products */;
@@ -1140,6 +1205,41 @@
 			fileType = wrapper.application;
 			path = DemoApp.app;
 			remoteRef = 1F7FA63E1F805A2A003FFBB6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F9C90151F8D3E33003DFCF6 /* Hero.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Hero.framework;
+			remoteRef = 1F9C90141F8D3E33003DFCF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F9C90171F8D3E33003DFCF6 /* Hero.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Hero.framework;
+			remoteRef = 1F9C90161F8D3E33003DFCF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F9C90191F8D3E33003DFCF6 /* HeroExamples.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = HeroExamples.app;
+			remoteRef = 1F9C90181F8D3E33003DFCF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F9C901B1F8D3E33003DFCF6 /* HeroTvOSExamples.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = HeroTvOSExamples.app;
+			remoteRef = 1F9C901A1F8D3E33003DFCF6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F9C901D1F8D3E33003DFCF6 /* HeroTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HeroTests.xctest;
+			remoteRef = 1F9C901C1F8D3E33003DFCF6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		1FA08D141F859498004EB06D /* DeckTransition.framework */ = {
@@ -1355,6 +1455,11 @@
 			isa = PBXTargetDependency;
 			target = 1F939F791F73073400C03386 /* NothingButNet */;
 			targetProxy = 1F939F8D1F73073400C03386 /* PBXContainerItemProxy */;
+		};
+		1F9C902F1F8D3E42003DFCF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Hero (iOS)";
+			targetProxy = 1F9C902E1F8D3E42003DFCF6 /* PBXContainerItemProxy */;
 		};
 		1FA08D1A1F8594A2004EB06D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

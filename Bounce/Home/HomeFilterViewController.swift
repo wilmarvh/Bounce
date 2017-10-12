@@ -1,8 +1,8 @@
 import UIKit
+import NothingButNet
 
-enum HomeFilterType: String {
+enum HomeList: String {
     case popular = "Popular"
-    case recent = "Recent"
     case teams = "Teams"
     case playoffs = "Playoffs"
     case debuts = "Debuts"
@@ -11,25 +11,74 @@ enum HomeFilterType: String {
     case attachments = "Attachments"
     
     static func allNames() -> [String] {
-        return [HomeFilterType.popular.rawValue,
-                HomeFilterType.recent.rawValue,
-                HomeFilterType.teams.rawValue,
-                HomeFilterType.playoffs.rawValue,
-                HomeFilterType.debuts.rawValue,
-                HomeFilterType.rebounds.rawValue,
-                HomeFilterType.gifs.rawValue,
-                HomeFilterType.attachments.rawValue
+        return [HomeList.popular.rawValue,
+                HomeList.teams.rawValue,
+                HomeList.playoffs.rawValue,
+                HomeList.debuts.rawValue,
+                HomeList.rebounds.rawValue,
+                HomeList.gifs.rawValue,
+                HomeList.attachments.rawValue
         ]
+    }
+    
+    func asList() -> Shot.List {
+        switch self {
+        case .popular:
+            return .popular
+        case .teams:
+            return .teams
+        case .playoffs:
+            return .playoffs
+        case .debuts:
+            return .debuts
+        case .rebounds:
+            return .rebounds
+        case .gifs:
+            return .animated
+        case .attachments:
+            return .attachments
+        }
     }
 }
 
-class HomeFilterViewController: UICollectionViewController {
+enum HomeSort: String {
+    case popular = "Popular"
+    case recent = "Recent"
+    case mostViewed = "Most Viewed"
+    case mostCommented = "Most Commented"
     
-    var filterSelected: (HomeFilterType) -> Void = { _ in
+    static func allNames() -> [String] {
+        return [HomeSort.popular.rawValue,
+                HomeSort.recent.rawValue,
+                HomeSort.mostViewed.rawValue,
+                HomeSort.mostCommented.rawValue
+        ]
+    }
+    
+    func asSort() -> Shot.Sort {
+        switch self {
+        case .popular:
+            return .popular
+        case .recent:
+            return .recent
+        case .mostViewed:
+            return .views
+        case .mostCommented:
+            return .comments
+        }
+    }
+}
+
+
+class HomeFilterViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    var filterSelected: (HomeList) -> Void = { _ in
         debugPrint("Thing was selected")
     }
     
-    var selectedFilter: HomeFilterType = .popular
+    var selectedList: HomeList = .popular
+    
+    var selectedSort: HomeSort = .popular
     
     // MARK: View lifecycle
     
@@ -49,7 +98,6 @@ class HomeFilterViewController: UICollectionViewController {
         // layout
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = UIEdgeInsetsMake(25, 20, 25, 20)
-            layout.itemSize = CGSize(width: HomeFilterCell.width, height: HomeFilterCell.height)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 15
             collectionView?.collectionViewLayout = layout
@@ -59,27 +107,64 @@ class HomeFilterViewController: UICollectionViewController {
     // MARK: UICollectionView DataSource / Delegate
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HomeFilterType.allNames().count
+        if section == 0 {
+            return HomeList.allNames().count
+        } else if section == 1 {
+            return HomeSort.allNames().count
+        }
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 0 {
+            return CGSize(width: HomeFilterCell.width, height: HomeFilterCell.height)
+        } else if indexPath.section == 1 {
+            if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+                let width = collectionView.frame.width - layout.sectionInset.left - layout.sectionInset.right
+                return CGSize(width: width, height: HomeFilterCell.height)
+            }
+        }
+        return .zero
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeFilterCell
-        let item = HomeFilterType.allNames()[indexPath.row]
-        cell.button.setTitle(item, for: .normal)
-        cell.button.isHighlighted = selectedFilter.rawValue == item
-        cell.button.action = { [weak self] in
-            let item = HomeFilterType.allNames()[indexPath.row]
-            if let filter = HomeFilterType(rawValue: item) {
-                self?.selectedFilter = filter
-                self?.collectionView?.reloadData()
-                self?.popoverPresentationController?.delegate?.popoverPresentationControllerShouldDismissPopover!((self?.popoverPresentationController)!)
-                self?.dismiss(animated: true, completion: nil)
+        
+        // filter
+        if indexPath.section == 0 {
+            let item = HomeList.allNames()[indexPath.row]
+            cell.button.setTitle(item, for: .normal)
+            cell.button.isHighlighted = selectedList.rawValue == item
+            cell.button.action = { [weak self] in
+                let item = HomeList.allNames()[indexPath.row]
+                if let filter = HomeList(rawValue: item) {
+                    self?.selectedList = filter
+                    self?.collectionView?.reloadData()
+                    _ = self?.popoverPresentationController?.delegate?.popoverPresentationControllerShouldDismissPopover!((self?.popoverPresentationController)!)
+                    self?.dismiss(animated: true, completion: nil)
+                }
             }
         }
+        // sort
+        else if indexPath.section == 1 {
+            let item = HomeSort.allNames()[indexPath.row]
+            cell.button.setTitle(item, for: .normal)
+            cell.button.isHighlighted = selectedSort.rawValue == item
+            cell.button.action = { [weak self] in
+                let item = HomeSort.allNames()[indexPath.row]
+                if let sort = HomeSort(rawValue: item) {
+                    self?.selectedSort = sort
+                    self?.collectionView?.reloadData()
+                    _ = self?.popoverPresentationController?.delegate?.popoverPresentationControllerShouldDismissPopover!((self?.popoverPresentationController)!)
+                    self?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+        
         return cell
     }
 }
@@ -118,7 +203,7 @@ class HomeFilterCell: UICollectionViewCell {
     func configureViews() {
         contentView.addSubview(button)
         contentView.addConstraint(NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: HomeFilterCell.height))
-        contentView.addConstraint(NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: HomeFilterCell.width))
+        contentView.addConstraint(NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: contentView, attribute: .width, multiplier: 1.0, constant: 0))
     }
     
 }

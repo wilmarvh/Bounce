@@ -13,11 +13,13 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     var shots: [Shot] = [Shot]()
     
-    var selectedFilter: HomeFilterType = .popular {
+    var selectedList: HomeList = .popular {
         didSet {
-            updateFilterButtonTitle(with: selectedFilter)
+            updateListButtonTitle(with: selectedList)
         }
     }
+    
+    var selectedSort: HomeSort = .popular
     
     var listLayout: HomeViewListLayout = HomeViewListLayout()
     
@@ -40,7 +42,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
             self?.preheat(added: addedIndexPaths, removed: removedIndexPaths)
         }
         
-        showLogin()
+//        showLogin()
     }
     
     func showLogin() {
@@ -120,10 +122,10 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         
         // right
         var buttons = [UIButton]()
-        // filter
-        button = newMenuButton(size: height, imageName: "filter")
-        button.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
-        buttons.append(button)
+//        // filter
+//        button = newMenuButton(size: height, imageName: "filter")
+//        button.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
+//        buttons.append(button)
         // time
         button = newMenuButton(size: height, imageName: "timeFilter")
         button.addTarget(self, action: #selector(showTime), for: .touchUpInside)
@@ -211,10 +213,15 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     func loadData(completion: (() -> Void)? = nil) {
-        Shot.fetchPopularShots { [unowned self] shots, error in
+        let list = selectedList.asList()
+        let sort = selectedSort.asSort()
+        Shot.fetchShots(list: list, sort: sort) { [unowned self] shots, error in
             self.shots = shots ?? []
             self.collectionView?.reloadData()
             self.collectionView?.refreshControl?.endRefreshing()
+            if self.shots.count > 0 {
+                self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            }
             if let completion = completion { completion() }
         }
     }
@@ -227,7 +234,8 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     @objc func showMenu() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeFilterViewController") as? HomeFilterViewController {
-            controller.selectedFilter = selectedFilter
+            controller.selectedList = selectedList
+            controller.selectedSort = selectedSort
             controller.modalPresentationStyle = .popover
             controller.collectionView?.reloadData()
             if let popoverController = controller.popoverPresentationController {
@@ -235,7 +243,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
                 popoverController.permittedArrowDirections = [.up]
                 popoverController.barButtonItem = navigationItem.leftBarButtonItem
                 popoverController.delegate = self
-                controller.preferredContentSize = CGSize(width: 315, height: 223)
+                controller.preferredContentSize = CGSize(width: 315, height: 445)
             }
             self.present(controller, animated: true, completion: nil)
         }
@@ -265,7 +273,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         })
     }
     
-    func updateFilterButtonTitle(with filter: HomeFilterType) {
+    func updateListButtonTitle(with filter: HomeList) {
         if let button = navigationItem.leftBarButtonItem?.customView as? UIButton {
             button.setTitle(filter.rawValue, for: .normal)
         }
@@ -291,7 +299,9 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
         // assign selected filter
         if let controller = popoverPresentationController.presentedViewController as? HomeFilterViewController {
-            selectedFilter = controller.selectedFilter
+            selectedList = controller.selectedList
+            selectedSort = controller.selectedSort
+            loadData()
         }
         // fade out overlay
         let views = tabBarController?.view.subviews.filter({ $0.tag == 123 }) ?? []

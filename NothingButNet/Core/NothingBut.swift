@@ -5,7 +5,7 @@ public let dribbbleURL = URL(string: "https://www.dribbble.com")!
 enum API {
     case user
     case users(String)
-    case shots
+    case shots(Shot.List, Shot.Sort)
     case shotComments(Int)
     
     static let baseURL: URL = URL(string: "https://api.dribbble.com/v1/")!
@@ -14,13 +14,34 @@ enum API {
         let url = API.baseURL.appendingPathComponent(self.pathComponent())
         switch self {
         case .shots:
-            let queryItem = URLQueryItem(name: "per_page", value: "50")
             var components = URLComponents(string: url.absoluteString)
-            components?.queryItems = [queryItem]
+            components?.queryItems = [URLQueryItem(name: "per_page", value: "100")] + self.queryItems()
             return components?.url ?? url
         default:
             return url
         }
+    }
+    
+    func queryItems() -> [URLQueryItem] {
+        var items = [URLQueryItem]()
+        
+        switch self {
+        case .user:
+            break
+        case .users(_):
+            break
+        case .shots(let list, let sort):
+            if list != .popular {
+                items.append(contentsOf: [URLQueryItem(name: "list", value: list.rawValue)])
+            }
+            if sort != .popular {
+                items.append(contentsOf: [URLQueryItem(name: "sort", value: sort.rawValue)])
+            }
+        case .shotComments(_):
+            break
+        }
+        
+        return items
     }
     
     func pathComponent() -> String {
@@ -32,7 +53,7 @@ enum API {
         case .shots:
             return "shots"
         case .shotComments(let id):
-            return "\(API.shots.pathComponent())/\(id)/comments"
+            return "\(API.shots(.popular, .popular).pathComponent())/\(id)/comments"
         }
     }
 }

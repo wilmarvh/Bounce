@@ -42,8 +42,25 @@ public struct Shot: Decodable {
 
 extension Shot {
     
-    public static func fetchPopularShots(completion: @escaping ([Shot]?, Error?) -> Void) {
-        let url = API.shots.asURL()
+    public enum List: String {
+        case popular = ""
+        case animated = "animated"
+        case attachments = "attachments"
+        case debuts = "debuts"
+        case playoffs = "playoffs"
+        case rebounds = "rebounds"
+        case teams = "teams"
+    }
+    
+    public enum Sort: String {
+        case popular = ""
+        case recent = "recent"
+        case views = "views"
+        case comments = "comments"
+    }
+    
+    public static func fetchShots(list: List = .popular, sort: Sort = .popular, completion: @escaping ([Shot]?, Error?) -> Void) {
+        let url = API.shots(list, sort).asURL()
         let task = NothingBut.Net.dataTask(with: url) { data, urlResponse, error in
             NothingBut.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {

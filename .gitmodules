@@ -22,3 +22,6 @@
 [submodule "DeckTransition"]
 	path = DeckTransition
 	url = git@github.com:HarshilShah/DeckTransition.git
+[submodule "Hero"]
+	path = Hero
+	url = git@github.com:lkzhao/Hero.git
