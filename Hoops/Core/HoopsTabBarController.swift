@@ -1,6 +1,6 @@
 import UIKit
 
-class BounceTabBarController: UITabBarController {
+class HoopsTabBarController: UITabBarController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

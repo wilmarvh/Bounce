@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F939F431F7306A100C03386"
-               BuildableName = "Bounce.app"
-               BlueprintName = "Bounce"
-               ReferencedContainer = "container:Bounce.xcodeproj">
+               BuildableName = "Hoops.app"
+               BlueprintName = "Hoops"
+               ReferencedContainer = "container:Hoops.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F939F571F7306A100C03386"
-               BuildableName = "BounceTests.xctest"
-               BlueprintName = "BounceTests"
-               ReferencedContainer = "container:Bounce.xcodeproj">
+               BuildableName = "HoopsTests.xctest"
+               BlueprintName = "HoopsTests"
+               ReferencedContainer = "container:Hoops.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "1F939F621F7306A100C03386"
                BuildableName = "BounceUITests.xctest"
                BlueprintName = "BounceUITests"
-               ReferencedContainer = "container:Bounce.xcodeproj">
+               ReferencedContainer = "container:Hoops.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -56,7 +56,7 @@
                BlueprintIdentifier = "1F939F811F73073400C03386"
                BuildableName = "NothingButNetTests.xctest"
                BlueprintName = "NothingButNetTests"
-               ReferencedContainer = "container:Bounce.xcodeproj">
+               ReferencedContainer = "container:Hoops.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F939F431F7306A100C03386"
-            BuildableName = "Bounce.app"
-            BlueprintName = "Bounce"
-            ReferencedContainer = "container:Bounce.xcodeproj">
+            BuildableName = "Hoops.app"
+            BlueprintName = "Hoops"
+            ReferencedContainer = "container:Hoops.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -88,9 +88,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F939F431F7306A100C03386"
-            BuildableName = "Bounce.app"
-            BlueprintName = "Bounce"
-            ReferencedContainer = "container:Bounce.xcodeproj">
+            BuildableName = "Hoops.app"
+            BlueprintName = "Hoops"
+            ReferencedContainer = "container:Hoops.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -107,9 +107,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F939F431F7306A100C03386"
-            BuildableName = "Bounce.app"
-            BlueprintName = "Bounce"
-            ReferencedContainer = "container:Bounce.xcodeproj">
+            BuildableName = "Hoops.app"
+            BlueprintName = "Hoops"
+            ReferencedContainer = "container:Hoops.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

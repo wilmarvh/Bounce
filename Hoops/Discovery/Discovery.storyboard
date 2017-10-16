@@ -13,7 +13,7 @@
         <scene sceneID="lX2-VR-qKI">
             <objects>
                 <navigationController id="ECt-0u-j0M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabDiscovery" selectedImage="tabDiscoveryActive" id="f5Y-3G-q5B" customClass="BounceTabBarItem" customModule="Bounce" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabDiscovery" selectedImage="tabDiscoveryActive" id="f5Y-3G-q5B" customClass="HoopsTabBarItem" customModule="Hoops" customModuleProvider="target"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EvE-Qd-U67">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

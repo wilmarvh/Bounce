@@ -125,7 +125,7 @@ class HomeShotListCell: UICollectionViewCell {
                             if let components = averageColor.rgb() {
                                 let result = ((components.red * 299) + (components.green * 587) + (components.blue * 114)) / 1000
                                 if result > 125 {
-                                    self?.gifLabelImageView.tintColor = UIColor.bounceBlack()
+                                    self?.gifLabelImageView.tintColor = UIColor.hoopsBlack()
                                 } else {
                                     self?.gifLabelImageView.tintColor = UIColor.white
                                 }

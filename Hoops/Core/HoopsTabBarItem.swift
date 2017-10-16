@@ -1,6 +1,6 @@
 import UIKit
 
-class BounceTabBarItem: UITabBarItem {
+class HoopsTabBarItem: UITabBarItem {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Bounce Tab Bar Controller-->
+        <!--Hoops Tab Bar Controller-->
         <scene sceneID="DzP-MQ-ySN">
             <objects>
-                <tabBarController id="l0j-Hd-2QT" customClass="BounceTabBarController" customModule="Bounce" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="l0j-Hd-2QT" customClass="HoopsTabBarController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Mo-14-JLa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
