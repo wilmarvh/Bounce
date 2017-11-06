@@ -19,6 +19,9 @@
 		1F0BCF8E1F8035DB00872D52 /* NukeGifuPlugin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0BCF881F8035C300872D52 /* NukeGifuPlugin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F0BCF911F8035DB00872D52 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0BCF621F80357F00872D52 /* Gifu.framework */; };
 		1F0BCF921F8035DB00872D52 /* Gifu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0BCF621F80357F00872D52 /* Gifu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F1022FA1FB0F89900118DF5 /* HomeTimeframeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1022DF1FB0F89900118DF5 /* HomeTimeframeViewController.swift */; };
+		1F1022FC1FB0F91D00118DF5 /* HomeFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1022FB1FB0F91D00118DF5 /* HomeFilterCell.swift */; };
+		1F1022FE1FB0FCC200118DF5 /* HomeListTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1022FD1FB0FCC200118DF5 /* HomeListTypeViewController.swift */; };
 		1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2A1F7715DE003631C2 /* HomeViewController.swift */; };
 		1F161B2D1F77179D003631C2 /* HoopsTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2C1F77179D003631C2 /* HoopsTabBarItem.swift */; };
 		1F161B2F1F77186F003631C2 /* HomeShotListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2E1F77186F003631C2 /* HomeShotListCell.swift */; };
@@ -90,7 +93,7 @@
 		1FDB9AC31F7714ED001DB054 /* Discovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */; };
 		1FDB9AC51F771504001DB054 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC41F771504001DB054 /* Jobs.storyboard */; };
 		1FDB9AC71F77151F001DB054 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC61F77151F001DB054 /* Profile.storyboard */; };
-		1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */; };
+		1FE01A211F77D530008C16FD /* HomeSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE01A201F77D530008C16FD /* HomeSortViewController.swift */; };
 		1FE365721F844A36001739B0 /* ShotCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE365711F844A36001739B0 /* ShotCommentsViewController.swift */; };
 		1FEC4CB21F9546A8004F221E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC4CB11F9546A8004F221E /* AppDelegate.swift */; };
 		1FEC4CB41F9546A8004F221E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC4CB31F9546A8004F221E /* HomeViewController.swift */; };
@@ -470,6 +473,9 @@
 		1F0BCF5C1F80357F00872D52 /* Gifu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Gifu.xcodeproj; path = Gifu/Gifu.xcodeproj; sourceTree = "<group>"; };
 		1F0BCF651F80359F00872D52 /* Nuke.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nuke.xcodeproj; path = Nuke/Nuke.xcodeproj; sourceTree = "<group>"; };
 		1F0BCF831F8035C300872D52 /* Nuke-Gifu-Plugin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Nuke-Gifu-Plugin.xcodeproj"; path = "Nuke-Gifu-Plugin/Nuke-Gifu-Plugin.xcodeproj"; sourceTree = "<group>"; };
+		1F1022DF1FB0F89900118DF5 /* HomeTimeframeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimeframeViewController.swift; sourceTree = "<group>"; };
+		1F1022FB1FB0F91D00118DF5 /* HomeFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFilterCell.swift; sourceTree = "<group>"; };
+		1F1022FD1FB0FCC200118DF5 /* HomeListTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListTypeViewController.swift; sourceTree = "<group>"; };
 		1F161B2A1F7715DE003631C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F161B2C1F77179D003631C2 /* HoopsTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopsTabBarItem.swift; sourceTree = "<group>"; };
 		1F161B2E1F77186F003631C2 /* HomeShotListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShotListCell.swift; sourceTree = "<group>"; };
@@ -524,7 +530,7 @@
 		1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discovery.storyboard; sourceTree = "<group>"; };
 		1FDB9AC41F771504001DB054 /* Jobs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
 		1FDB9AC61F77151F001DB054 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFilterViewController.swift; sourceTree = "<group>"; };
+		1FE01A201F77D530008C16FD /* HomeSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSortViewController.swift; sourceTree = "<group>"; };
 		1FE365711F844A36001739B0 /* ShotCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotCommentsViewController.swift; sourceTree = "<group>"; };
 		1FEC4CAF1F9546A8004F221E /* Rohan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rohan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEC4CB11F9546A8004F221E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -860,9 +866,12 @@
 				1F161B2E1F77186F003631C2 /* HomeShotListCell.swift */,
 				1F161B301F772E15003631C2 /* HomeShotListCellDetailsContainerView.xib */,
 				1F161B321F773422003631C2 /* HomeShotListCellDetailsContainerView.swift */,
-				1FE01A201F77D530008C16FD /* HomeFilterViewController.swift */,
+				1FE01A201F77D530008C16FD /* HomeSortViewController.swift */,
+				1F1022DF1FB0F89900118DF5 /* HomeTimeframeViewController.swift */,
+				1F1022FD1FB0FCC200118DF5 /* HomeListTypeViewController.swift */,
 				1FADB41E1F7DB5D00006343D /* HomeViewGridLayout.swift */,
 				1FADB41D1F7DB5D00006343D /* HomeViewListLayout.swift */,
+				1F1022FB1FB0F91D00118DF5 /* HomeFilterCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1534,10 +1543,12 @@
 				1F939F481F7306A100C03386 /* AppDelegate.swift in Sources */,
 				1F54722A1F82EA1C00207949 /* Integer+DateTools.swift in Sources */,
 				1FB78ED41F78645A0039BE04 /* Localization.swift in Sources */,
+				1F1022FC1FB0F91D00118DF5 /* HomeFilterCell.swift in Sources */,
 				1F5472231F82EA1C00207949 /* TimePeriodGroup.swift in Sources */,
 				1F5472261F82EA1C00207949 /* TimePeriodChain.swift in Sources */,
 				1FB78ECF1F78514C0039BE04 /* ShotDetailImageCell.swift in Sources */,
 				1FADB41F1F7DB5D10006343D /* HomeViewListLayout.swift in Sources */,
+				1F1022FE1FB0FCC200118DF5 /* HomeListTypeViewController.swift in Sources */,
 				1F161B361F773587003631C2 /* Nibloadable.swift in Sources */,
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
 				1FE365721F844A36001739B0 /* ShotCommentsViewController.swift in Sources */,
@@ -1548,6 +1559,7 @@
 				1F54722B1F82EA1C00207949 /* Date+Bundle.swift in Sources */,
 				1F5472221F82EA1C00207949 /* Date+Components.swift in Sources */,
 				1F0BCF551F7FD68E00872D52 /* TextSize.swift in Sources */,
+				1F1022FA1FB0F89900118DF5 /* HomeTimeframeViewController.swift in Sources */,
 				1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */,
 				1F939FAA1F7322EC00C03386 /* UIFont.swift in Sources */,
 				1F0BCF521F7FCEF600872D52 /* ShotDetailTagsCell.swift in Sources */,
@@ -1556,7 +1568,7 @@
 				1F5472281F82EA1C00207949 /* Date+Inits.swift in Sources */,
 				1F5472201F82EA1C00207949 /* Date+Manipulations.swift in Sources */,
 				1FB78EC71F7814E90039BE04 /* UIImage.swift in Sources */,
-				1FE01A211F77D530008C16FD /* HomeFilterViewController.swift in Sources */,
+				1FE01A211F77D530008C16FD /* HomeSortViewController.swift in Sources */,
 				1F5472211F82EA1C00207949 /* TimePeriod.swift in Sources */,
 				1F5472291F82EA1C00207949 /* Date+TimeAgo.swift in Sources */,
 				1F5472241F82EA1C00207949 /* Enums.swift in Sources */,

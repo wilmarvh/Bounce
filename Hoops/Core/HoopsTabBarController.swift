@@ -6,6 +6,7 @@ class HoopsTabBarController: UITabBarController {
         super.init(coder: aDecoder)
 
         tabBar.clipsToBounds = true
+        tabBar.isHidden = true
     }
     
 }

@@ -27,6 +27,10 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     var gridLayout: HomeViewGridLayout = HomeViewGridLayout()
     
+    var sortButton: UIButton!
+    
+    var timeButton: UIButton!
+    
     // MARK: View lifecycle
     
     override func viewDidLoad() {
@@ -119,19 +123,21 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         button.setTitleColor(.black, for: .normal)
         button.setImage(UIImage(named: "dropdownArrow"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 0, right: 0)
-        button.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showListTypeMenu), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         
         // right
         var buttons = [UIButton]()
-//        // filter
-//        button = newMenuButton(size: height, imageName: "filter")
-//        button.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
-//        buttons.append(button)
+        // sort
+        button = newMenuButton(size: height, imageName: "filter")
+        button.addTarget(self, action: #selector(showSortMenu), for: .touchUpInside)
+        buttons.append(button)
+        sortButton = button
         // time
-//        button = newMenuButton(size: height, imageName: "timeFilter")
-//        button.addTarget(self, action: #selector(showTime), for: .touchUpInside)
-//        buttons.append(button)
+        button = newMenuButton(size: height, imageName: "timeFilter")
+        button.addTarget(self, action: #selector(showTime), for: .touchUpInside)
+        buttons.append(button)
+        timeButton = button
         // layout
         let layoutImageName = collectionView?.collectionViewLayout is HomeViewListLayout ? "gridLayout" : "listLayout"
         button = newMenuButton(size: height, imageName: layoutImageName)
@@ -239,11 +245,9 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         debugPrint("unwindToHomeFromShotDetail")
     }
     
-    @objc func showMenu() {
-        if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeFilterViewController") as? HomeFilterViewController {
+    @objc func showListTypeMenu() {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeListTypeViewController") as? HomeListTypeViewController {
             controller.selectedList = selectedList
-            controller.selectedSort = selectedSort
-            controller.selectedTimeframe = selectedTimeframe
             controller.modalPresentationStyle = .popover
             controller.collectionView?.reloadData()
             if let popoverController = controller.popoverPresentationController {
@@ -251,18 +255,46 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
                 popoverController.permittedArrowDirections = [.up]
                 popoverController.barButtonItem = navigationItem.leftBarButtonItem
                 popoverController.delegate = self
-                controller.preferredContentSize = CGSize(width: 315, height: 585)
+                controller.preferredContentSize = CGSize(width: 315, height: 225)
             }
             self.present(controller, animated: true, completion: nil)
         }
     }
     
-    @objc func showFilter() {
-        debugPrint("Show filter")
+    @objc func showSortMenu() {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeSortViewController") as? HomeSortViewController {
+            controller.selectedSort = selectedSort
+            controller.modalPresentationStyle = .popover
+            controller.collectionView?.reloadData()
+            if let popoverController = controller.popoverPresentationController {
+                popoverController.backgroundColor = .white
+                popoverController.permittedArrowDirections = [.up]
+                popoverController.sourceView = sortButton
+                let x = round(sortButton.frame.width / 2)
+                popoverController.sourceRect = CGRect(x: x, y: sortButton.center.y + 10, width: 1, height: 1)
+                popoverController.delegate = self
+                controller.preferredContentSize = CGSize(width: 315, height: 225)
+            }
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
     @objc func showTime() {
-        debugPrint("Show time")
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeTimeframeViewController") as? HomeTimeframeViewController {
+            controller.selectedTimeframe = selectedTimeframe
+            controller.modalPresentationStyle = .popover
+            controller.collectionView?.reloadData()
+            if let popoverController = controller.popoverPresentationController {
+                popoverController.backgroundColor = .white
+                popoverController.permittedArrowDirections = [.up]
+                popoverController.sourceView = timeButton
+                let x = round(timeButton.frame.width / 2)
+                popoverController.sourceRect = CGRect(x: x, y: timeButton.center.y + 10, width: 1, height: 1)
+                popoverController.delegate = self
+                controller.preferredContentSize = CGSize(width: 315, height: 175)
+            }
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
     @objc func showSettings() {
@@ -309,12 +341,29 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
-        // assign selected filter
-        if let controller = popoverPresentationController.presentedViewController as? HomeFilterViewController {
-            selectedList = controller.selectedList
-            selectedSort = controller.selectedSort
-            selectedTimeframe = controller.selectedTimeframe
-            loadData()
+        // assign selected list type
+        if let controller = popoverPresentationController.presentedViewController as? HomeListTypeViewController {
+            let new = controller.selectedList
+            if selectedList != new {
+                selectedList = controller.selectedList
+                loadData()
+            }
+        }
+        // assign selected sort
+        else if let controller = popoverPresentationController.presentedViewController as? HomeSortViewController {
+            let new = controller.selectedSort
+            if selectedSort != new {
+                selectedSort = controller.selectedSort
+                loadData()
+            }
+        }
+        // assign selected timeframe
+        else if let controller = popoverPresentationController.presentedViewController as? HomeTimeframeViewController {
+            let new = controller.selectedTimeframe
+            if selectedTimeframe != new {
+                selectedTimeframe = controller.selectedTimeframe
+                loadData()
+            }
         }
         // fade out overlay
         let views = tabBarController?.view.subviews.filter({ $0.tag == 123 }) ?? []
