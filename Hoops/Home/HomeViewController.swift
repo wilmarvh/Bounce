@@ -144,7 +144,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         button.addTarget(self, action: #selector(toggleLayout), for: .touchUpInside)
         buttons.append(button)
         // settings
-        button = newMenuButton(size: height, imageName: "settings")
+        button = newMenuButton(size: height, imageName: "tabProfile")
         button.addTarget(self, action: #selector(showSettings), for: .touchUpInside)
         buttons.append(button)
         // stackview
@@ -175,7 +175,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         let shot = shots[indexPath.row] as Shot
         cell.details.titleLabel.text = shot.team?.name ?? shot.user.username
         cell.details.profileImageView.imageView.image = UIImage(named: "tabProfile")
-        cell.details.likesLabel.text = "\(shot.likes_count)"
+        cell.details.likesLabel.text = Localization.integerFormatter.string(from: shot.likes_count as NSNumber)
         cell.gifLabelImageView.isHidden = !shot.animated
         // image
         Nuke.loadImage(with: shot.hidpiImageURL(), into: cell.imageView) { [weak cell] response, isFromMemoryCache in
