@@ -5,7 +5,7 @@ public let dribbbleURL = URL(string: "https://www.dribbble.com")!
 enum API {
     case user
     case users(String)
-    case shots(Shot.List, Shot.Sort)
+    case shots(Shot.List, Shot.Sort, Shot.Timeframe)
     case shotComments(Int)
     
     static let baseURL: URL = URL(string: "https://api.dribbble.com/v1/")!
@@ -30,12 +30,15 @@ enum API {
             break
         case .users(_):
             break
-        case .shots(let list, let sort):
+        case .shots(let list, let sort, let timeframe):
             if list != .popular {
                 items.append(contentsOf: [URLQueryItem(name: "list", value: list.rawValue)])
             }
             if sort != .popular {
                 items.append(contentsOf: [URLQueryItem(name: "sort", value: sort.rawValue)])
+            }
+            if timeframe != .now {
+                items.append(contentsOf: [URLQueryItem(name: "timeframe", value: timeframe.rawValue)])
             }
         case .shotComments(_):
             break
@@ -53,7 +56,7 @@ enum API {
         case .shots:
             return "shots"
         case .shotComments(let id):
-            return "\(API.shots(.popular, .popular).pathComponent())/\(id)/comments"
+            return "\(API.shots(.popular, .popular, .now).pathComponent())/\(id)/comments"
         }
     }
 }

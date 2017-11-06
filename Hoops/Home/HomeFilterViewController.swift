@@ -69,6 +69,38 @@ enum HomeSort: String {
     }
 }
 
+enum HomeTimeframe: String {
+    case now = "Now"
+    case week = "Week"
+    case year = "Year"
+    case month = "Month"
+    case ever = "Ever"
+    
+    static func allNames() -> [String] {
+        return [HomeTimeframe.now.rawValue,
+                HomeTimeframe.week.rawValue,
+                HomeTimeframe.month.rawValue,
+                HomeTimeframe.year.rawValue,
+                HomeTimeframe.ever.rawValue
+        ]
+    }
+    
+    func asTimeframe() -> Shot.Timeframe {
+        switch self {
+        case .now:
+            return .now
+        case .week:
+            return .week
+        case .month:
+            return .month
+        case .year:
+            return .year
+        case .ever:
+            return .ever
+        }
+    }
+}
+
 
 class HomeFilterViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -79,6 +111,8 @@ class HomeFilterViewController: UICollectionViewController, UICollectionViewDele
     var selectedList: HomeList = .popular
     
     var selectedSort: HomeSort = .popular
+    
+    var selectedTimeframe: HomeTimeframe = .now
     
     // MARK: View lifecycle
     
@@ -107,7 +141,7 @@ class HomeFilterViewController: UICollectionViewController, UICollectionViewDele
     // MARK: UICollectionView DataSource / Delegate
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -115,6 +149,8 @@ class HomeFilterViewController: UICollectionViewController, UICollectionViewDele
             return HomeList.allNames().count
         } else if section == 1 {
             return HomeSort.allNames().count
+        } else if section == 2 {
+            return HomeTimeframe.allNames().count
         }
         return 0
     }
@@ -127,6 +163,8 @@ class HomeFilterViewController: UICollectionViewController, UICollectionViewDele
                 let width = collectionView.frame.width - layout.sectionInset.left - layout.sectionInset.right
                 return CGSize(width: width, height: HomeFilterCell.height)
             }
+        } else if indexPath.section == 2 {
+            return CGSize(width: HomeFilterCell.width, height: HomeFilterCell.height)
         }
         return .zero
     }
@@ -158,6 +196,21 @@ class HomeFilterViewController: UICollectionViewController, UICollectionViewDele
                 let item = HomeSort.allNames()[indexPath.row]
                 if let sort = HomeSort(rawValue: item) {
                     self?.selectedSort = sort
+                    self?.collectionView?.reloadData()
+                    _ = self?.popoverPresentationController?.delegate?.popoverPresentationControllerShouldDismissPopover!((self?.popoverPresentationController)!)
+                    self?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+        // timeframe
+        else if indexPath.section == 2 {
+            let item = HomeTimeframe.allNames()[indexPath.row]
+            cell.button.setTitle(item, for: .normal)
+            cell.button.isHighlighted = selectedTimeframe.rawValue == item
+            cell.button.action = { [weak self] in
+                let item = HomeTimeframe.allNames()[indexPath.row]
+                if let sort = HomeTimeframe(rawValue: item) {
+                    self?.selectedTimeframe = sort
                     self?.collectionView?.reloadData()
                     _ = self?.popoverPresentationController?.delegate?.popoverPresentationControllerShouldDismissPopover!((self?.popoverPresentationController)!)
                     self?.dismiss(animated: true, completion: nil)

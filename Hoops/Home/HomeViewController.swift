@@ -21,6 +21,8 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     var selectedSort: HomeSort = .popular
     
+    var selectedTimeframe: HomeTimeframe = .now
+    
     var listLayout: HomeViewListLayout = HomeViewListLayout()
     
     var gridLayout: HomeViewGridLayout = HomeViewGridLayout()
@@ -127,13 +129,17 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
 //        button.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
 //        buttons.append(button)
         // time
-        button = newMenuButton(size: height, imageName: "timeFilter")
-        button.addTarget(self, action: #selector(showTime), for: .touchUpInside)
-        buttons.append(button)
+//        button = newMenuButton(size: height, imageName: "timeFilter")
+//        button.addTarget(self, action: #selector(showTime), for: .touchUpInside)
+//        buttons.append(button)
         // layout
         let layoutImageName = collectionView?.collectionViewLayout is HomeViewListLayout ? "gridLayout" : "listLayout"
         button = newMenuButton(size: height, imageName: layoutImageName)
         button.addTarget(self, action: #selector(toggleLayout), for: .touchUpInside)
+        buttons.append(button)
+        // settings
+        button = newMenuButton(size: height, imageName: "settings")
+        button.addTarget(self, action: #selector(showSettings), for: .touchUpInside)
         buttons.append(button)
         // stackview
         let stackView = UIStackView()
@@ -215,7 +221,8 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     func loadData(completion: (() -> Void)? = nil) {
         let list = selectedList.asList()
         let sort = selectedSort.asSort()
-        Shot.fetchShots(list: list, sort: sort) { [unowned self] shots, error in
+        let timeframe = selectedTimeframe.asTimeframe()
+        Shot.fetchShots(list: list, sort: sort, timeframe: timeframe) { [unowned self] shots, error in
             self.shots = shots ?? []
             self.collectionView?.reloadData()
             self.collectionView?.refreshControl?.endRefreshing()
@@ -236,6 +243,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeFilterViewController") as? HomeFilterViewController {
             controller.selectedList = selectedList
             controller.selectedSort = selectedSort
+            controller.selectedTimeframe = selectedTimeframe
             controller.modalPresentationStyle = .popover
             controller.collectionView?.reloadData()
             if let popoverController = controller.popoverPresentationController {
@@ -243,7 +251,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
                 popoverController.permittedArrowDirections = [.up]
                 popoverController.barButtonItem = navigationItem.leftBarButtonItem
                 popoverController.delegate = self
-                controller.preferredContentSize = CGSize(width: 315, height: 445)
+                controller.preferredContentSize = CGSize(width: 315, height: 585)
             }
             self.present(controller, animated: true, completion: nil)
         }
@@ -255,6 +263,10 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     @objc func showTime() {
         debugPrint("Show time")
+    }
+    
+    @objc func showSettings() {
+        debugPrint("Show settings")
     }
     
     @objc func toggleLayout(sender: UIButton) {
@@ -301,6 +313,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         if let controller = popoverPresentationController.presentedViewController as? HomeFilterViewController {
             selectedList = controller.selectedList
             selectedSort = controller.selectedSort
+            selectedTimeframe = controller.selectedTimeframe
             loadData()
         }
         // fade out overlay

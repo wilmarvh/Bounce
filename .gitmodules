@@ -25,3 +25,6 @@
 [submodule "Hero"]
 	path = Hero
 	url = git@github.com:lkzhao/Hero.git
+[submodule "IGListKit"]
+	path = IGListKit
+	url = git@github.com:Instagram/IGListKit.git

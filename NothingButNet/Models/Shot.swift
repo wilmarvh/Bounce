@@ -59,8 +59,20 @@ extension Shot {
         case comments = "comments"
     }
     
-    public static func fetchShots(list: List = .popular, sort: Sort = .popular, completion: @escaping ([Shot]?, Error?) -> Void) {
-        let url = API.shots(list, sort).asURL()
+    public enum Timeframe: String {
+        case now = ""
+        case week = "week"
+        case month = "month"
+        case year = "year"
+        case ever = "ever"
+    }
+    
+    public static func fetchShots(list: List = .popular,
+                                  sort: Sort = .popular,
+                                  timeframe: Timeframe = .now,
+                                  completion: @escaping ([Shot]?, Error?) -> Void) {
+        
+        let url = API.shots(list, sort, timeframe).asURL()
         let task = NothingBut.Net.dataTask(with: url) { data, urlResponse, error in
             NothingBut.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {
