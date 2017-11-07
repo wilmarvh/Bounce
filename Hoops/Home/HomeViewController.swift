@@ -245,6 +245,10 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         debugPrint("unwindToHomeFromShotDetail")
     }
     
+    @IBAction public func unwindToHomeFromSettings(segue: UIStoryboardSegue) {
+        debugPrint("unwindToHomeFromSettings")
+    }
+    
     @objc func showListTypeMenu() {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "HomeListTypeViewController") as? HomeListTypeViewController {
             controller.selectedList = selectedList
@@ -298,7 +302,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     }
     
     @objc func showSettings() {
-        debugPrint("Show settings")
+        performSegue(withIdentifier: "showSettings", sender: nil)
     }
     
     @objc func toggleLayout(sender: UIButton) {

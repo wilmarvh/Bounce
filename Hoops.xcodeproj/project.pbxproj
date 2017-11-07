@@ -106,6 +106,7 @@
 		1FEC4D0F1F954A0F004F221E /* EmbeddedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC4D0E1F954A0F004F221E /* EmbeddedSectionController.swift */; };
 		1FEC4D111F954BAB004F221E /* VerticalSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC4D101F954BAB004F221E /* VerticalSectionViewController.swift */; };
 		1FEC4D131F954DCD004F221E /* ListsSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC4D121F954DCD004F221E /* ListsSectionController.swift */; };
+		1FFE66421FB2658600C44914 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFE66411FB2658600C44914 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -548,6 +549,7 @@
 		1FEC4D0E1F954A0F004F221E /* EmbeddedSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedSectionController.swift; sourceTree = "<group>"; };
 		1FEC4D101F954BAB004F221E /* VerticalSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSectionViewController.swift; sourceTree = "<group>"; };
 		1FEC4D121F954DCD004F221E /* ListsSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsSectionController.swift; sourceTree = "<group>"; };
+		1FFE66411FB2658600C44914 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1FFFD4A51F82E83700E1975F /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
 		1FFFD4A61F82E83700E1975F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FFFD4A71F82E83700E1975F /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 				1F939F4E1F7306A100C03386 /* Assets.xcassets */,
 				1F939F471F7306A100C03386 /* AppDelegate.swift */,
 				1FDB9ABD1F771318001DB054 /* Core */,
+				1FFE66401FB2651E00C44914 /* Settings */,
 				1F939FA81F7322DE00C03386 /* Extensions */,
 				1FDB9AC81F771544001DB054 /* Home */,
 				1FDB9AC91F77154C001DB054 /* Discovery */,
@@ -954,6 +957,14 @@
 				1FEC4D0E1F954A0F004F221E /* EmbeddedSectionController.swift */,
 			);
 			path = Lists;
+			sourceTree = "<group>";
+		};
+		1FFE66401FB2651E00C44914 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1FFE66411FB2658600C44914 /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		1FFFD4A41F82E83700E1975F /* DateTools */ = {
@@ -1553,6 +1564,7 @@
 				1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */,
 				1FE365721F844A36001739B0 /* ShotCommentsViewController.swift in Sources */,
 				1FB78ECA1F78356F0039BE04 /* ProfileImageView.swift in Sources */,
+				1FFE66421FB2658600C44914 /* SettingsViewController.swift in Sources */,
 				1F46EED31F80DFA9003F22C5 /* ShotDetailCommentCell.swift in Sources */,
 				1F54722C1F82EA1C00207949 /* TimePeriodCollection.swift in Sources */,
 				1F0BCF501F7FCD8400872D52 /* ProfileViewController.swift in Sources */,
@@ -1846,7 +1858,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WhiteAppIcon;
 				CODE_SIGN_ENTITLEMENTS = Hoops/Hoops.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XM53S226;
@@ -1863,7 +1875,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WhiteAppIcon;
 				CODE_SIGN_ENTITLEMENTS = Hoops/Hoops.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XM53S226;

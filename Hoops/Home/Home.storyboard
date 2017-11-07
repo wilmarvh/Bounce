@@ -48,6 +48,7 @@
                     <navigationItem key="navigationItem" id="4qs-A5-4mS"/>
                     <connections>
                         <segue destination="glm-2a-uSC" kind="custom" identifier="showShotDetail" customClass="DeckSegue" customModule="DeckTransition" id="1pO-4p-Io1"/>
+                        <segue destination="Wmk-OD-Hdc" kind="presentation" identifier="showSettings" id="7Ef-iP-rac"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6zm-06-nSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,6 +188,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFp-tj-UDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-674" y="118"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gMG-f1-y61">
+            <objects>
+                <navigationController id="Wmk-OD-Hdc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5WQ-cn-4N4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fUS-Xw-6Na" kind="relationship" relationship="rootViewController" id="VaX-O2-o56"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCr-xB-Fvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="-1376"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="8gz-sR-aa4">
+            <objects>
+                <tableViewController id="fUS-Xw-6Na" customClass="SettingsViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="pSG-sH-Yiw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="fUS-Xw-6Na" id="RrH-f6-ASO"/>
+                            <outlet property="delegate" destination="fUS-Xw-6Na" id="XfZ-Iz-usp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="nvL-Am-z35"/>
+                    <connections>
+                        <segue destination="S3o-Of-WjS" kind="unwind" identifier="unwindToHomeFromSettings" unwindAction="unwindToHomeFromSettingsWithSegue:" id="yyU-A4-Vju"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1P-9h-R9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="S3o-Of-WjS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="-1375"/>
         </scene>
     </scenes>
     <resources>
