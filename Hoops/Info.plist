@@ -16,7 +16,7 @@
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>PinkAppIcon60x60</string>
+					<string>PinkIcon</string>
 				</array>
 				<key>UIPrerenderedIcon</key>
 				<true/>
@@ -25,7 +25,7 @@
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>WhiteAppIcon60x60</string>
+					<string>WhiteIcon</string>
 				</array>
 				<key>UIPrerenderedIcon</key>
 				<true/>
@@ -35,7 +35,7 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>AppIcon</string>
+				<string>HoopsAppIcon</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -65,7 +65,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>13</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
