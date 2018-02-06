@@ -1,2 +1,2 @@
-# Bounce
-A dribbble client
+# Hooops
+A Dribbble client
