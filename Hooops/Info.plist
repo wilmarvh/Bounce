@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Hoops</string>
+	<string>Hooops</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -35,7 +35,7 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>HoopsAppIcon</string>
+				<string>HooopsAppIcon</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>

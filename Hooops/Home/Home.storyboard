@@ -12,7 +12,7 @@
         <scene sceneID="vDz-az-NNb">
             <objects>
                 <navigationController id="MLY-pl-5tZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabHome" selectedImage="tabHomeActive" id="NgC-PE-AFm" customClass="HoopsTabBarItem" customModule="Hoops" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabHome" selectedImage="tabHomeActive" id="NgC-PE-AFm" customClass="HooopsTabBarItem" customModule="Hooops" customModuleProvider="target"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gOS-Yl-xRV">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -28,12 +28,12 @@
         <!--Home View Controller-->
         <scene sceneID="EWR-Gg-X8s">
             <objects>
-                <collectionViewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TT3-yB-rCN" customClass="HomeViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TT3-yB-rCN" customClass="HomeViewController" customModule="Hooops" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="w15-Zg-Bhf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nfd-pQ-mUx" customClass="HomeViewListLayout" customModule="Hoops" customModuleProvider="target">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nfd-pQ-mUx" customClass="HomeViewListLayout" customModule="Hooops" customModuleProvider="target">
                             <size key="itemSize" width="0.0" height="0.0"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -58,7 +58,7 @@
         <!--Home Sort View Controller-->
         <scene sceneID="bZK-pu-pT1">
             <objects>
-                <collectionViewController storyboardIdentifier="HomeSortViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KLo-Pz-wmi" customClass="HomeSortViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="HomeSortViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KLo-Pz-wmi" customClass="HomeSortViewController" customModule="Hooops" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="iWZ-nU-KMQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
         <!--Shot Detail View Controller-->
         <scene sceneID="XYJ-2y-ejG">
             <objects>
-                <collectionViewController storyboardIdentifier="ShotDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="glm-2a-uSC" customClass="ShotDetailViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="ShotDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="glm-2a-uSC" customClass="ShotDetailViewController" customModule="Hooops" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fs6-aB-q4e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
         <!--Shot Comments View Controller-->
         <scene sceneID="xaE-5w-gOb">
             <objects>
-                <collectionViewController storyboardIdentifier="ShotCommentsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vma-gh-Pjj" customClass="ShotCommentsViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="ShotCommentsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vma-gh-Pjj" customClass="ShotCommentsViewController" customModule="Hooops" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="u9w-2g-MBq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,7 +142,7 @@
         <!--Home Timeframe View Controller-->
         <scene sceneID="xdx-6O-YaI">
             <objects>
-                <collectionViewController storyboardIdentifier="HomeTimeframeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LF9-3f-VgL" customClass="HomeTimeframeViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="HomeTimeframeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LF9-3f-VgL" customClass="HomeTimeframeViewController" customModule="Hooops" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="8vA-vp-hx8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +167,7 @@
         <!--Home List Type View Controller-->
         <scene sceneID="cXK-1A-emj">
             <objects>
-                <collectionViewController storyboardIdentifier="HomeListTypeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2sA-HF-x3g" customClass="HomeListTypeViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="HomeListTypeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2sA-HF-x3g" customClass="HomeListTypeViewController" customModule="Hooops" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VlL-iI-eE7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,7 +208,7 @@
         <!--Settings View Controller-->
         <scene sceneID="8gz-sR-aa4">
             <objects>
-                <tableViewController id="fUS-Xw-6Na" customClass="SettingsViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="fUS-Xw-6Na" customClass="SettingsViewController" customModule="Hooops" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="pSG-sH-Yiw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

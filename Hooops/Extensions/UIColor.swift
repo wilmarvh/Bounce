@@ -2,7 +2,7 @@ import UIKit
 
 extension UIColor {
     
-    static func hoopsBlack() -> UIColor {
+    static func HooopsBlack() -> UIColor {
         return UIColor(red:0.20000, green:0.20000, blue:0.20000, alpha:1.00000)
     }
     

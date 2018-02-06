@@ -23,7 +23,7 @@
 		1F1022FC1FB0F91D00118DF5 /* HomeFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1022FB1FB0F91D00118DF5 /* HomeFilterCell.swift */; };
 		1F1022FE1FB0FCC200118DF5 /* HomeListTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1022FD1FB0FCC200118DF5 /* HomeListTypeViewController.swift */; };
 		1F161B2B1F7715DE003631C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2A1F7715DE003631C2 /* HomeViewController.swift */; };
-		1F161B2D1F77179D003631C2 /* HoopsTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2C1F77179D003631C2 /* HoopsTabBarItem.swift */; };
+		1F161B2D1F77179D003631C2 /* HooopsTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2C1F77179D003631C2 /* HooopsTabBarItem.swift */; };
 		1F161B2F1F77186F003631C2 /* HomeShotListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B2E1F77186F003631C2 /* HomeShotListCell.swift */; };
 		1F161B311F772E15003631C2 /* HomeShotListCellDetailsContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F161B301F772E15003631C2 /* HomeShotListCellDetailsContainerView.xib */; };
 		1F161B331F773422003631C2 /* HomeShotListCellDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F161B321F773422003631C2 /* HomeShotListCellDetailsContainerView.swift */; };
@@ -59,7 +59,7 @@
 		1F939F4D1F7306A100C03386 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F939F4B1F7306A100C03386 /* Main.storyboard */; };
 		1F939F4F1F7306A100C03386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F939F4E1F7306A100C03386 /* Assets.xcassets */; };
 		1F939F521F7306A100C03386 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F939F501F7306A100C03386 /* LaunchScreen.storyboard */; };
-		1F939F5D1F7306A100C03386 /* HoopsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F5C1F7306A100C03386 /* HoopsTests.swift */; };
+		1F939F5D1F7306A100C03386 /* HooopsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F5C1F7306A100C03386 /* HooopsTests.swift */; };
 		1F939F831F73073400C03386 /* NothingButNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F939F7A1F73073400C03386 /* NothingButNet.framework */; };
 		1F939F8A1F73073400C03386 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F939F891F73073400C03386 /* UserTests.swift */; };
 		1F939F8C1F73073400C03386 /* NothingButNet.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F939F7C1F73073400C03386 /* NothingButNet.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,7 +88,7 @@
 		1FB78ED71F786F6A0039BE04 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78ED61F786F6A0039BE04 /* UIImage+Gif.swift */; };
 		1FB78ED81F786FB10039BE04 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB78ED61F786F6A0039BE04 /* UIImage+Gif.swift */; };
 		1FDB9ABC1F770FC7001DB054 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABB1F770FC7001DB054 /* UIView.swift */; };
-		1FDB9ABF1F771324001DB054 /* HoopsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABE1F771324001DB054 /* HoopsTabBarController.swift */; };
+		1FDB9ABF1F771324001DB054 /* HooopsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB9ABE1F771324001DB054 /* HooopsTabBarController.swift */; };
 		1FDB9AC11F7714C5001DB054 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC01F7714C5001DB054 /* Home.storyboard */; };
 		1FDB9AC31F7714ED001DB054 /* Discovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */; };
 		1FDB9AC51F771504001DB054 /* Jobs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB9AC41F771504001DB054 /* Jobs.storyboard */; };
@@ -472,7 +472,7 @@
 /* Begin PBXFileReference section */
 		1F06C3A41F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailTextCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F06C3A51F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShotDetailTextCellCollectionViewCell.xib; sourceTree = "<group>"; };
-		1F0BCF4E1F7FCCB100872D52 /* Hoops.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hoops.entitlements; sourceTree = "<group>"; };
+		1F0BCF4E1F7FCCB100872D52 /* Hooops.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hooops.entitlements; sourceTree = "<group>"; };
 		1F0BCF4F1F7FCD8400872D52 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1F0BCF511F7FCEF600872D52 /* ShotDetailTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotDetailTagsCell.swift; sourceTree = "<group>"; };
 		1F0BCF541F7FD68E00872D52 /* TextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSize.swift; sourceTree = "<group>"; };
@@ -484,7 +484,7 @@
 		1F1022FB1FB0F91D00118DF5 /* HomeFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFilterCell.swift; sourceTree = "<group>"; };
 		1F1022FD1FB0FCC200118DF5 /* HomeListTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListTypeViewController.swift; sourceTree = "<group>"; };
 		1F161B2A1F7715DE003631C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		1F161B2C1F77179D003631C2 /* HoopsTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopsTabBarItem.swift; sourceTree = "<group>"; };
+		1F161B2C1F77179D003631C2 /* HooopsTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HooopsTabBarItem.swift; sourceTree = "<group>"; };
 		1F161B2E1F77186F003631C2 /* HomeShotListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShotListCell.swift; sourceTree = "<group>"; };
 		1F161B301F772E15003631C2 /* HomeShotListCellDetailsContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeShotListCellDetailsContainerView.xib; sourceTree = "<group>"; };
 		1F161B321F773422003631C2 /* HomeShotListCellDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShotListCellDetailsContainerView.swift; sourceTree = "<group>"; };
@@ -497,14 +497,14 @@
 		1F7FA6161F8043D0003FFBB6 /* Preheat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Preheat.xcodeproj; path = Preheat/Preheat.xcodeproj; sourceTree = "<group>"; };
 		1F7FA62C1F80480E003FFBB6 /* HTTPLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLogger.swift; sourceTree = "<group>"; };
 		1F7FA62E1F805A2A003FFBB6 /* SwiftRichString.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftRichString.xcodeproj; path = SwiftRichString/SwiftRichString.xcodeproj; sourceTree = "<group>"; };
-		1F939F441F7306A100C03386 /* Hoops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoops.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F939F441F7306A100C03386 /* Hooops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hooops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F939F471F7306A100C03386 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F939F4C1F7306A100C03386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F939F4E1F7306A100C03386 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F939F511F7306A100C03386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F939F531F7306A100C03386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F939F581F7306A100C03386 /* HoopsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoopsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F939F5C1F7306A100C03386 /* HoopsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopsTests.swift; sourceTree = "<group>"; };
+		1F939F581F7306A100C03386 /* HooopsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HooopsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F939F5C1F7306A100C03386 /* HooopsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HooopsTests.swift; sourceTree = "<group>"; };
 		1F939F5E1F7306A100C03386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F939F7A1F73073400C03386 /* NothingButNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NothingButNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F939F7C1F73073400C03386 /* NothingButNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NothingButNet.h; sourceTree = "<group>"; };
@@ -532,7 +532,7 @@
 		1FB78ED31F78645A0039BE04 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		1FB78ED61F786F6A0039BE04 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		1FDB9ABB1F770FC7001DB054 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		1FDB9ABE1F771324001DB054 /* HoopsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopsTabBarController.swift; sourceTree = "<group>"; };
+		1FDB9ABE1F771324001DB054 /* HooopsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HooopsTabBarController.swift; sourceTree = "<group>"; };
 		1FDB9AC01F7714C5001DB054 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1FDB9AC21F7714ED001DB054 /* Discovery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discovery.storyboard; sourceTree = "<group>"; };
 		1FDB9AC41F771504001DB054 /* Jobs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Jobs.storyboard; sourceTree = "<group>"; };
@@ -712,8 +712,8 @@
 				1F0BCF651F80359F00872D52 /* Nuke.xcodeproj */,
 				1F0BCF831F8035C300872D52 /* Nuke-Gifu-Plugin.xcodeproj */,
 				1F0BCF5C1F80357F00872D52 /* Gifu.xcodeproj */,
-				1F939F461F7306A100C03386 /* Hoops */,
-				1F939F5B1F7306A100C03386 /* HoopsTests */,
+				1F939F461F7306A100C03386 /* Hooops */,
+				1F939F5B1F7306A100C03386 /* HooopsTests */,
 				1F939F7B1F73073400C03386 /* NothingButNet */,
 				1F939F881F73073400C03386 /* NothingButNetTests */,
 				1FEC4CB01F9546A8004F221E /* Rohan */,
@@ -726,8 +726,8 @@
 		1F939F451F7306A100C03386 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F939F441F7306A100C03386 /* Hoops.app */,
-				1F939F581F7306A100C03386 /* HoopsTests.xctest */,
+				1F939F441F7306A100C03386 /* Hooops.app */,
+				1F939F581F7306A100C03386 /* HooopsTests.xctest */,
 				1F939F7A1F73073400C03386 /* NothingButNet.framework */,
 				1F939F821F73073400C03386 /* NothingButNetTests.xctest */,
 				1FEC4CAF1F9546A8004F221E /* Rohan.app */,
@@ -736,12 +736,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1F939F461F7306A100C03386 /* Hoops */ = {
+		1F939F461F7306A100C03386 /* Hooops */ = {
 			isa = PBXGroup;
 			children = (
 				1FFE6E1C1FB38A02004FB8EE /* AlternateIcons */,
 				1FFFD4A41F82E83700E1975F /* DateTools */,
-				1F0BCF4E1F7FCCB100872D52 /* Hoops.entitlements */,
+				1F0BCF4E1F7FCCB100872D52 /* Hooops.entitlements */,
 				1F939F4E1F7306A100C03386 /* Assets.xcassets */,
 				1F939F471F7306A100C03386 /* AppDelegate.swift */,
 				1FDB9ABD1F771318001DB054 /* Core */,
@@ -755,16 +755,16 @@
 				1F939F501F7306A100C03386 /* LaunchScreen.storyboard */,
 				1F939F4B1F7306A100C03386 /* Main.storyboard */,
 			);
-			path = Hoops;
+			path = Hooops;
 			sourceTree = "<group>";
 		};
-		1F939F5B1F7306A100C03386 /* HoopsTests */ = {
+		1F939F5B1F7306A100C03386 /* HooopsTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F939F5C1F7306A100C03386 /* HoopsTests.swift */,
+				1F939F5C1F7306A100C03386 /* HooopsTests.swift */,
 				1F939F5E1F7306A100C03386 /* Info.plist */,
 			);
-			path = HoopsTests;
+			path = HooopsTests;
 			sourceTree = "<group>";
 		};
 		1F939F7B1F73073400C03386 /* NothingButNet */ = {
@@ -866,8 +866,8 @@
 		1FDB9ABD1F771318001DB054 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1FDB9ABE1F771324001DB054 /* HoopsTabBarController.swift */,
-				1F161B2C1F77179D003631C2 /* HoopsTabBarItem.swift */,
+				1FDB9ABE1F771324001DB054 /* HooopsTabBarController.swift */,
+				1F161B2C1F77179D003631C2 /* HooopsTabBarItem.swift */,
 				1FB78EC91F78356F0039BE04 /* ProfileImageView.swift */,
 			);
 			path = Core;
@@ -1031,9 +1031,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1F939F431F7306A100C03386 /* Hoops */ = {
+		1F939F431F7306A100C03386 /* Hooops */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F939F6C1F7306A100C03386 /* Build configuration list for PBXNativeTarget "Hoops" */;
+			buildConfigurationList = 1F939F6C1F7306A100C03386 /* Build configuration list for PBXNativeTarget "Hooops" */;
 			buildPhases = (
 				1F939F401F7306A100C03386 /* Sources */,
 				1F939F411F7306A100C03386 /* Frameworks */,
@@ -1053,14 +1053,14 @@
 				1FA08D1A1F8594A2004EB06D /* PBXTargetDependency */,
 				1F9C902F1F8D3E42003DFCF6 /* PBXTargetDependency */,
 			);
-			name = Hoops;
+			name = Hooops;
 			productName = Bounce;
-			productReference = 1F939F441F7306A100C03386 /* Hoops.app */;
+			productReference = 1F939F441F7306A100C03386 /* Hooops.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1F939F571F7306A100C03386 /* HoopsTests */ = {
+		1F939F571F7306A100C03386 /* HooopsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F939F6F1F7306A100C03386 /* Build configuration list for PBXNativeTarget "HoopsTests" */;
+			buildConfigurationList = 1F939F6F1F7306A100C03386 /* Build configuration list for PBXNativeTarget "HooopsTests" */;
 			buildPhases = (
 				1F939F541F7306A100C03386 /* Sources */,
 				1F939F551F7306A100C03386 /* Frameworks */,
@@ -1071,9 +1071,9 @@
 			dependencies = (
 				1F939F5A1F7306A100C03386 /* PBXTargetDependency */,
 			);
-			name = HoopsTests;
+			name = HooopsTests;
 			productName = BounceTests;
-			productReference = 1F939F581F7306A100C03386 /* HoopsTests.xctest */;
+			productReference = 1F939F581F7306A100C03386 /* HooopsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		1F939F791F73073400C03386 /* NothingButNet */ = {
@@ -1198,7 +1198,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1F939F3F1F7306A100C03386 /* Build configuration list for PBXProject "Hoops" */;
+			buildConfigurationList = 1F939F3F1F7306A100C03386 /* Build configuration list for PBXProject "Hooops" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1249,8 +1249,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				1F939F431F7306A100C03386 /* Hoops */,
-				1F939F571F7306A100C03386 /* HoopsTests */,
+				1F939F431F7306A100C03386 /* Hooops */,
+				1F939F571F7306A100C03386 /* HooopsTests */,
 				1F939F791F73073400C03386 /* NothingButNet */,
 				1F939F811F73073400C03386 /* NothingButNetTests */,
 				1FEC4CAE1F9546A8004F221E /* Rohan */,
@@ -1571,9 +1571,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB78ED71F786F6A0039BE04 /* UIImage+Gif.swift in Sources */,
-				1F161B2D1F77179D003631C2 /* HoopsTabBarItem.swift in Sources */,
+				1F161B2D1F77179D003631C2 /* HooopsTabBarItem.swift in Sources */,
 				1F06C3A61F7ADB010071B421 /* ShotDetailTextCellCollectionViewCell.swift in Sources */,
-				1FDB9ABF1F771324001DB054 /* HoopsTabBarController.swift in Sources */,
+				1FDB9ABF1F771324001DB054 /* HooopsTabBarController.swift in Sources */,
 				1FA012511F75A7C100EB4927 /* UIColor.swift in Sources */,
 				1F54721E1F82EA1C00207949 /* Constants.swift in Sources */,
 				1F5472251F82EA1C00207949 /* TimeChunk.swift in Sources */,
@@ -1624,7 +1624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F939F5D1F7306A100C03386 /* HoopsTests.swift in Sources */,
+				1F939F5D1F7306A100C03386 /* HooopsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1708,7 +1708,7 @@
 		};
 		1F939F5A1F7306A100C03386 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F939F431F7306A100C03386 /* Hoops */;
+			target = 1F939F431F7306A100C03386 /* Hooops */;
 			targetProxy = 1F939F591F7306A100C03386 /* PBXContainerItemProxy */;
 		};
 		1F939F851F73073400C03386 /* PBXTargetDependency */ = {
@@ -1718,7 +1718,7 @@
 		};
 		1F939F871F73073400C03386 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F939F431F7306A100C03386 /* Hoops */;
+			target = 1F939F431F7306A100C03386 /* Hooops */;
 			targetProxy = 1F939F861F73073400C03386 /* PBXContainerItemProxy */;
 		};
 		1F939F8E1F73073400C03386 /* PBXTargetDependency */ = {
@@ -1890,11 +1890,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = HoopsAppIcon;
-				CODE_SIGN_ENTITLEMENTS = Hoops/Hoops.entitlements;
+				ASSETCATALOG_COMPILER_APPICON_NAME = HooopsAppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hooops/Hooops.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XM53S226;
-				INFOPLIST_FILE = Hoops/Info.plist;
+				INFOPLIST_FILE = Hooops/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Dribbble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1907,11 +1907,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = HoopsAppIcon;
-				CODE_SIGN_ENTITLEMENTS = Hoops/Hoops.entitlements;
+				ASSETCATALOG_COMPILER_APPICON_NAME = HooopsAppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hooops/Hooops.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XM53S226;
-				INFOPLIST_FILE = Hoops/Info.plist;
+				INFOPLIST_FILE = Hooops/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.wilmar.Dribbble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1933,7 +1933,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hoops.app/Hoops";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hooops.app/Hooops";
 			};
 			name = Debug;
 		};
@@ -1950,7 +1950,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hoops.app/Hoops";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hooops.app/Hooops";
 			};
 			name = Release;
 		};
@@ -2017,7 +2017,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hoops.app/Hoops";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hooops.app/Hooops";
 			};
 			name = Debug;
 		};
@@ -2033,7 +2033,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hoops.app/Hoops";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hooops.app/Hooops";
 			};
 			name = Release;
 		};
@@ -2106,7 +2106,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F939F3F1F7306A100C03386 /* Build configuration list for PBXProject "Hoops" */ = {
+		1F939F3F1F7306A100C03386 /* Build configuration list for PBXProject "Hooops" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F939F6A1F7306A100C03386 /* Debug */,
@@ -2115,7 +2115,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F939F6C1F7306A100C03386 /* Build configuration list for PBXNativeTarget "Hoops" */ = {
+		1F939F6C1F7306A100C03386 /* Build configuration list for PBXNativeTarget "Hooops" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F939F6D1F7306A100C03386 /* Debug */,
@@ -2124,7 +2124,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F939F6F1F7306A100C03386 /* Build configuration list for PBXNativeTarget "HoopsTests" */ = {
+		1F939F6F1F7306A100C03386 /* Build configuration list for PBXNativeTarget "HooopsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F939F701F7306A100C03386 /* Debug */,

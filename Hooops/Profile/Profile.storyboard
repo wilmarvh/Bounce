@@ -13,7 +13,7 @@
         <scene sceneID="XxU-4W-SwQ">
             <objects>
                 <navigationController id="NY0-57-sDt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabProfile" selectedImage="tabProfileActive" id="36O-LJ-Sni" customClass="HoopsTabBarItem" customModule="Hoops" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabProfile" selectedImage="tabProfileActive" id="36O-LJ-Sni" customClass="HooopsTabBarItem" customModule="Hooops" customModuleProvider="target"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i2h-zS-dmq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -30,7 +30,7 @@
         <!--Profile View Controller-->
         <scene sceneID="mlU-GG-A7V">
             <objects>
-                <viewController id="sJ5-vj-Ave" customClass="ProfileViewController" customModule="Hoops" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sJ5-vj-Ave" customClass="ProfileViewController" customModule="Hooops" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bd4-pU-VdZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

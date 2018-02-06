@@ -17,7 +17,7 @@
                BlueprintIdentifier = "1F939F791F73073400C03386"
                BuildableName = "NothingButNet.framework"
                BlueprintName = "NothingButNet"
-               ReferencedContainer = "container:Hoops.xcodeproj">
+               ReferencedContainer = "container:Hooops.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,7 +50,7 @@
             BlueprintIdentifier = "1F939F791F73073400C03386"
             BuildableName = "NothingButNet.framework"
             BlueprintName = "NothingButNet"
-            ReferencedContainer = "container:Hoops.xcodeproj">
+            ReferencedContainer = "container:Hooops.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "1F939F791F73073400C03386"
             BuildableName = "NothingButNet.framework"
             BlueprintName = "NothingButNet"
-            ReferencedContainer = "container:Hoops.xcodeproj">
+            ReferencedContainer = "container:Hooops.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
