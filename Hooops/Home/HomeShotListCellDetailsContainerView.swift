@@ -22,10 +22,10 @@ class HomeShotListCellDetailsContainerView: UIView, Nibloadable {
     
     func configureViews() {
         titleLabel.font = UIFont.systemFont(ofSize: 19, weight: UIFont.Weight.semibold)
-        titleLabel.textColor = UIColor.black
+        titleLabel.textColor = UIColor.darkBlueGrey()
         
         likesLabel.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.semibold)
-        likesLabel.textColor = UIColor.mediumPink()
+        likesLabel.textColor = UIColor.hooopsGreen()
     }
     
 }

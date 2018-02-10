@@ -137,7 +137,7 @@ fileprivate class TagCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = TagCell.font
         label.textAlignment = .left
-        label.textColor = UIColor.mediumPink()
+        label.textColor = UIColor.hooopsGreen()
         label.backgroundColor = UIColor(red:0.97255, green:0.89412, blue:0.89020, alpha:0.50000)
         label.layer.cornerRadius = 10
         return label

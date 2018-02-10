@@ -39,6 +39,25 @@ enum HomeList: String {
             return .attachments
         }
     }
+    
+    func buttonWidth() -> CGFloat {
+        switch self {
+        case .popular:
+            return 130
+        case .teams:
+            return 115
+        case .playoffs:
+            return 140
+        case .debuts:
+            return 125
+        case .rebounds:
+            return 165
+        case .gifs:
+            return 90
+        case .attachments:
+            return 200
+        }
+    }
 }
 
 class HomeListTypeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {

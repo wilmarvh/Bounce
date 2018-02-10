@@ -93,7 +93,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(HomeShotListCell.self, forCellWithReuseIdentifier: "HomeShotListCell")
         collectionView?.refreshControl = UIRefreshControl(frame: .zero)
-        collectionView?.refreshControl?.tintColor = UIColor.mediumPink()
+        collectionView?.refreshControl?.tintColor = UIColor.hooopsGreen()
         collectionView?.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         // layout
@@ -114,15 +114,16 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         var button = UIButton(type: .custom)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addConstraint(NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: height))
-        button.addConstraint(NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 130))
-        button.setTitle("Popular", for: .normal)
-        button.backgroundColor = UIColor.grayButton()
-        button.layer.cornerRadius = height / 2
-        button.titleLabel?.font = UIFont.title3Font()
+        let widthConstraint = NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: selectedList.buttonWidth())
+        widthConstraint.identifier = "width"
+        button.addConstraint(widthConstraint)
+        button.setTitle(selectedList.rawValue, for: .normal)
+        button.titleLabel?.font = UIFont.homeTitleFont()
         button.semanticContentAttribute = .forceRightToLeft
-        button.setTitleColor(.black, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.setTitleColor(UIColor.darkBlueGrey(), for: .normal)
         button.setImage(UIImage(named: "dropdownArrow"), for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 3, left: 10, bottom: 0, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 0, right: 0)
         button.addTarget(self, action: #selector(showListTypeMenu), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         
@@ -144,7 +145,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         button.addTarget(self, action: #selector(toggleLayout), for: .touchUpInside)
         buttons.append(button)
         // settings
-        button = newMenuButton(size: height, imageName: "tabProfile")
+        button = newMenuButton(size: height, imageName: "profile")
         button.addTarget(self, action: #selector(showSettings), for: .touchUpInside)
         buttons.append(button)
         // stackview
@@ -156,7 +157,6 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
         buttons.forEach({ stackView.addArrangedSubview($0) })
-        stackView.backgroundColor = .yellow
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: stackView)
     }
     
@@ -324,6 +324,10 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     func updateListButtonTitle(with filter: HomeList) {
         if let button = navigationItem.leftBarButtonItem?.customView as? UIButton {
             button.setTitle(filter.rawValue, for: .normal)
+            let constraint = button.constraints.filter({ $0.identifier == "width" }).first
+            debugPrint(button.constraints)
+            constraint?.constant = filter.buttonWidth()
+            debugPrint(button.constraints)
         }
     }
     
@@ -335,7 +339,7 @@ class HomeViewController: UICollectionViewController, UIPopoverPresentationContr
     
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         let overlay = UIView(frame: tabBarController?.view.bounds ?? view.bounds)
-        overlay.backgroundColor = .black
+        overlay.backgroundColor = UIColor.darkBlueGrey()
         overlay.alpha = 0.0
         overlay.tag = 123
         tabBarController?.view.addSubview(overlay)

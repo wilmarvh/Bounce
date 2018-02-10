@@ -48,7 +48,7 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "Settings"
-        navigationController?.navigationBar.tintColor = UIColor.mediumPink()
+        navigationController?.navigationBar.tintColor = UIColor.hooopsGreen()
         addBarButtonItems()
     }
     

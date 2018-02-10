@@ -2,12 +2,12 @@ import UIKit
 
 extension UIColor {
     
-    static func HooopsBlack() -> UIColor {
-        return UIColor(red:0.20000, green:0.20000, blue:0.20000, alpha:1.00000)
+    static func hooopsGreen() -> UIColor {
+        return UIColor(red:0/200, green:200/255.0, blue:158/255.0, alpha:1.00000)
     }
     
-    static func mediumPink() -> UIColor {
-        return UIColor(red:249/255.0, green:60/255.0, blue:138/255.0, alpha:1.00000)
+    static func darkBlueGrey() -> UIColor {
+        return UIColor(red:28/200, green:41/255.0, blue:74/255.0, alpha:1.00000)
     }
     
     static func grayButton() -> UIColor {

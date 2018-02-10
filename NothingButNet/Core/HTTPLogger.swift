@@ -258,11 +258,11 @@ public final class HTTPLogger: URLProtocol, URLSessionDelegate {
     
     fileprivate func trimTextOverflow(_ string: String, length: Int) -> String {
         
-        guard string.characters.count > length else {
+        guard string.count > length else {
             return string
         }
         
-        return string.substring(to: string.characters.index(string.startIndex, offsetBy: length)) + "…"
+        return string.substring(to: string.index(string.startIndex, offsetBy: length)) + "…"
     }
 }
 

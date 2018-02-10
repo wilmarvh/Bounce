@@ -26,7 +26,7 @@ class HomeFilterCell: UICollectionViewCell {
         button.backgroundColor = UIColor.grayButton()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.semibold)
         button.titleLabel?.textAlignment = .center
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIColor.darkBlueGrey(), for: .normal)
         button.setTitleColor(.white, for: .highlighted)
         button.setTitleColor(.white, for: .selected)
         return button
@@ -56,7 +56,7 @@ class FilterButton: UIButton {
     
     override open var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? UIColor.mediumPink() : UIColor.grayButton()
+            backgroundColor = isHighlighted ? UIColor.hooopsGreen() : UIColor.grayButton()
         }
     }
     

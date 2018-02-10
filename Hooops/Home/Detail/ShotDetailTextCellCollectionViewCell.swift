@@ -18,7 +18,7 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
         
         titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         titleLabel.numberOfLines = 2
-        titleLabel.textColor = .black
+        titleLabel.textColor = UIColor.darkBlueGrey()
         titleLabel.textAlignment = .left
         titleLabel.text = nil
         titleLabel.backgroundColor = .white
@@ -31,7 +31,7 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
         dateLabel.text = nil
         dateLabel.backgroundColor = .white
         
-        profileButton.setTitleColor(UIColor.mediumPink(), for: .normal)
+        profileButton.setTitleColor(UIColor.hooopsGreen(), for: .normal)
         profileButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         profileButton.setTitle(nil, for: .normal)
         profileButton.backgroundColor = .white
@@ -61,8 +61,8 @@ class ShotDetailTextCellCollectionViewCell: UICollectionViewCell, Nibloadable {
                 attributedText.enumerateAttribute(.link, in: attributedText.string.nsRange(from: nil), options: [], using: { value, range, stop in
                     if let _ = value {
                         attributedText.removeAttribute(.link, range: range)
-                        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.mediumPink()], range: range)
-                        attributedText.addAttributes([NSAttributedStringKey.underlineColor: UIColor.mediumPink()], range: range)
+                        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.hooopsGreen()], range: range)
+                        attributedText.addAttributes([NSAttributedStringKey.underlineColor: UIColor.hooopsGreen()], range: range)
                     }
                 })
                 descriptionLabel.attributedText = attributedText

@@ -68,7 +68,7 @@ class ShotCommentsViewController: UICollectionViewController {
         cell.likesCountLabel.text = Localization.integerFormatter.string(from: NSNumber(integerLiteral: comment.likes_count))
         if comment.likes_count > 0 {
             cell.likesCountLabel.isHidden = false
-            cell.likeButton.tintColor = UIColor.mediumPink()
+            cell.likeButton.tintColor = UIColor.hooopsGreen()
         }
         cell.dateLabel.text = Localization.relativeTimeFormatter.string(from: comment.created_at)
         cell.dateLabel.text = comment.created_at.timeAgoSinceNow
@@ -116,7 +116,7 @@ extension Comment {
                     let font = UIFont.systemFont(ofSize: 17, weight: .regular)
                     $0.font = FontAttribute(font.fontName, size: Float(font.pointSize))
                     $0.kern = Float(-0.4)
-                    $0.color = .black
+                    $0.color = UIColor.darkBlueGrey()
                     $0.backColor = UIColor(red:0.93726, green:0.93726, blue:0.95686, alpha:1.00000)
                 })
                 _ = attributedComment.add(style: commentStyle)

@@ -90,8 +90,8 @@ class ShotDetailCommentCell: UICollectionViewCell, Nibloadable {
             if let _ = value {
                 attributedText.removeAttribute(.link, range: range)
                 attributedText.removeAttribute(.underlineStyle, range: range)
-                attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.mediumPink()], range: range)
-                attributedText.addAttributes([NSAttributedStringKey.underlineColor: UIColor.mediumPink()], range: range)
+                attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.hooopsGreen()], range: range)
+                attributedText.addAttributes([NSAttributedStringKey.underlineColor: UIColor.hooopsGreen()], range: range)
             }
         })
         textView.attributedText = attributedText

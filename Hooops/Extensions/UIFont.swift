@@ -12,6 +12,10 @@ extension UIFont {
 
 extension UIFont {
     
+    class func homeTitleFont() -> UIFont {
+        return UIFont.systemFont(ofSize: 28.0, weight: .bold)
+    }
+    
     class func title1Font() -> UIFont {
         return UIFont.systemFont(ofSize: title1Descriptor.pointSize, weight: UIFont.Weight.heavy)
     }
