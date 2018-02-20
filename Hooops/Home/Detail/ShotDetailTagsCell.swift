@@ -4,7 +4,6 @@ class ShotDetailTagsCell: UICollectionViewCell, UICollectionViewDataSource, UICo
     
     var tags: [String] = [String]() {
         didSet {
-            tags = tags.map({ "#" + $0 })
             collectionView.reloadData()
         }
     }
@@ -102,7 +101,7 @@ class ShotDetailTagsCell: UICollectionViewCell, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text = tags[indexPath.row]
         let size = TextSize.size(text, font: TagCell.font, maxWidth: frame.width, insets: .zero)
-        return CGSize(width: size.width, height: size.height)
+        return CGSize(width: size.width, height: size.height + 10)
     }
 }
 
@@ -128,7 +127,8 @@ fileprivate class TagCell: UICollectionViewCell {
     lazy var container: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red:0.95686, green:0.95686, blue:0.95686, alpha:1.00000)
+        view.layer.cornerRadius = 5
         return view
     }()
     
@@ -137,9 +137,8 @@ fileprivate class TagCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = TagCell.font
         label.textAlignment = .left
-        label.textColor = UIColor.hooopsGreen()
-        label.backgroundColor = UIColor(red:0.97255, green:0.89412, blue:0.89020, alpha:0.50000)
-        label.layer.cornerRadius = 10
+        label.textColor = UIColor(red:103/255.0, green:109/255.0, blue:120/255.0, alpha:1.00000)
+        label.backgroundColor = UIColor(red:0.95686, green:0.95686, blue:0.95686, alpha:1.00000)
         return label
     }()
     
@@ -152,9 +151,9 @@ fileprivate class TagCell: UICollectionViewCell {
             "label": label
         ]
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[container]|", options: [], metrics: nil, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[container]|", options: [], metrics: nil, views: views))
-        container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[label]|", options: [], metrics: nil, views: views))
-        container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label]|", options: [], metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-5-[container]-5-|", options: [], metrics: nil, views: views))
+        container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label]-10-|", options: [], metrics: nil, views: views))
+        container.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-5-[label]-5-|", options: [], metrics: nil, views: views))
     }
 }
 

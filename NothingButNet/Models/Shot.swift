@@ -76,7 +76,10 @@ extension Shot {
         let task = NothingBut.Net.dataTask(with: url) { data, urlResponse, error in
             NothingBut.setNetworkActivityIndicatorVisible(false)
             guard let data = data else {
-                return completion(nil, error)
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
             }
             let shots = Shot.popular(from: data)
             DispatchQueue.main.async {
