@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeShotListCellDetailsContainerView" customModule="Bounce" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeShotListCellDetailsContainerView" customModule="Hooops" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -21,7 +21,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BKt-Vy-3UC" userLabel="contentStackView">
                             <rect key="frame" x="0.0" y="0.0" width="236.5" height="25"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OG0-zA-reK" userLabel="profileImageView" customClass="ProfileImageView" customModule="Bounce" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OG0-zA-reK" userLabel="profileImageView" customClass="ProfileImageView" customModule="Hooops" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>

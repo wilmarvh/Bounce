@@ -287,7 +287,7 @@
 			containerPortal = 1F939F3C1F7306A100C03386 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1F939F431F7306A100C03386;
-			remoteInfo = Bounce;
+			remoteInfo = Hooops;
 		};
 		1F939F841F73073400C03386 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -301,7 +301,7 @@
 			containerPortal = 1F939F3C1F7306A100C03386 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1F939F431F7306A100C03386;
-			remoteInfo = Bounce;
+			remoteInfo = Hooops;
 		};
 		1F939F8D1F73073400C03386 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -864,7 +864,7 @@
 				1FA08D1A1F8594A2004EB06D /* PBXTargetDependency */,
 			);
 			name = Hooops;
-			productName = Bounce;
+			productName = Hooops;
 			productReference = 1F939F441F7306A100C03386 /* Hooops.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -882,7 +882,7 @@
 				1F939F5A1F7306A100C03386 /* PBXTargetDependency */,
 			);
 			name = HooopsTests;
-			productName = BounceTests;
+			productName = HooopsTests;
 			productReference = 1F939F581F7306A100C03386 /* HooopsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -1573,9 +1573,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XM53S226;
-				INFOPLIST_FILE = BounceTests/Info.plist;
+				INFOPLIST_FILE = HooopsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.BounceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.HooopsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1590,9 +1590,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XM53S226;
-				INFOPLIST_FILE = BounceTests/Info.plist;
+				INFOPLIST_FILE = HooopsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.BounceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = me.wilmar.HooopsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
